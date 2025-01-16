@@ -1,0 +1,1724 @@
+Using pre-set license
+Built from '2022.3/staging' branch; Version is '2022.3.19f1 (244b723c30a6) revision 2378610'; Using compiler version '192829333'; Build Type 'Release'
+OS: 'Windows 11  (10.0.26100) 64bit Professional' Language: 'en' Physical Memory: 32668 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 1
+
+COMMAND LINE ARGUMENTS:
+C:\Program Files\Unity\Hub\Editor\2022.3.19f1\Editor\Unity.exe
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker2
+-projectPath
+C:/Users/xepoo/Documents/GitHub/UnityMenuTemplate
+-logFile
+Logs/AssetImportWorker2.log
+-srvPort
+64840
+Successfully changed project path to: C:/Users/xepoo/Documents/GitHub/UnityMenuTemplate
+C:/Users/xepoo/Documents/GitHub/UnityMenuTemplate
+[UnityMemory] Configuration Parameters - Can be set up in boot.config
+    "memorysetup-bucket-allocator-granularity=16"
+    "memorysetup-bucket-allocator-bucket-count=8"
+    "memorysetup-bucket-allocator-block-size=33554432"
+    "memorysetup-bucket-allocator-block-count=8"
+    "memorysetup-main-allocator-block-size=16777216"
+    "memorysetup-thread-allocator-block-size=16777216"
+    "memorysetup-gfx-main-allocator-block-size=16777216"
+    "memorysetup-gfx-thread-allocator-block-size=16777216"
+    "memorysetup-cache-allocator-block-size=4194304"
+    "memorysetup-typetree-allocator-block-size=2097152"
+    "memorysetup-profiler-bucket-allocator-granularity=16"
+    "memorysetup-profiler-bucket-allocator-bucket-count=8"
+    "memorysetup-profiler-bucket-allocator-block-size=33554432"
+    "memorysetup-profiler-bucket-allocator-block-count=8"
+    "memorysetup-profiler-allocator-block-size=16777216"
+    "memorysetup-profiler-editor-allocator-block-size=1048576"
+    "memorysetup-temp-allocator-size-main=16777216"
+    "memorysetup-job-temp-allocator-block-size=2097152"
+    "memorysetup-job-temp-allocator-block-size-background=1048576"
+    "memorysetup-job-temp-allocator-reduction-small-platforms=262144"
+    "memorysetup-allocator-temp-initial-block-size-main=262144"
+    "memorysetup-allocator-temp-initial-block-size-worker=262144"
+    "memorysetup-temp-allocator-size-background-worker=32768"
+    "memorysetup-temp-allocator-size-job-worker=262144"
+    "memorysetup-temp-allocator-size-preload-manager=33554432"
+    "memorysetup-temp-allocator-size-nav-mesh-worker=65536"
+    "memorysetup-temp-allocator-size-audio-worker=65536"
+    "memorysetup-temp-allocator-size-cloud-worker=32768"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gfx=262144"
+Player connection [33944] Host "[IP] 172.22.160.1 [Port] 0 [Flags] 2 [Guid] 2405031485 [EditorId] 2405031485 [Version] 1048832 [Id] WindowsEditor(7,Eden-PC) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
+
+Player connection [33944] Host "[IP] 172.22.160.1 [Port] 0 [Flags] 2 [Guid] 2405031485 [EditorId] 2405031485 [Version] 1048832 [Id] WindowsEditor(7,Eden-PC) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
+
+[Physics::Module] Initialized MultithreadedJobDispatcher with 15 workers.
+Refreshing native plugins compatible for Editor in 11.28 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 2022.3.19f1 (244b723c30a6)
+[Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2022.3.19f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path C:/Users/xepoo/Documents/GitHub/UnityMenuTemplate/Assets
+GfxDevice: creating device client; threaded=0; jobified=0
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce GTX 1080 Ti (ID=0x1b06)
+    Vendor:   NVIDIA
+    VRAM:     11106 MB
+    Driver:   32.0.15.6094
+Initialize mono
+Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2022.3.19f1/Editor/Data/Managed'
+Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2022.3.19f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
+Mono config path = 'C:/Program Files/Unity/Hub/Editor/2022.3.19f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56072
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2022.3.19f1/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2022.3.19f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.007457 seconds.
+- Loaded All Assemblies, in  0.344 seconds
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.258 seconds
+Domain Reload Profiling: 601ms
+	BeginReloadAssembly (110ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (0ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (1ms)
+	RebuildCommonClasses (35ms)
+	RebuildNativeTypeToScriptingClass (11ms)
+	initialDomainReloadingComplete (54ms)
+	LoadAllAssembliesAndSetupDomain (133ms)
+		LoadAssemblies (107ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (131ms)
+			TypeCache.Refresh (129ms)
+				TypeCache.ScanAssembly (117ms)
+			ScanForSourceGeneratedMonoScriptInfo (0ms)
+			ResolveRequiredComponents (1ms)
+	FinalizeReload (259ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (199ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (11ms)
+			SetLoadedEditorAssemblies (6ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (2ms)
+			ProcessInitializeOnLoadAttributes (136ms)
+			ProcessInitializeOnLoadMethodAttributes (44ms)
+			AfterProcessingInitializeOnLoad (0ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (0ms)
+========================================================================
+Worker process is ready to serve import requests
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  0.601 seconds
+Refreshing native plugins compatible for Editor in 3.03 ms, found 3 plugins.
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.734 seconds
+Domain Reload Profiling: 1333ms
+	BeginReloadAssembly (133ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (5ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (19ms)
+	RebuildCommonClasses (32ms)
+	RebuildNativeTypeToScriptingClass (11ms)
+	initialDomainReloadingComplete (37ms)
+	LoadAllAssembliesAndSetupDomain (386ms)
+		LoadAssemblies (295ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (169ms)
+			TypeCache.Refresh (150ms)
+				TypeCache.ScanAssembly (137ms)
+			ScanForSourceGeneratedMonoScriptInfo (13ms)
+			ResolveRequiredComponents (4ms)
+	FinalizeReload (734ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (587ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (7ms)
+			SetLoadedEditorAssemblies (5ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (112ms)
+			ProcessInitializeOnLoadAttributes (436ms)
+			ProcessInitializeOnLoadMethodAttributes (19ms)
+			AfterProcessingInitializeOnLoad (7ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (8ms)
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.05 seconds
+Refreshing native plugins compatible for Editor in 3.08 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3133 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 33 unused Assets / (57.6 KB). Loaded Objects now: 3595.
+Memory consumption went from 127.5 MB to 127.4 MB.
+Total: 3.011700 ms (FindLiveObjects: 0.278300 ms CreateObjectMapping: 0.089000 ms MarkObjects: 2.509600 ms  DeleteObjects: 0.127800 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-codec-MediaFoundation-h265: 746d11721c4dcdbdad8f713fa42b33f4 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:CustomObjectIndexerAttribute: 6d391050e5a25f67b0a2c618074f2cd9 -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 566189.268878 seconds.
+  path: Assets/Licensed/KennyNL/Icons/PNG/Black/1x/arrowDown.png
+  artifactKey: Guid(471f039a6c198c545b8c94db0294bc25) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Licensed/KennyNL/Icons/PNG/Black/1x/arrowDown.png using Guid(471f039a6c198c545b8c94db0294bc25) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'aae709ebbff6080b78be067e5c63a730') in 0.096620 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000031 seconds.
+  path: Assets/Licensed/KennyNL/Icons/PNG/Black/1x/buttonR2.png
+  artifactKey: Guid(ef5d6fb75e4d1da4889b479b93d4639c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Licensed/KennyNL/Icons/PNG/Black/1x/buttonR2.png using Guid(ef5d6fb75e4d1da4889b479b93d4639c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4e7b04b651ae2973f42007d8baf2fe3a') in 0.022240 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000016 seconds.
+  path: Assets/Licensed/KennyNL/Icons/PNG/Black/1x/upRight.png
+  artifactKey: Guid(1c399459b5e18ac48bedee5e6d4dfcdd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Licensed/KennyNL/Icons/PNG/Black/1x/upRight.png using Guid(1c399459b5e18ac48bedee5e6d4dfcdd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '07748740694766851958e5a619cf1272') in 0.020144 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000030 seconds.
+  path: Assets/Licensed/KennyNL/Icons/PNG/Black/1x/joystickUp.png
+  artifactKey: Guid(4a276fd2c78f0964198a6e79f1e2d38b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Licensed/KennyNL/Icons/PNG/Black/1x/joystickUp.png using Guid(4a276fd2c78f0964198a6e79f1e2d38b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9806bb6ede13e4804d03c60b4805b504') in 0.020826 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/Licensed/KennyNL/Icons/PNG/Black/1x/gamepad1.png
+  artifactKey: Guid(f07f02bf7962efd479a962382926e52d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Licensed/KennyNL/Icons/PNG/Black/1x/gamepad1.png using Guid(f07f02bf7962efd479a962382926e52d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '092e2d656ecb5c3d1ccc12c03b1dfaa8') in 0.019352 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000026 seconds.
+  path: Assets/Licensed/KennyNL/Icons/PNG/Black/1x/import.png
+  artifactKey: Guid(3c76349cbd36cd24dba8460927bae9b6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Licensed/KennyNL/Icons/PNG/Black/1x/import.png using Guid(3c76349cbd36cd24dba8460927bae9b6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5ece57f6c21f73afeee4ecaeab940ea2') in 0.020258 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000020 seconds.
+  path: Assets/Licensed/KennyNL/Icons/PNG/Black/1x/musicOff.png
+  artifactKey: Guid(1d11257adb7e40e4289d4cbd12fc1754) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Licensed/KennyNL/Icons/PNG/Black/1x/musicOff.png using Guid(1d11257adb7e40e4289d4cbd12fc1754) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '56bef38825927bda7c39c948ba582819') in 0.020531 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000020 seconds.
+  path: Assets/Licensed/KennyNL/Icons/PNG/Black/1x/trashcanOpen.png
+  artifactKey: Guid(2a0decb82c121964bb12822b2df6bfb7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Licensed/KennyNL/Icons/PNG/Black/1x/trashcanOpen.png using Guid(2a0decb82c121964bb12822b2df6bfb7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9df148cad7d747029ee1b1a38393f222') in 0.021125 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/Licensed/KennyNL/Icons/PNG/Black/1x/up.png
+  artifactKey: Guid(db824c402c844dd47bfd6e0dfc8cfb0b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Licensed/KennyNL/Icons/PNG/Black/1x/up.png using Guid(db824c402c844dd47bfd6e0dfc8cfb0b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a59c7b0eb30495910f97ab68d5d219e0') in 0.019083 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/Licensed/KennyNL/Icons/PNG/Black/1x/forward.png
+  artifactKey: Guid(968f44daa6fd97c46ba3b8b72af06310) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Licensed/KennyNL/Icons/PNG/Black/1x/forward.png using Guid(968f44daa6fd97c46ba3b8b72af06310) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '049ebef6316b17ad6b532bd4a9e00c96') in 0.020131 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Assets/Licensed/KennyNL/Icons/PNG/Black/1x/power.png
+  artifactKey: Guid(754b51304a619d54aa0986da148030b7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Licensed/KennyNL/Icons/PNG/Black/1x/power.png using Guid(754b51304a619d54aa0986da148030b7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3f1cb8f47de2bd80571da65cc2aa60b3') in 0.020108 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000020 seconds.
+  path: Assets/Licensed/KennyNL/Icons/PNG/Black/1x/unlocked.png
+  artifactKey: Guid(2b9e579dd33a52f43af5fc3694d5e8a0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Licensed/KennyNL/Icons/PNG/Black/1x/unlocked.png using Guid(2b9e579dd33a52f43af5fc3694d5e8a0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5bd49ed8876392d09c4f52e9c93cebbe') in 0.020700 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/Licensed/KennyNL/Icons/PNG/Black/1x/buttonA.png
+  artifactKey: Guid(d288f3611a103274e8a42055a7e96f6e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Licensed/KennyNL/Icons/PNG/Black/1x/buttonA.png using Guid(d288f3611a103274e8a42055a7e96f6e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8af2bf47fa9e4f86d9db8447ecf188f9') in 0.020661 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000020 seconds.
+  path: Assets/Licensed/KennyNL/Icons/PNG/Black/1x/joystickRight.png
+  artifactKey: Guid(9d46a23bf5a600047b4606d27917c4f2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Licensed/KennyNL/Icons/PNG/Black/1x/joystickRight.png using Guid(9d46a23bf5a600047b4606d27917c4f2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0f916cc2dff2a6654c3a41d0faaac8cd') in 0.019482 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000041 seconds.
+  path: Assets/Licensed/KennyNL/Icons/PNG/Black/1x/buttonSelect.png
+  artifactKey: Guid(6390251b2f9ad264d93f80ae62c5d7a5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Licensed/KennyNL/Icons/PNG/Black/1x/buttonSelect.png using Guid(6390251b2f9ad264d93f80ae62c5d7a5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b4456b1d6d587314f70e9daa31e841f3') in 0.019704 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/Licensed/KennyNL/Icons/PNG/Black/1x/multiplayer.png
+  artifactKey: Guid(5b8e469d3feb5db4f8d1625b60894b32) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Licensed/KennyNL/Icons/PNG/Black/1x/multiplayer.png using Guid(5b8e469d3feb5db4f8d1625b60894b32) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8e91ada1d967c7541cec0bde427d033e') in 0.021688 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000028 seconds.
+  path: Assets/Licensed/KennyNL/Icons/PNG/Black/1x/next.png
+  artifactKey: Guid(d76aa275bb7147f449846e224f83280c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Licensed/KennyNL/Icons/PNG/Black/1x/next.png using Guid(d76aa275bb7147f449846e224f83280c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3e2696fa7bfa23bdfb7ecc536a7980fa') in 0.020589 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000111 seconds.
+  path: Assets/Licensed/KennyNL/Icons/PNG/Black/1x/tablet.png
+  artifactKey: Guid(3104343f47a412f45b1b3c8b90b68cc6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Licensed/KennyNL/Icons/PNG/Black/1x/tablet.png using Guid(3104343f47a412f45b1b3c8b90b68cc6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '164a39fb202cfc05738028831b6ca81e') in 0.017978 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000025 seconds.
+  path: Assets/Licensed/KennyNL/Icons/PNG/Black/1x/leaderboardsSimple.png
+  artifactKey: Guid(ec4b7e3ff8ff63c41aefdeb050433ae8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Licensed/KennyNL/Icons/PNG/Black/1x/leaderboardsSimple.png using Guid(ec4b7e3ff8ff63c41aefdeb050433ae8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fe684e6524c40e7dae446ab53d5306aa') in 0.020882 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/Licensed/KennyNL/Icons/PNG/Black/1x/share1.png
+  artifactKey: Guid(5836884191dc0e7489f79530aa150db3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Licensed/KennyNL/Icons/PNG/Black/1x/share1.png using Guid(5836884191dc0e7489f79530aa150db3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8cc1c49554e7bb0869a2d3d2f2808be0') in 0.019117 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/Licensed/KennyNL/Icons/PNG/Black/1x/gamepad4.png
+  artifactKey: Guid(699c0849f390b4a419322ce89fde2e94) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Licensed/KennyNL/Icons/PNG/Black/1x/gamepad4.png using Guid(699c0849f390b4a419322ce89fde2e94) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a1fdd4725ec7b8b4b5f2b0b4b50695bc') in 0.021254 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000055 seconds.
+  path: Assets/Licensed/KennyNL/Icons/PNG/Black/1x/backward.png
+  artifactKey: Guid(d52971b12e160864eb506d2dadd852fe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Licensed/KennyNL/Icons/PNG/Black/1x/backward.png using Guid(d52971b12e160864eb506d2dadd852fe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c2ca6fa261ef8bf06d4c70c52f6f4428') in 0.019522 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/Licensed/KennyNL/Icons/PNG/Black/1x/checkmark.png
+  artifactKey: Guid(4795034090b41ec43b4395eab3c6ff12) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Licensed/KennyNL/Icons/PNG/Black/1x/checkmark.png using Guid(4795034090b41ec43b4395eab3c6ff12) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f826038a36f8fa2c0be106148316ecb0') in 0.019861 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/Licensed/KennyNL/Icons/PNG/Black/1x/leaderboardsComplex.png
+  artifactKey: Guid(99b94722d5e33de46a3f0a4dcd7bf1c7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Licensed/KennyNL/Icons/PNG/Black/1x/leaderboardsComplex.png using Guid(99b94722d5e33de46a3f0a4dcd7bf1c7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bf67577dadd6c20eab30b10b7c0f241b') in 0.019060 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/Licensed/KennyNL/Icons/PNG/Black/1x/information.png
+  artifactKey: Guid(7c064663ee16bef4f8a298e1e57fc0f6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Licensed/KennyNL/Icons/PNG/Black/1x/information.png using Guid(7c064663ee16bef4f8a298e1e57fc0f6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cfd4d31cdeab306f5e6ec335dfbac6e9') in 0.017693 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 1.954932 seconds.
+  path: Assets/Licensed/KennyNL/Icons/PNG/Black/2x
+  artifactKey: Guid(217ecc6044c17114a84d8a1fb78e9f43) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Licensed/KennyNL/Icons/PNG/Black/2x using Guid(217ecc6044c17114a84d8a1fb78e9f43) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9e4874db4c73534e2cacae2c51e03831') in 0.000498 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.045589 seconds.
+  path: Assets/Licensed/KennyNL/Icons/PNG/Black/2x/arrowDown.png
+  artifactKey: Guid(0dcf1b3ea8ef5854e81dce4a484e4122) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Licensed/KennyNL/Icons/PNG/Black/2x/arrowDown.png using Guid(0dcf1b3ea8ef5854e81dce4a484e4122) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd3daa3c01d8abb658ce5e35003994f37') in 0.020102 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Assets/Licensed/KennyNL/Icons/PNG/Black/2x/down.png
+  artifactKey: Guid(2b4ed6d7de4562249bbd93432b4da7a8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Licensed/KennyNL/Icons/PNG/Black/2x/down.png using Guid(2b4ed6d7de4562249bbd93432b4da7a8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd73d384637d99f5fd492fae4c0de7206') in 0.019711 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000013 seconds.
+  path: Assets/Licensed/KennyNL/Icons/PNG/Black/2x/next.png
+  artifactKey: Guid(17b04f9a662da6c4285acf2ea65f8860) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Licensed/KennyNL/Icons/PNG/Black/2x/next.png using Guid(17b04f9a662da6c4285acf2ea65f8860) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2abbf99fc12f2d695ea35b057f8d644e') in 0.018049 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000014 seconds.
+  path: Assets/Licensed/KennyNL/Icons/PNG/Black/2x/checkmark.png
+  artifactKey: Guid(29f8e0be447697546a94aa0aef977dfe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Licensed/KennyNL/Icons/PNG/Black/2x/checkmark.png using Guid(29f8e0be447697546a94aa0aef977dfe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5a67d2818718ee561cc76437b10c4a97') in 0.017902 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000012 seconds.
+  path: Assets/Licensed/KennyNL/Icons/PNG/Black/2x/buttonY.png
+  artifactKey: Guid(f3096196458d8204caa3edbfce531b60) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Licensed/KennyNL/Icons/PNG/Black/2x/buttonY.png using Guid(f3096196458d8204caa3edbfce531b60) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b0f36876a578e78b844dea0b9357075c') in 0.012212 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/Licensed/KennyNL/Icons/PNG/Black/2x/siganl1.png
+  artifactKey: Guid(1807b06cc2f95ea4d997b10e675fbb18) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Licensed/KennyNL/Icons/PNG/Black/2x/siganl1.png using Guid(1807b06cc2f95ea4d997b10e675fbb18) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '706b21c404cc8d715c8ca3616e1752dc') in 0.016513 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/Licensed/KennyNL/Icons/PNG/Black/2x/exitRight.png
+  artifactKey: Guid(b21050de25048cc4c9679c42629f2385) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Licensed/KennyNL/Icons/PNG/Black/2x/exitRight.png using Guid(b21050de25048cc4c9679c42629f2385) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '85543fab44555f994f18461829b0abee') in 0.017338 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/Licensed/KennyNL/Icons/PNG/Black/2x/import.png
+  artifactKey: Guid(120e35e467ec6ab42bb918baa3438ede) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Licensed/KennyNL/Icons/PNG/Black/2x/import.png using Guid(120e35e467ec6ab42bb918baa3438ede) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7d854baedd4e3ac91eba403e9e178776') in 0.011331 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/Licensed/KennyNL/Icons/PNG/Black/2x/star.png
+  artifactKey: Guid(cac114d844961d2498f6907c67881f66) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Licensed/KennyNL/Icons/PNG/Black/2x/star.png using Guid(cac114d844961d2498f6907c67881f66) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8d7744bf928f0b6238a7d30e2302a92b') in 0.016059 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000015 seconds.
+  path: Assets/Licensed/KennyNL/Icons/PNG/Black/2x/larger.png
+  artifactKey: Guid(298cb02b6f93be84493886165eb48c68) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Licensed/KennyNL/Icons/PNG/Black/2x/larger.png using Guid(298cb02b6f93be84493886165eb48c68) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9c9b473edc170d296faf1e2252cc67bb') in 0.013702 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000014 seconds.
+  path: Assets/Licensed/KennyNL/Icons/PNG/Black/2x/trashcanOpen.png
+  artifactKey: Guid(f0eb3216f9a1d504f8c7c67ed635b15f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Licensed/KennyNL/Icons/PNG/Black/2x/trashcanOpen.png using Guid(f0eb3216f9a1d504f8c7c67ed635b15f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '992d16fe5f2b7ebca6b6cd153f77a516') in 0.016258 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/Licensed/KennyNL/Icons/PNG/Black/2x/joystickUp.png
+  artifactKey: Guid(c4df452113e0d084e9cf9c5b16132ec0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Licensed/KennyNL/Icons/PNG/Black/2x/joystickUp.png using Guid(c4df452113e0d084e9cf9c5b16132ec0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '39c11d3b0760bc9f3ae4e369089f68bc') in 0.018437 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/Licensed/KennyNL/Icons/PNG/Black/2x/contrast.png
+  artifactKey: Guid(fe182f74e2228ad43bca6ffdb95dc712) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Licensed/KennyNL/Icons/PNG/Black/2x/contrast.png using Guid(fe182f74e2228ad43bca6ffdb95dc712) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6f403ce20e729336a23486d810b697a0') in 0.018994 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/Licensed/KennyNL/Icons/PNG/Black/2x/joystickRight.png
+  artifactKey: Guid(1f47e876c8e374f4992fb84f7a31ad02) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Licensed/KennyNL/Icons/PNG/Black/2x/joystickRight.png using Guid(1f47e876c8e374f4992fb84f7a31ad02) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6390441010039369425f823272eacc74') in 0.011208 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000013 seconds.
+  path: Assets/Licensed/KennyNL/Icons/PNG/Black/2x/button1.png
+  artifactKey: Guid(81725342ed333a140bd608368f3e5d7d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Licensed/KennyNL/Icons/PNG/Black/2x/button1.png using Guid(81725342ed333a140bd608368f3e5d7d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5594229abeebd15f01d85fe9aa6c6331') in 0.009986 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/Licensed/KennyNL/Icons/PNG/Black/2x/buttonL2.png
+  artifactKey: Guid(eb7ef08a0d9456443b48f58b61ba8e05) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Licensed/KennyNL/Icons/PNG/Black/2x/buttonL2.png using Guid(eb7ef08a0d9456443b48f58b61ba8e05) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e51ed3a880388d06957ecd379f41e048') in 0.010401 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/Licensed/KennyNL/Icons/PNG/Black/2x/downRight.png
+  artifactKey: Guid(54349f819b4a32b4e9b3e2ad8727acb8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Licensed/KennyNL/Icons/PNG/Black/2x/downRight.png using Guid(54349f819b4a32b4e9b3e2ad8727acb8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '43e52706e648734b79dbda9c0afec5e2') in 0.009687 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/Licensed/KennyNL/Icons/PNG/Black/2x/pause.png
+  artifactKey: Guid(cb395a1799f56a045857fa0ff41a73e2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Licensed/KennyNL/Icons/PNG/Black/2x/pause.png using Guid(cb395a1799f56a045857fa0ff41a73e2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd27b289abba800cc7842ed89c75845fb') in 0.020718 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/Licensed/KennyNL/Icons/PNG/Black/2x/signal2.png
+  artifactKey: Guid(ef146d8a68df6e94fa3eb034d2401b6b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Licensed/KennyNL/Icons/PNG/Black/2x/signal2.png using Guid(ef146d8a68df6e94fa3eb034d2401b6b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '625344eba5845ec07f1726266e73060a') in 0.017189 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000030 seconds.
+  path: Assets/Licensed/KennyNL/Icons/PNG/Black/2x/gamepad.png
+  artifactKey: Guid(1f9eae7fe8471e744b55e464d59b3d9d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Licensed/KennyNL/Icons/PNG/Black/2x/gamepad.png using Guid(1f9eae7fe8471e744b55e464d59b3d9d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5f32afff07bf5cdcf3679af6cbcbcbe8') in 0.016200 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/Licensed/KennyNL/Icons/PNG/Black/2x/buttonR.png
+  artifactKey: Guid(82df426b56496f244b7b56fb1119b7f4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Licensed/KennyNL/Icons/PNG/Black/2x/buttonR.png using Guid(82df426b56496f244b7b56fb1119b7f4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9aefa8c801524a1779310bfa894ebcb3') in 0.010296 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000020 seconds.
+  path: Assets/Licensed/KennyNL/Icons/PNG/Black/2x/multiplayer.png
+  artifactKey: Guid(6d08318e9aec0d444b77507bf27f14b7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Licensed/KennyNL/Icons/PNG/Black/2x/multiplayer.png using Guid(6d08318e9aec0d444b77507bf27f14b7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c07e1f2669109d7cedd28b10cb58477b') in 0.017084 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000087 seconds.
+  path: Assets/Licensed/KennyNL/Icons/PNG/Black/2x/massiveMultiplayer.png
+  artifactKey: Guid(67e90130ec30a4b4a9a77905284afdc5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Licensed/KennyNL/Icons/PNG/Black/2x/massiveMultiplayer.png using Guid(67e90130ec30a4b4a9a77905284afdc5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e60c385528e8087264934d8f2bcd69e4') in 0.017695 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/Licensed/KennyNL/Icons/PNG/Black/2x/button2.png
+  artifactKey: Guid(2d7d009d00d501c418654446730bc0fc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Licensed/KennyNL/Icons/PNG/Black/2x/button2.png using Guid(2d7d009d00d501c418654446730bc0fc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0340da1a450f4fbf91faa12d831698c7') in 0.010426 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000015 seconds.
+  path: Assets/Licensed/KennyNL/Icons/PNG/Black/2x/tablet.png
+  artifactKey: Guid(3700fe57c37e51f45bcef7eb748ca98a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Licensed/KennyNL/Icons/PNG/Black/2x/tablet.png using Guid(3700fe57c37e51f45bcef7eb748ca98a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '64a4eb56b7a1332319d30c63b1efa9b0') in 0.016479 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000014 seconds.
+  path: Assets/Licensed/KennyNL/Icons/PNG/Black/2x/menuGrid.png
+  artifactKey: Guid(679a9d8a96f2ea940a256d7ed3c18713) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Licensed/KennyNL/Icons/PNG/Black/2x/menuGrid.png using Guid(679a9d8a96f2ea940a256d7ed3c18713) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '47074cc45cba0d1e9db308c020d5ed54') in 0.010214 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 29.337068 seconds.
+  path: Assets/Licensed/KennyNL/Icons/PNG/White
+  artifactKey: Guid(615312b31fdf71d40b1d551c6206fe13) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Licensed/KennyNL/Icons/PNG/White using Guid(615312b31fdf71d40b1d551c6206fe13) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cb3f49b844ba24812b3553429228e5f5') in 0.000549 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.614787 seconds.
+  path: Assets/Licensed/KennyNL/Icons/PNG/White/1x
+  artifactKey: Guid(b077ebe60e67ab34287280c8ad462a06) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Licensed/KennyNL/Icons/PNG/White/1x using Guid(b077ebe60e67ab34287280c8ad462a06) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '45e8d8ec578e3c0b44acc64163ab2509') in 0.000647 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.066226 seconds.
+  path: Assets/Licensed/KennyNL/Icons/PNG/White/1x/arrowDown.png
+  artifactKey: Guid(915c845b4bf5c0e4ca0aaedb5edcb240) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Licensed/KennyNL/Icons/PNG/White/1x/arrowDown.png using Guid(915c845b4bf5c0e4ca0aaedb5edcb240) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ce8126da3f1a2880ee3c7f268b92d5ed') in 0.019073 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/Licensed/KennyNL/Icons/PNG/White/1x/exitRight.png
+  artifactKey: Guid(ff547ca01ac3eba47a77fc85b07d13e4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Licensed/KennyNL/Icons/PNG/White/1x/exitRight.png using Guid(ff547ca01ac3eba47a77fc85b07d13e4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0e95ff41abd84424135f4a346355f46e') in 0.015651 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000028 seconds.
+  path: Assets/Licensed/KennyNL/Icons/PNG/White/1x/button3.png
+  artifactKey: Guid(74e5eadb0c80b834b8242aa46cf95448) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Licensed/KennyNL/Icons/PNG/White/1x/button3.png using Guid(74e5eadb0c80b834b8242aa46cf95448) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f71d930a3ba822bda6965a0d7cc19355') in 0.011567 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/Licensed/KennyNL/Icons/PNG/White/1x/share2.png
+  artifactKey: Guid(dfedc253203146a41820824d1a966084) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Licensed/KennyNL/Icons/PNG/White/1x/share2.png using Guid(dfedc253203146a41820824d1a966084) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '427c7cf1dca6e651f385d72c47672bba') in 0.010441 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000016 seconds.
+  path: Assets/Licensed/KennyNL/Icons/PNG/White/1x/button1.png
+  artifactKey: Guid(9f9639f5c15ba4944ae054463b63e721) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Licensed/KennyNL/Icons/PNG/White/1x/button1.png using Guid(9f9639f5c15ba4944ae054463b63e721) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '94def5123264df0b3ee8588d9967f481') in 0.009981 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000013 seconds.
+  path: Assets/Licensed/KennyNL/Icons/PNG/White/1x/buttonSelect.png
+  artifactKey: Guid(1bbc789b7fa7c5048bda0203ff912d22) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Licensed/KennyNL/Icons/PNG/White/1x/buttonSelect.png using Guid(1bbc789b7fa7c5048bda0203ff912d22) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '19c6ad89440ae2b64e73b11352abad1e') in 0.010426 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/Licensed/KennyNL/Icons/PNG/White/1x/gamepad.png
+  artifactKey: Guid(6ac1d735c747ea847aabd0dd7ba28a0f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Licensed/KennyNL/Icons/PNG/White/1x/gamepad.png using Guid(6ac1d735c747ea847aabd0dd7ba28a0f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2695dbf568cd040e65e47b90a4da93f9') in 0.011085 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000020 seconds.
+  path: Assets/Licensed/KennyNL/Icons/PNG/White/1x/upRight.png
+  artifactKey: Guid(f5010b7e2c3c18b45b575f556b7f144b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Licensed/KennyNL/Icons/PNG/White/1x/upRight.png using Guid(f5010b7e2c3c18b45b575f556b7f144b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '20a12b6b641b4cb50da24eebda8ae627') in 0.011217 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Assets/Licensed/KennyNL/Icons/PNG/White/1x/film.png
+  artifactKey: Guid(07ff232b516d5ec4f896fda2efd7f941) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Licensed/KennyNL/Icons/PNG/White/1x/film.png using Guid(07ff232b516d5ec4f896fda2efd7f941) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a58766f5f7fbfa5fb305d53ab83ebcbb') in 0.012533 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000020 seconds.
+  path: Assets/Licensed/KennyNL/Icons/PNG/White/1x/video.png
+  artifactKey: Guid(7a267a4337657a64da836de52b512e84) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Licensed/KennyNL/Icons/PNG/White/1x/video.png using Guid(7a267a4337657a64da836de52b512e84) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e54ed60e85948974f20958f29fde1c73') in 0.011519 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/Licensed/KennyNL/Icons/PNG/White/1x/smaller.png
+  artifactKey: Guid(72ac921f3a769eb4f917917b99b38034) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Licensed/KennyNL/Icons/PNG/White/1x/smaller.png using Guid(72ac921f3a769eb4f917917b99b38034) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7eb37cba8d958489921bca2956e2acbc') in 0.012158 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000025 seconds.
+  path: Assets/Licensed/KennyNL/Icons/PNG/White/1x/barsVertical.png
+  artifactKey: Guid(2822dd4729d9e654dbbd55a61f28f2a1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Licensed/KennyNL/Icons/PNG/White/1x/barsVertical.png using Guid(2822dd4729d9e654dbbd55a61f28f2a1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cb4bb0a37d6cfad3bbcab7116b815cad') in 0.011645 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000015 seconds.
+  path: Assets/Licensed/KennyNL/Icons/PNG/White/1x/audioOn.png
+  artifactKey: Guid(6c90e22f9f892834d95ef80237229956) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Licensed/KennyNL/Icons/PNG/White/1x/audioOn.png using Guid(6c90e22f9f892834d95ef80237229956) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '481cf43dbe1f1722db19e2f78546dcdf') in 0.011421 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Assets/Licensed/KennyNL/Icons/PNG/White/1x/joystickLeft.png
+  artifactKey: Guid(3a18383fb16bba141839a31d7a4aa661) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Licensed/KennyNL/Icons/PNG/White/1x/joystickLeft.png using Guid(3a18383fb16bba141839a31d7a4aa661) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '89942e01fc42f4c074eccd840b3475ac') in 0.014327 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/Licensed/KennyNL/Icons/PNG/White/1x/trophy.png
+  artifactKey: Guid(ea660771b5a800648ab70516fc388717) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Licensed/KennyNL/Icons/PNG/White/1x/trophy.png using Guid(ea660771b5a800648ab70516fc388717) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '71d488efdddc30a8cace83fcbf0fc5b5') in 0.011248 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000016 seconds.
+  path: Assets/Licensed/KennyNL/Icons/PNG/White/1x/buttonStart.png
+  artifactKey: Guid(0c3fedb90d952f04799bafcb59178ac2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Licensed/KennyNL/Icons/PNG/White/1x/buttonStart.png using Guid(0c3fedb90d952f04799bafcb59178ac2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0cbcbe8800ffd6c94122398385d8c9b4') in 0.013436 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000015 seconds.
+  path: Assets/Licensed/KennyNL/Icons/PNG/White/1x/checkmark.png
+  artifactKey: Guid(ade2a5bdd1294d7488030e24e0fa5667) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Licensed/KennyNL/Icons/PNG/White/1x/checkmark.png using Guid(ade2a5bdd1294d7488030e24e0fa5667) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd87af5f5328940b679335c185090edd2') in 0.010151 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/Licensed/KennyNL/Icons/PNG/White/1x/exclamation.png
+  artifactKey: Guid(ee0c8da0c8b017e4d8330d1ea286945e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Licensed/KennyNL/Icons/PNG/White/1x/exclamation.png using Guid(ee0c8da0c8b017e4d8330d1ea286945e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fcb58e6f68cabf3e3abc3445cd743578') in 0.011795 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000013 seconds.
+  path: Assets/Licensed/KennyNL/Icons/PNG/White/1x/medal2.png
+  artifactKey: Guid(7b64cfd62fee58244a36aa9c0fc20885) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Licensed/KennyNL/Icons/PNG/White/1x/medal2.png using Guid(7b64cfd62fee58244a36aa9c0fc20885) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c783d7f75828c568d567fc861a4a17b5') in 0.012604 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000025 seconds.
+  path: Assets/Licensed/KennyNL/Icons/PNG/White/1x/upLeft.png
+  artifactKey: Guid(7f84c19591a25214b9eed89e24c27bd8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Licensed/KennyNL/Icons/PNG/White/1x/upLeft.png using Guid(7f84c19591a25214b9eed89e24c27bd8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9664ab00e90743314db7e218ee0d898f') in 0.011813 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Assets/Licensed/KennyNL/Icons/PNG/White/1x/down.png
+  artifactKey: Guid(7a69f5e43eb611644a106ff4c98cf8fb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Licensed/KennyNL/Icons/PNG/White/1x/down.png using Guid(7a69f5e43eb611644a106ff4c98cf8fb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '907c12d69c20b498378168b14cbb2179') in 0.011704 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000013 seconds.
+  path: Assets/Licensed/KennyNL/Icons/PNG/White/1x/information.png
+  artifactKey: Guid(a16d638a147363f4dbedde51677598a1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Licensed/KennyNL/Icons/PNG/White/1x/information.png using Guid(a16d638a147363f4dbedde51677598a1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dee06ea4289e7f57470d4a4cd44366dc') in 0.011495 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000014 seconds.
+  path: Assets/Licensed/KennyNL/Icons/PNG/White/1x/backward.png
+  artifactKey: Guid(c4f892231729ce243be8f0d18581d4ec) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Licensed/KennyNL/Icons/PNG/White/1x/backward.png using Guid(c4f892231729ce243be8f0d18581d4ec) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8c7d21b8aceb5063e361a4b00ec0792b') in 0.011037 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000025 seconds.
+  path: Assets/Licensed/KennyNL/Icons/PNG/White/1x/previous.png
+  artifactKey: Guid(1167001df9427d84ca100de5b9079e7d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Licensed/KennyNL/Icons/PNG/White/1x/previous.png using Guid(1167001df9427d84ca100de5b9079e7d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '62493b104967e32c9e505a64881bdebf') in 0.012071 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000014 seconds.
+  path: Assets/Licensed/KennyNL/Icons/PNG/White/1x/fastForward.png
+  artifactKey: Guid(fe902815c0b933548a0edb044e2ca03d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Licensed/KennyNL/Icons/PNG/White/1x/fastForward.png using Guid(fe902815c0b933548a0edb044e2ca03d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1ff9304642b308843f7ee632af549585') in 0.011779 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Assets/Licensed/KennyNL/Icons/PNG/White/1x/massiveMultiplayer.png
+  artifactKey: Guid(84f79decf278035408bbb3a0ec7b8abb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Licensed/KennyNL/Icons/PNG/White/1x/massiveMultiplayer.png using Guid(84f79decf278035408bbb3a0ec7b8abb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '16722d7807c4ce05c82cb2b21d56e64c') in 0.011567 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.688738 seconds.
+  path: Assets/Licensed/KennyNL/Icons/PNG/White/1x/zoom.png
+  artifactKey: Guid(b091fe809caa1824483fc4edda43d967) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Licensed/KennyNL/Icons/PNG/White/1x/zoom.png using Guid(b091fe809caa1824483fc4edda43d967) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '25c42aeb7736e17344c0220a90f4f89a') in 0.008809 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 30.409197 seconds.
+  path: Assets/Licensed/KennyNL/Icons/PNG/White/2x
+  artifactKey: Guid(8cbade2ed55922949baa80bcc0b56150) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Licensed/KennyNL/Icons/PNG/White/2x using Guid(8cbade2ed55922949baa80bcc0b56150) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b79f13b1f833a474fb4f600ee8b8e5ad') in 0.000619 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 2.264000 seconds.
+  path: Assets/Licensed/KennyNL/Icons/PNG/White/2x/arrowDown.png
+  artifactKey: Guid(abb9a1d366e247447a6f0b54ce9c9061) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Licensed/KennyNL/Icons/PNG/White/2x/arrowDown.png using Guid(abb9a1d366e247447a6f0b54ce9c9061) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fc9e97364eaf172721f4af7e6bb46fea') in 0.021093 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000013 seconds.
+  path: Assets/Licensed/KennyNL/Icons/PNG/White/2x/contrast.png
+  artifactKey: Guid(48f7f45b37f6d084f89b87bd412fe73a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Licensed/KennyNL/Icons/PNG/White/2x/contrast.png using Guid(48f7f45b37f6d084f89b87bd412fe73a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '13c66917c83d8ec17c9f7d3e50ce4be6') in 0.042115 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000012 seconds.
+  path: Assets/Licensed/KennyNL/Icons/PNG/White/2x/mouse.png
+  artifactKey: Guid(5afb293f3f5f40f44a0e42ae46457854) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Licensed/KennyNL/Icons/PNG/White/2x/mouse.png using Guid(5afb293f3f5f40f44a0e42ae46457854) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e2f971739b0b8ff081800588b2a5116d') in 0.012150 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000013 seconds.
+  path: Assets/Licensed/KennyNL/Icons/PNG/White/2x/audioOff.png
+  artifactKey: Guid(b9126b767ec01854ca191d8d9705e859) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Licensed/KennyNL/Icons/PNG/White/2x/audioOff.png using Guid(b9126b767ec01854ca191d8d9705e859) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd205abe0ac40fcb00323a620feb15c4f') in 0.010827 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000016 seconds.
+  path: Assets/Licensed/KennyNL/Icons/PNG/White/2x/shoppingCart.png
+  artifactKey: Guid(1672677095819ae418288a4a9d0e9201) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Licensed/KennyNL/Icons/PNG/White/2x/shoppingCart.png using Guid(1672677095819ae418288a4a9d0e9201) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd00d28eaf1038720347dceb4d1500a20') in 0.011265 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Assets/Licensed/KennyNL/Icons/PNG/White/2x/joystickRight.png
+  artifactKey: Guid(d505f6bb94ca7fb4f963d7350e7e5f53) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Licensed/KennyNL/Icons/PNG/White/2x/joystickRight.png using Guid(d505f6bb94ca7fb4f963d7350e7e5f53) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '39e53f971dccf303a5bf16b4392c1270') in 0.013647 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/Licensed/KennyNL/Icons/PNG/White/2x/shoppingBasket.png
+  artifactKey: Guid(4197e62506bce974bba29ac2a08594ff) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Licensed/KennyNL/Icons/PNG/White/2x/shoppingBasket.png using Guid(4197e62506bce974bba29ac2a08594ff) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '38ad43d62d32111d0c01dc4d482a3de5') in 0.012217 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000013 seconds.
+  path: Assets/Licensed/KennyNL/Icons/PNG/White/2x/buttonR1.png
+  artifactKey: Guid(7001907a9af943640929f8b6dfdd4371) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Licensed/KennyNL/Icons/PNG/White/2x/buttonR1.png using Guid(7001907a9af943640929f8b6dfdd4371) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c6af0ec7ac9f86975e10cc831416ecb2') in 0.012997 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000013 seconds.
+  path: Assets/Licensed/KennyNL/Icons/PNG/White/2x/trophy.png
+  artifactKey: Guid(2036d715fd603b14ba8d8d000ba9ab63) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Licensed/KennyNL/Icons/PNG/White/2x/trophy.png using Guid(2036d715fd603b14ba8d8d000ba9ab63) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1e8efd64e2f62e36f1a63d7d260cee0c') in 0.012204 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000016 seconds.
+  path: Assets/Licensed/KennyNL/Icons/PNG/White/2x/locked.png
+  artifactKey: Guid(5d9eb24867e838c4ea08dc4fb2be31b3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Licensed/KennyNL/Icons/PNG/White/2x/locked.png using Guid(5d9eb24867e838c4ea08dc4fb2be31b3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '59632c749d35ec10389d6909aaa41ed3') in 0.013334 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000016 seconds.
+  path: Assets/Licensed/KennyNL/Icons/PNG/White/2x/share1.png
+  artifactKey: Guid(1aee2b1294f6d8b4097f4e5bbffce576) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Licensed/KennyNL/Icons/PNG/White/2x/share1.png using Guid(1aee2b1294f6d8b4097f4e5bbffce576) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c6548dd398a3a511645ccd2e8d35d021') in 0.011713 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/Licensed/KennyNL/Icons/PNG/White/2x/cross.png
+  artifactKey: Guid(94a0ac39c642f6b4fa53014e36f622f0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Licensed/KennyNL/Icons/PNG/White/2x/cross.png using Guid(94a0ac39c642f6b4fa53014e36f622f0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7d0e45877d99052608f5b811ed68f6f5') in 0.012246 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000014 seconds.
+  path: Assets/Licensed/KennyNL/Icons/PNG/White/2x/trashcanOpen.png
+  artifactKey: Guid(9560070ef3097e147bd5f9656c2d31b4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Licensed/KennyNL/Icons/PNG/White/2x/trashcanOpen.png using Guid(9560070ef3097e147bd5f9656c2d31b4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2158ceb14f34eea1456c5c8703af6999') in 0.012557 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/Licensed/KennyNL/Icons/PNG/White/2x/warning.png
+  artifactKey: Guid(f4d2dd0e9d983f9439d6acc366269b9a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Licensed/KennyNL/Icons/PNG/White/2x/warning.png using Guid(f4d2dd0e9d983f9439d6acc366269b9a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8b01e1ce019b1e70266d4883bfb92eed') in 0.012025 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000015 seconds.
+  path: Assets/Licensed/KennyNL/Icons/PNG/White/2x/share2.png
+  artifactKey: Guid(1ef58427625f6b642851e3ac50ae108c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Licensed/KennyNL/Icons/PNG/White/2x/share2.png using Guid(1ef58427625f6b642851e3ac50ae108c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1aec419178107e7466d9b033ddb3a27d') in 0.011016 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/Licensed/KennyNL/Icons/PNG/White/2x/exitRight.png
+  artifactKey: Guid(e1a1e61cb1797f1428e7828fe34127e6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Licensed/KennyNL/Icons/PNG/White/2x/exitRight.png using Guid(e1a1e61cb1797f1428e7828fe34127e6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd70bfa0b0433df657df07cb0f1ee4d12') in 0.011443 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/Licensed/KennyNL/Icons/PNG/White/2x/barsVertical.png
+  artifactKey: Guid(21bf96f89c10c774ea8df9dd702d970c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Licensed/KennyNL/Icons/PNG/White/2x/barsVertical.png using Guid(21bf96f89c10c774ea8df9dd702d970c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '687486d2c99251db4e96a789db421445') in 0.011635 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000016 seconds.
+  path: Assets/Licensed/KennyNL/Icons/PNG/White/2x/return.png
+  artifactKey: Guid(d6432a82617920b4895b433d6396d86d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Licensed/KennyNL/Icons/PNG/White/2x/return.png using Guid(d6432a82617920b4895b433d6396d86d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2143372df514626192869c4846245d1b') in 0.011457 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000020 seconds.
+  path: Assets/Licensed/KennyNL/Icons/PNG/White/2x/buttonX.png
+  artifactKey: Guid(04ff0010aa49b3e43ae4d1c0bd4a2abc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Licensed/KennyNL/Icons/PNG/White/2x/buttonX.png using Guid(04ff0010aa49b3e43ae4d1c0bd4a2abc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '649a75c1c2e7574a4c6d257febb149a2') in 0.011457 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Assets/Licensed/KennyNL/Icons/PNG/White/2x/audioOn.png
+  artifactKey: Guid(a532782d8b17e144487f93eb0f6f8ec1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Licensed/KennyNL/Icons/PNG/White/2x/audioOn.png using Guid(a532782d8b17e144487f93eb0f6f8ec1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b86783a0d4177d50a4a6bfb2ce393298') in 0.011055 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/Licensed/KennyNL/Icons/PNG/White/2x/exclamation.png
+  artifactKey: Guid(6defacd4d115ee44f94eddb1d72a30cc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Licensed/KennyNL/Icons/PNG/White/2x/exclamation.png using Guid(6defacd4d115ee44f94eddb1d72a30cc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2aa9782e942ce94d53a7b735305309aa') in 0.010525 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000012 seconds.
+  path: Assets/Licensed/KennyNL/Icons/PNG/White/2x/movie.png
+  artifactKey: Guid(2cd6925c216f6264f9b32812ce8a733c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Licensed/KennyNL/Icons/PNG/White/2x/movie.png using Guid(2cd6925c216f6264f9b32812ce8a733c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'be6116e7490262d38b5a55ad6897e573') in 0.010920 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000016 seconds.
+  path: Assets/Licensed/KennyNL/Icons/PNG/White/2x/gamepad3.png
+  artifactKey: Guid(619f14f847f8d774b80e0a3483d20bc7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Licensed/KennyNL/Icons/PNG/White/2x/gamepad3.png using Guid(619f14f847f8d774b80e0a3483d20bc7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4344f97fe1e8e2360ac889f827ae6b10') in 0.011467 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000015 seconds.
+  path: Assets/Licensed/KennyNL/Icons/PNG/White/2x/target.png
+  artifactKey: Guid(607957f4470adc247a8684e25058aafd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Licensed/KennyNL/Icons/PNG/White/2x/target.png using Guid(607957f4470adc247a8684e25058aafd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1d2113f4a38d248f02bb552d0c944ac0') in 0.010920 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000015 seconds.
+  path: Assets/Licensed/KennyNL/Icons/PNG/White/2x/power.png
+  artifactKey: Guid(00ef370e2944d8b45962231dbe03ea27) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Licensed/KennyNL/Icons/PNG/White/2x/power.png using Guid(00ef370e2944d8b45962231dbe03ea27) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2df678ebf74be5234e372453984ecb30') in 0.011331 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000012 seconds.
+  path: Assets/Licensed/KennyNL/Icons/PNG/White/2x/button2.png
+  artifactKey: Guid(c5c28323b21b47b418179acf30acbb50) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Licensed/KennyNL/Icons/PNG/White/2x/button2.png using Guid(c5c28323b21b47b418179acf30acbb50) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c0a13ba21d6d84b2ce26dba2912f267a') in 0.011034 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/Licensed/KennyNL/Icons/PNG/White/2x/unlocked.png
+  artifactKey: Guid(ba925fccc9536b14d91abff8f51c97cd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Licensed/KennyNL/Icons/PNG/White/2x/unlocked.png using Guid(ba925fccc9536b14d91abff8f51c97cd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd2d388ee2ab9ab723c1f1cdbca0e6209') in 0.010007 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 14.450924 seconds.
+  path: Assets/Licensed/KennyNL/Icons/PNG/White/2x/arrowDown.png
+  artifactKey: Guid(abb9a1d366e247447a6f0b54ce9c9061) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Licensed/KennyNL/Icons/PNG/White/2x/arrowDown.png using Guid(abb9a1d366e247447a6f0b54ce9c9061) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4ccce7f69b050be8fb8fe30a21b42060') in 0.024500 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000016 seconds.
+  path: Assets/Licensed/KennyNL/Icons/PNG/White/2x/downRight.png
+  artifactKey: Guid(e8a796a5ca50d904285007a83c29d5ff) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Licensed/KennyNL/Icons/PNG/White/2x/downRight.png using Guid(e8a796a5ca50d904285007a83c29d5ff) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '704da17b25dbc6999692dd12844cbddf') in 0.021140 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000020 seconds.
+  path: Assets/Licensed/KennyNL/Icons/PNG/White/2x/medal2.png
+  artifactKey: Guid(d403b9c2279eab646b427cb5a969d588) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Licensed/KennyNL/Icons/PNG/White/2x/medal2.png using Guid(d403b9c2279eab646b427cb5a969d588) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4d27a800fbfd91669950970114954333') in 0.020846 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/Licensed/KennyNL/Icons/PNG/White/2x/shoppingCart.png
+  artifactKey: Guid(1672677095819ae418288a4a9d0e9201) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Licensed/KennyNL/Icons/PNG/White/2x/shoppingCart.png using Guid(1672677095819ae418288a4a9d0e9201) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '57b2f39cfbf02990a220f9475c10d837') in 0.020358 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000030 seconds.
+  path: Assets/Licensed/KennyNL/Icons/PNG/White/2x/exitLeft.png
+  artifactKey: Guid(7d843e7ac404eca44913d9ed5ed1fa60) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Licensed/KennyNL/Icons/PNG/White/2x/exitLeft.png using Guid(7d843e7ac404eca44913d9ed5ed1fa60) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd86a80c0c26b733493f082224133bb35') in 0.021578 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000016 seconds.
+  path: Assets/Licensed/KennyNL/Icons/PNG/White/2x/scrollHorizontal.png
+  artifactKey: Guid(274b84d3619ca4944a3ec336f017930e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Licensed/KennyNL/Icons/PNG/White/2x/scrollHorizontal.png using Guid(274b84d3619ca4944a3ec336f017930e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fb07cc6ab9a2941fc01b0a35242e3fe6') in 0.020452 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000014 seconds.
+  path: Assets/Licensed/KennyNL/Icons/PNG/White/2x/upLeft.png
+  artifactKey: Guid(7f2c99eee834708478b4f23dd8d3ddbf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Licensed/KennyNL/Icons/PNG/White/2x/upLeft.png using Guid(7f2c99eee834708478b4f23dd8d3ddbf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '31b6948643619ae176c2f32094d66075') in 0.020632 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000039 seconds.
+  path: Assets/Licensed/KennyNL/Icons/PNG/White/2x/leaderboardsSimple.png
+  artifactKey: Guid(cb4848d07e5b48f40908fb9703193fcd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Licensed/KennyNL/Icons/PNG/White/2x/leaderboardsSimple.png using Guid(cb4848d07e5b48f40908fb9703193fcd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b66733a9f30dea24dc5fc68d97ecf796') in 0.020722 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/Licensed/KennyNL/Icons/PNG/White/2x/menuList.png
+  artifactKey: Guid(f849dcda19793464e88fd522bc6f1399) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Licensed/KennyNL/Icons/PNG/White/2x/menuList.png using Guid(f849dcda19793464e88fd522bc6f1399) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f1ee93cba60516c8443158e44679525a') in 0.022042 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000013 seconds.
+  path: Assets/Licensed/KennyNL/Icons/PNG/White/2x/buttonR2.png
+  artifactKey: Guid(fdde255e8aa615942a068f66557397ad) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Licensed/KennyNL/Icons/PNG/White/2x/buttonR2.png using Guid(fdde255e8aa615942a068f66557397ad) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f09f8c9b58a50ea3036ada60707615b3') in 0.018808 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000013 seconds.
+  path: Assets/Licensed/KennyNL/Icons/PNG/White/2x/buttonStart.png
+  artifactKey: Guid(07011116628078849a2dc1b7987d6a5c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Licensed/KennyNL/Icons/PNG/White/2x/buttonStart.png using Guid(07011116628078849a2dc1b7987d6a5c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e9d0ba9ce41904ac8e14044223454654') in 0.019422 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000014 seconds.
+  path: Assets/Licensed/KennyNL/Icons/PNG/White/2x/stop.png
+  artifactKey: Guid(40e3cd78d4dc9024689f98f172d0dd46) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Licensed/KennyNL/Icons/PNG/White/2x/stop.png using Guid(40e3cd78d4dc9024689f98f172d0dd46) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '56a58f663ead47e5b7b07e850c5ceb53') in 0.021598 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/Licensed/KennyNL/Icons/PNG/White/2x/right.png
+  artifactKey: Guid(e97dfaed1bcc6eb4a883e72af62c3e9e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Licensed/KennyNL/Icons/PNG/White/2x/right.png using Guid(e97dfaed1bcc6eb4a883e72af62c3e9e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '07a98e544730e4330d01d21cc239d12b') in 0.020596 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/Licensed/KennyNL/Icons/PNG/White/2x/previous.png
+  artifactKey: Guid(30aeb0fd9deaf0c46b9a22a8f5e19217) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Licensed/KennyNL/Icons/PNG/White/2x/previous.png using Guid(30aeb0fd9deaf0c46b9a22a8f5e19217) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '847629191365e742a671711c82477c42') in 0.020704 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/Licensed/KennyNL/Icons/PNG/White/2x/buttonL2.png
+  artifactKey: Guid(45a6c383fdf1bc14a968e7b80c48e6e7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Licensed/KennyNL/Icons/PNG/White/2x/buttonL2.png using Guid(45a6c383fdf1bc14a968e7b80c48e6e7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd83b93968f09afba87b7a0c4a14abd99') in 0.021922 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000020 seconds.
+  path: Assets/Licensed/KennyNL/Icons/PNG/White/2x/barsVertical.png
+  artifactKey: Guid(21bf96f89c10c774ea8df9dd702d970c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Licensed/KennyNL/Icons/PNG/White/2x/barsVertical.png using Guid(21bf96f89c10c774ea8df9dd702d970c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8963ed6667acbb620553363e2c7d48d7') in 0.018316 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/Licensed/KennyNL/Icons/PNG/White/2x/joystickUp.png
+  artifactKey: Guid(755c55030e2d52948bea3817b4789232) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Licensed/KennyNL/Icons/PNG/White/2x/joystickUp.png using Guid(755c55030e2d52948bea3817b4789232) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6e8aa88b407afe0f0e678d8163963723') in 0.019430 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000025 seconds.
+  path: Assets/Licensed/KennyNL/Icons/PNG/White/2x/multiplayer.png
+  artifactKey: Guid(897a17738747d46488837f1a301ef285) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Licensed/KennyNL/Icons/PNG/White/2x/multiplayer.png using Guid(897a17738747d46488837f1a301ef285) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2ca7a7bc75f508471fadf6eb8cb1dd76') in 0.020983 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/Licensed/KennyNL/Icons/PNG/White/2x/upRight.png
+  artifactKey: Guid(d40ffee1952902b449c787652211064b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Licensed/KennyNL/Icons/PNG/White/2x/upRight.png using Guid(d40ffee1952902b449c787652211064b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '15ee6639281c6d018346c02302a1192d') in 0.021272 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/Licensed/KennyNL/Icons/PNG/White/2x/buttonL1.png
+  artifactKey: Guid(cbcb46c1bde5ddb4c82c2aafdeee1b0a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Licensed/KennyNL/Icons/PNG/White/2x/buttonL1.png using Guid(cbcb46c1bde5ddb4c82c2aafdeee1b0a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '42ed3f786275a43fc4dbaafef0e12093') in 0.021375 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000013 seconds.
+  path: Assets/Licensed/KennyNL/Icons/PNG/White/2x/movie.png
+  artifactKey: Guid(2cd6925c216f6264f9b32812ce8a733c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Licensed/KennyNL/Icons/PNG/White/2x/movie.png using Guid(2cd6925c216f6264f9b32812ce8a733c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1a63eee2dafc360ad40b61c1b2e2b5bd') in 0.021803 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000013 seconds.
+  path: Assets/Licensed/KennyNL/Icons/PNG/White/2x/gamepad3.png
+  artifactKey: Guid(619f14f847f8d774b80e0a3483d20bc7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Licensed/KennyNL/Icons/PNG/White/2x/gamepad3.png using Guid(619f14f847f8d774b80e0a3483d20bc7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '39be7405a4ca1bdef71d64fbf830732f') in 0.020054 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000013 seconds.
+  path: Assets/Licensed/KennyNL/Icons/PNG/White/2x/target.png
+  artifactKey: Guid(607957f4470adc247a8684e25058aafd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Licensed/KennyNL/Icons/PNG/White/2x/target.png using Guid(607957f4470adc247a8684e25058aafd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '84162198ea638220ec22738a0cc20f22') in 0.021652 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/Licensed/KennyNL/Icons/PNG/White/2x/up.png
+  artifactKey: Guid(b836afb90e1273d47a8608026fae3280) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Licensed/KennyNL/Icons/PNG/White/2x/up.png using Guid(b836afb90e1273d47a8608026fae3280) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1d0b27cae0b8d5b1b7c89d744b37e3cd') in 0.022477 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000016 seconds.
+  path: Assets/Licensed/KennyNL/Icons/PNG/White/2x/musicOn.png
+  artifactKey: Guid(9b06e571795d84549934c5c9975c0811) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Licensed/KennyNL/Icons/PNG/White/2x/musicOn.png using Guid(9b06e571795d84549934c5c9975c0811) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7e93e4d4eeb9e7ab1472494f63f757e4') in 0.020567 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 8.071628 seconds.
+  path: Assets/Licensed/KennyNL/Icons/PNG/White/1x/arrowDown.png
+  artifactKey: Guid(915c845b4bf5c0e4ca0aaedb5edcb240) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Licensed/KennyNL/Icons/PNG/White/1x/arrowDown.png using Guid(915c845b4bf5c0e4ca0aaedb5edcb240) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5d62103dc7a5d65407293f6fdf51c378') in 0.023184 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000016 seconds.
+  path: Assets/Licensed/KennyNL/Icons/PNG/White/1x/gear.png
+  artifactKey: Guid(b64e99fc517c89d4595291ea8289720e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Licensed/KennyNL/Icons/PNG/White/1x/gear.png using Guid(b64e99fc517c89d4595291ea8289720e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e7c1c4b8c4faa44ebeb630e58c1ae8ee') in 0.019685 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000015 seconds.
+  path: Assets/Licensed/KennyNL/Icons/PNG/White/1x/button3.png
+  artifactKey: Guid(74e5eadb0c80b834b8242aa46cf95448) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Licensed/KennyNL/Icons/PNG/White/1x/button3.png using Guid(74e5eadb0c80b834b8242aa46cf95448) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7ef63b0cf9308ea586f3f2469da5a979') in 0.020607 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000020 seconds.
+  path: Assets/Licensed/KennyNL/Icons/PNG/White/1x/share2.png
+  artifactKey: Guid(dfedc253203146a41820824d1a966084) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Licensed/KennyNL/Icons/PNG/White/1x/share2.png using Guid(dfedc253203146a41820824d1a966084) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '18724eb82ccd0e889f814032b07b74e0') in 0.020900 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000015 seconds.
+  path: Assets/Licensed/KennyNL/Icons/PNG/White/1x/buttonSelect.png
+  artifactKey: Guid(1bbc789b7fa7c5048bda0203ff912d22) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Licensed/KennyNL/Icons/PNG/White/1x/buttonSelect.png using Guid(1bbc789b7fa7c5048bda0203ff912d22) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '113703788a6712b0a75c2a554667fabd') in 0.021047 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000016 seconds.
+  path: Assets/Licensed/KennyNL/Icons/PNG/White/1x/gamepad.png
+  artifactKey: Guid(6ac1d735c747ea847aabd0dd7ba28a0f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Licensed/KennyNL/Icons/PNG/White/1x/gamepad.png using Guid(6ac1d735c747ea847aabd0dd7ba28a0f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4e5702d3441e623bc2c556c251df8ac3') in 0.020209 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Assets/Licensed/KennyNL/Icons/PNG/White/1x/home.png
+  artifactKey: Guid(77acded1711b5a84290d983ab9692fc3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Licensed/KennyNL/Icons/PNG/White/1x/home.png using Guid(77acded1711b5a84290d983ab9692fc3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '385d7be28cab7ed6e23d2dc94bc8f406') in 0.018848 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000015 seconds.
+  path: Assets/Licensed/KennyNL/Icons/PNG/White/1x/film.png
+  artifactKey: Guid(07ff232b516d5ec4f896fda2efd7f941) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Licensed/KennyNL/Icons/PNG/White/1x/film.png using Guid(07ff232b516d5ec4f896fda2efd7f941) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '265724e6cda8d07f891d7d2ad30716c1') in 0.021561 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000016 seconds.
+  path: Assets/Licensed/KennyNL/Icons/PNG/White/1x/locked.png
+  artifactKey: Guid(51ebdf1ec747b1e458d443d717b302d1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Licensed/KennyNL/Icons/PNG/White/1x/locked.png using Guid(51ebdf1ec747b1e458d443d717b302d1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ee9b5278d8a4acb3c5be6b3086a4d892') in 0.021358 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000015 seconds.
+  path: Assets/Licensed/KennyNL/Icons/PNG/White/1x/smaller.png
+  artifactKey: Guid(72ac921f3a769eb4f917917b99b38034) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Licensed/KennyNL/Icons/PNG/White/1x/smaller.png using Guid(72ac921f3a769eb4f917917b99b38034) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4dae39000ab78f3a43af6a1c6082710c') in 0.020098 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000014 seconds.
+  path: Assets/Licensed/KennyNL/Icons/PNG/White/1x/singleplayer.png
+  artifactKey: Guid(959c04b1c7b2582498226c9006b1a470) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Licensed/KennyNL/Icons/PNG/White/1x/singleplayer.png using Guid(959c04b1c7b2582498226c9006b1a470) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9d8f875ab2cb68eb41e3cf0cb4f43698') in 0.021577 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000016 seconds.
+  path: Assets/Licensed/KennyNL/Icons/PNG/White/1x/buttonR.png
+  artifactKey: Guid(b5f4bf690a520fe4699ed41e76186428) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Licensed/KennyNL/Icons/PNG/White/1x/buttonR.png using Guid(b5f4bf690a520fe4699ed41e76186428) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5b4cbc5faf18e24f6bfc5dc247976fc9') in 0.020443 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000015 seconds.
+  path: Assets/Licensed/KennyNL/Icons/PNG/White/1x/save.png
+  artifactKey: Guid(33c042a1e18429a47bdda14d6efce017) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Licensed/KennyNL/Icons/PNG/White/1x/save.png using Guid(33c042a1e18429a47bdda14d6efce017) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f1fab48333f3e62ff40dc2f3e57be0f7') in 0.020017 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/Licensed/KennyNL/Icons/PNG/White/1x/contrast.png
+  artifactKey: Guid(1d014b08c22aa0648a0c7508d91977db) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Licensed/KennyNL/Icons/PNG/White/1x/contrast.png using Guid(1d014b08c22aa0648a0c7508d91977db) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '604f524327edbc00df5a30add98bd460') in 0.020574 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000014 seconds.
+  path: Assets/Licensed/KennyNL/Icons/PNG/White/1x/trophy.png
+  artifactKey: Guid(ea660771b5a800648ab70516fc388717) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Licensed/KennyNL/Icons/PNG/White/1x/trophy.png using Guid(ea660771b5a800648ab70516fc388717) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7ddae264f84a083aae90468084ca91e4') in 0.019970 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000014 seconds.
+  path: Assets/Licensed/KennyNL/Icons/PNG/White/1x/cross.png
+  artifactKey: Guid(e1897fe76ece80c46bd81737594a1467) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Licensed/KennyNL/Icons/PNG/White/1x/cross.png using Guid(e1897fe76ece80c46bd81737594a1467) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bff28be5d47e26662811c69df6864164') in 0.020081 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/Licensed/KennyNL/Icons/PNG/White/1x/exclamation.png
+  artifactKey: Guid(ee0c8da0c8b017e4d8330d1ea286945e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Licensed/KennyNL/Icons/PNG/White/1x/exclamation.png using Guid(ee0c8da0c8b017e4d8330d1ea286945e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7c7c3e833b13903ad860c6be08e97c74') in 0.020677 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/Licensed/KennyNL/Icons/PNG/White/1x/return.png
+  artifactKey: Guid(f4fba18f631d60a4bba09a0f56a3a21a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Licensed/KennyNL/Icons/PNG/White/1x/return.png using Guid(f4fba18f631d60a4bba09a0f56a3a21a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3dc4073e2ce3a618ca9b42c7c16ea855') in 0.020423 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000015 seconds.
+  path: Assets/Licensed/KennyNL/Icons/PNG/White/1x/trashcanOpen.png
+  artifactKey: Guid(339ba897ff057904e92a8912bda8de62) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Licensed/KennyNL/Icons/PNG/White/1x/trashcanOpen.png using Guid(339ba897ff057904e92a8912bda8de62) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '05a70a4d4d28c1830a419ce2ee81e038') in 0.019171 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/Licensed/KennyNL/Icons/PNG/White/1x/import.png
+  artifactKey: Guid(6bb9356b9968abf4380bb447f1065f4c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Licensed/KennyNL/Icons/PNG/White/1x/import.png using Guid(6bb9356b9968abf4380bb447f1065f4c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1c0f160d4e87ac927b4376bc2e64edbe') in 0.020704 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/Licensed/KennyNL/Icons/PNG/White/1x/musicOff.png
+  artifactKey: Guid(4b2080bb2b96c8d4da0f206b048ea62f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Licensed/KennyNL/Icons/PNG/White/1x/musicOff.png using Guid(4b2080bb2b96c8d4da0f206b048ea62f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '88d81b108ec76e2a8ffa7c356457ce56') in 0.021705 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/Licensed/KennyNL/Icons/PNG/White/1x/exitLeft.png
+  artifactKey: Guid(694e3c37edb1e534ea277b93d566bb8f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Licensed/KennyNL/Icons/PNG/White/1x/exitLeft.png using Guid(694e3c37edb1e534ea277b93d566bb8f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0181382ad0690f4154226c0a7a546f7b') in 0.021559 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000015 seconds.
+  path: Assets/Licensed/KennyNL/Icons/PNG/White/1x/previous.png
+  artifactKey: Guid(1167001df9427d84ca100de5b9079e7d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Licensed/KennyNL/Icons/PNG/White/1x/previous.png using Guid(1167001df9427d84ca100de5b9079e7d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fe90cad16cae560af3e20d1f0985cf04') in 0.020744 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000016 seconds.
+  path: Assets/Licensed/KennyNL/Icons/PNG/White/1x/gamepad2.png
+  artifactKey: Guid(96478a85025e5154bb265e028f17bf34) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Licensed/KennyNL/Icons/PNG/White/1x/gamepad2.png using Guid(96478a85025e5154bb265e028f17bf34) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '877af764c815371cceadc268d2497137') in 0.023591 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000013 seconds.
+  path: Assets/Licensed/KennyNL/Icons/PNG/White/1x/buttonB.png
+  artifactKey: Guid(b2e172544ef49be48bd29e77fe3d5aa9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Licensed/KennyNL/Icons/PNG/White/1x/buttonB.png using Guid(b2e172544ef49be48bd29e77fe3d5aa9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f9c496870b2228d78680ac3da4555c38') in 0.020924 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 26.460254 seconds.
+  path: Assets/Licensed/KennyNL/Icons/PNG/White/2x/zoomOut.png
+  artifactKey: Guid(91b42d8f0df9d914182e4b92e9ad1d45) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Licensed/KennyNL/Icons/PNG/White/2x/zoomOut.png using Guid(91b42d8f0df9d914182e4b92e9ad1d45) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'da4284d88ed96ca0706d35cba0feec30') in 0.019335 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 1.561379 seconds.
+  path: Assets/Licensed/KennyNL/Icons/PNG/White/1x/zoomOut.png
+  artifactKey: Guid(d5cd10ac674f20549aa5f939dbba3870) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Licensed/KennyNL/Icons/PNG/White/1x/zoomOut.png using Guid(d5cd10ac674f20549aa5f939dbba3870) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2b12a25114da72aa95de9a95a87105a3') in 0.019238 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.031553 seconds.
+  path: Assets/Licensed/KennyNL/Icons/PNG/Black/2x/zoomIn.png
+  artifactKey: Guid(6d84914125af3964d86f05d07d8adb44) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Licensed/KennyNL/Icons/PNG/Black/2x/zoomIn.png using Guid(6d84914125af3964d86f05d07d8adb44) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '87ff6b5838e9a08be60b7d8b3c4e6aa0') in 0.021141 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.196663 seconds.
+  path: Assets/Licensed/KennyNL/Icons/PNG/Black/2x/zoomDefault.png
+  artifactKey: Guid(036a5944c94f34b418e5a9569f6b65b1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Licensed/KennyNL/Icons/PNG/Black/2x/zoomDefault.png using Guid(036a5944c94f34b418e5a9569f6b65b1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd3a88afdb6293e7ce43a534bdeeab3fa') in 0.020148 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.066701 seconds.
+  path: Assets/Licensed/KennyNL/Icons/PNG/White/1x/zoom.png
+  artifactKey: Guid(b091fe809caa1824483fc4edda43d967) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Licensed/KennyNL/Icons/PNG/White/1x/zoom.png using Guid(b091fe809caa1824483fc4edda43d967) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b245c6c1612677ba3692e13b8fd9b0e4') in 0.019765 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.189783 seconds.
+  path: Assets/Licensed/KennyNL/Icons/PNG/Black/2x/wrench.png
+  artifactKey: Guid(d142c055823568444890d9ef7f86bbf7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Licensed/KennyNL/Icons/PNG/Black/2x/wrench.png using Guid(d142c055823568444890d9ef7f86bbf7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4cbc2034d8cbcab3d814b74c3a08ca8b') in 0.018414 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.035148 seconds.
+  path: Assets/Licensed/KennyNL/Icons/PNG/Black/2x/warning.png
+  artifactKey: Guid(c1e9403845fb02d4d88e61cfb52b6806) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Licensed/KennyNL/Icons/PNG/Black/2x/warning.png using Guid(c1e9403845fb02d4d88e61cfb52b6806) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '175694dcaa02ffd54e9fa60a9945e47c') in 0.016834 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.231983 seconds.
+  path: Assets/Licensed/KennyNL/Icons/PNG/Black/2x/video.png
+  artifactKey: Guid(df9812aaf9d4fba43b173820dc95cd9f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Licensed/KennyNL/Icons/PNG/Black/2x/video.png using Guid(df9812aaf9d4fba43b173820dc95cd9f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ac1c8e75baf88f2247851fee68546d76') in 0.016810 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.250733 seconds.
+  path: Assets/Licensed/KennyNL/Icons/PNG/Black/2x/upRight.png
+  artifactKey: Guid(398107a31c626dc4890cc8d9f100c330) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Licensed/KennyNL/Icons/PNG/Black/2x/upRight.png using Guid(398107a31c626dc4890cc8d9f100c330) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e9ea535a2463955494ccf60fbf30e0cf') in 0.018609 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.037021 seconds.
+  path: Assets/Licensed/KennyNL/Icons/PNG/Black/2x/upLeft.png
+  artifactKey: Guid(820fe6de15608f94ca145ed8d4666751) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Licensed/KennyNL/Icons/PNG/Black/2x/upLeft.png using Guid(820fe6de15608f94ca145ed8d4666751) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '35190cf649a66088e61fa719940d61a0') in 0.016799 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.851363 seconds.
+  path: Assets/Licensed/KennyNL/Icons/PNG/Black/2x/next.png
+  artifactKey: Guid(17b04f9a662da6c4285acf2ea65f8860) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Licensed/KennyNL/Icons/PNG/Black/2x/next.png using Guid(17b04f9a662da6c4285acf2ea65f8860) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '23e565fb4a8123b6d5bb4882da497cdb') in 0.017603 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.620525 seconds.
+  path: Assets/Licensed/KennyNL/Icons/PNG/Black/2x/export.png
+  artifactKey: Guid(d9507ad6e2ec72b42b9fc3e652614241) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Licensed/KennyNL/Icons/PNG/Black/2x/export.png using Guid(d9507ad6e2ec72b42b9fc3e652614241) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c3a1ce5c3fecb4e999cce53971a15de7') in 0.019796 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.040391 seconds.
+  path: Assets/Licensed/KennyNL/Icons/PNG/Black/2x/exitRight.png
+  artifactKey: Guid(b21050de25048cc4c9679c42629f2385) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Licensed/KennyNL/Icons/PNG/Black/2x/exitRight.png using Guid(b21050de25048cc4c9679c42629f2385) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'daab7b50a37222ae4ef112836c34e7a4') in 0.016876 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.209615 seconds.
+  path: Assets/Licensed/KennyNL/Icons/PNG/Black/2x/exitLeft.png
+  artifactKey: Guid(46a34bd21b4b8d64786678a63be9edf3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Licensed/KennyNL/Icons/PNG/Black/2x/exitLeft.png using Guid(46a34bd21b4b8d64786678a63be9edf3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '294e2a275e3cfd3e00bdee406a12c891') in 0.016517 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.221376 seconds.
+  path: Assets/Licensed/KennyNL/Icons/PNG/Black/2x/exclamation.png
+  artifactKey: Guid(adfac2407f78ec5458e87cab79854d34) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Licensed/KennyNL/Icons/PNG/Black/2x/exclamation.png using Guid(adfac2407f78ec5458e87cab79854d34) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '76bdacf8fa47da4b5b38897ab6f9d0c5') in 0.019338 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.036270 seconds.
+  path: Assets/Licensed/KennyNL/Icons/PNG/Black/2x/buttonX.png
+  artifactKey: Guid(1dccbf52182fba34a800fad1021473f2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Licensed/KennyNL/Icons/PNG/Black/2x/buttonX.png using Guid(1dccbf52182fba34a800fad1021473f2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f73c517b7302e1c7917f6843720c8169') in 0.016780 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 1.760448 seconds.
+  path: Assets/Licensed/KennyNL/Icons/PNG/Black/2x/barsVertical.png
+  artifactKey: Guid(6986a3326e57dba41ac3bcc41ff03fa6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Licensed/KennyNL/Icons/PNG/Black/2x/barsVertical.png using Guid(6986a3326e57dba41ac3bcc41ff03fa6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bd4f42480d855dd69afcfc1510ebaee6') in 0.018782 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 4.846101 seconds.
+  path: Assets/Licensed/KennyNL/Icons/PNG/Black/2x/cross.png
+  artifactKey: Guid(7d9ede331deda9747a7ee09d332ac0cc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Licensed/KennyNL/Icons/PNG/Black/2x/cross.png using Guid(7d9ede331deda9747a7ee09d332ac0cc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '030a4ff13188b0e362ee209188648e90') in 0.018025 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Prepare
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  0.502 seconds
+Refreshing native plugins compatible for Editor in 3.38 ms, found 3 plugins.
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  1.164 seconds
+Domain Reload Profiling: 1663ms
+	BeginReloadAssembly (154ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (4ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (38ms)
+	RebuildCommonClasses (34ms)
+	RebuildNativeTypeToScriptingClass (16ms)
+	initialDomainReloadingComplete (31ms)
+	LoadAllAssembliesAndSetupDomain (263ms)
+		LoadAssemblies (331ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (15ms)
+			TypeCache.Refresh (6ms)
+				TypeCache.ScanAssembly (0ms)
+			ScanForSourceGeneratedMonoScriptInfo (0ms)
+			ResolveRequiredComponents (6ms)
+	FinalizeReload (1164ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (619ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (10ms)
+			SetLoadedEditorAssemblies (8ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (115ms)
+			ProcessInitializeOnLoadAttributes (456ms)
+			ProcessInitializeOnLoadMethodAttributes (22ms)
+			AfterProcessingInitializeOnLoad (7ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (9ms)
+Refreshing native plugins compatible for Editor in 3.88 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3112 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 24 unused Assets / (31.1 KB). Loaded Objects now: 3608.
+Memory consumption went from 129.7 MB to 129.6 MB.
+Total: 3.823100 ms (FindLiveObjects: 0.356500 ms CreateObjectMapping: 0.095000 ms MarkObjects: 3.275600 ms  DeleteObjects: 0.093700 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-codec-MediaFoundation-h265: 746d11721c4dcdbdad8f713fa42b33f4 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:CustomObjectIndexerAttribute: 6d391050e5a25f67b0a2c618074f2cd9 -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  0.419 seconds
+Refreshing native plugins compatible for Editor in 3.44 ms, found 3 plugins.
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  1.038 seconds
+Domain Reload Profiling: 1455ms
+	BeginReloadAssembly (134ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (4ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (30ms)
+	RebuildCommonClasses (31ms)
+	RebuildNativeTypeToScriptingClass (11ms)
+	initialDomainReloadingComplete (26ms)
+	LoadAllAssembliesAndSetupDomain (215ms)
+		LoadAssemblies (274ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (12ms)
+			TypeCache.Refresh (5ms)
+				TypeCache.ScanAssembly (0ms)
+			ScanForSourceGeneratedMonoScriptInfo (0ms)
+			ResolveRequiredComponents (5ms)
+	FinalizeReload (1038ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (554ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (8ms)
+			SetLoadedEditorAssemblies (7ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (103ms)
+			ProcessInitializeOnLoadAttributes (408ms)
+			ProcessInitializeOnLoadMethodAttributes (21ms)
+			AfterProcessingInitializeOnLoad (6ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (9ms)
+Refreshing native plugins compatible for Editor in 4.09 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3113 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 24 unused Assets / (31.1 KB). Loaded Objects now: 3611.
+Memory consumption went from 131.9 MB to 131.8 MB.
+Total: 3.005800 ms (FindLiveObjects: 0.421700 ms CreateObjectMapping: 0.091700 ms MarkObjects: 2.435700 ms  DeleteObjects: 0.055600 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-codec-MediaFoundation-h265: 746d11721c4dcdbdad8f713fa42b33f4 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:CustomObjectIndexerAttribute: 6d391050e5a25f67b0a2c618074f2cd9 -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
