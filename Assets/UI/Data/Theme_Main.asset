@@ -16,6 +16,8 @@ MonoBehaviour:
   primary_text: {r: 1, g: 1, b: 1, a: 1}
   secondary_bg: {r: 0.754717, g: 0.754717, b: 0.754717, a: 1}
   secondary_text: {r: 0.6602108, g: 0.25943398, b: 1, a: 1}
+  button_bg: {r: 0, g: 0, b: 0, a: 0.27058825}
+  button_text: {r: 0, g: 0, b: 0, a: 1}
   tertiary_bg: {r: 0.24528301, g: 0.24528301, b: 0.24528301, a: 1}
   tertiary_text: {r: 0, g: 0, b: 0, a: 1}
   disable: {r: 0.16037738, g: 0.16037738, b: 0.16037738, a: 1}
