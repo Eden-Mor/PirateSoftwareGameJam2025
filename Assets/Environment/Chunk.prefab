@@ -45,8 +45,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bab1a3ec609c2c449b608eed602f317, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tilesets:
+  - {fileID: 2727039820359723707, guid: e80736c5f1b84c243b3e967fb7c439f1, type: 3}
+  - {fileID: 2727039820359723707, guid: 737876b08e6a04145abd03cd777bb7f8, type: 3}
+  - {fileID: 2727039820359723707, guid: 8b191e5cd864a3b409ad733e9a380b63, type: 3}
+  - {fileID: 2727039820359723707, guid: 8f1a773233411d04495ff7a321c3bc85, type: 3}
+  - {fileID: 2727039820359723707, guid: 578c87c049ed7a542a75eae8c08a3cef, type: 3}
   roadsTileSet: {fileID: 2727039820359723707, guid: e5be221fc0c21084bbe02045095b7dd3, type: 3}
-  othersTileSet: {fileID: 2727039820359723707, guid: ff2bf91741557c84bb38e8b2882c9c47, type: 3}
   size: 0
   tileSize: 1
   seed: 0
