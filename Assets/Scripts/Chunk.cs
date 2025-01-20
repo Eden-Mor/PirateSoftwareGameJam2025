@@ -1,5 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 
 /// <summary>
@@ -9,15 +8,14 @@ using UnityEngine;
 public class Chunk : MonoBehaviour
 {
 	/// <summary>
+	/// A list of tile sets from which to pick parts to randomly place in the gaps between roads.
+	/// </summary>
+	public TileSet[] tilesets;
+
+	/// <summary>
 	/// The Tile Set used to generate the roads.  Roads likely use a different generation algorithm.
 	/// </summary>
 	public TileSet roadsTileSet;
-
-	/// <summary>
-	/// The Tile Set used for all the other tiles.
-	/// TODO: Break this up into different sets as our generation functions demand.
-	/// </summary>
-	public TileSet othersTileSet;
 
 	/// <summary>
 	/// This is the width and height of the chunk; we're only allowing square chunks.
@@ -108,19 +106,41 @@ public class Chunk : MonoBehaviour
 	/// </summary>
 	public void GenerateOthers()
 	{
-		Random.InitState( seed );
+		UnityEngine.Random.InitState( seed );
 
 		for(int z = 0; z < size; z++)
 		{
 			for(int x = 0; x < size; x++)
 			{
-				if(tiles[x,z] == null)
+				if(tiles[ x, z ] == null)
 				{
-					int tileSetIndex = Random.Range( 0, othersTileSet.tiles.Length );
-					tiles[x,z] = othersTileSet.tiles[ tileSetIndex ];
+					tiles[ x, z ] = SelectRandomTile( x, z );
 				}
 			}
 		}
+	}
+
+	/// <summary>
+	/// Select a random tile from the lists of tiles in tilesets.  This is currently done very 
+	/// simplistically - first we randomly pick which tileset to use, then we randomly pick which 
+	/// tile to use from the selected tileset.
+	/// 
+	/// TODO: Use weight maps to alter the probability of which tileset will be selected in a given 
+	/// location.
+	/// </summary>
+	/// <param name="x">x-coordinate of the tile within the chunk.  Not currently used, but will be soon.</param>
+	/// <param name="z">z-coordinate of the tile within the chunk.  Not currently used, but will be soon.</param>
+	/// <returns></returns>
+	Tile SelectRandomTile( int x, int z )
+	{
+		// First we're going to select which tileset we're going to select from.
+		// TODO: Use weight maps to influence this decision.
+		int tilesetIndex = UnityEngine.Random.Range( 0, tilesets.Length);
+		TileSet tileset = tilesets[ tilesetIndex ];
+
+		// Now we're going to randomly select a tile within the chosen tileset.
+		int tileIndex = UnityEngine.Random.Range( 0, tileset.tiles.Length );
+		return tileset.tiles[ tileIndex ];
 	}
 
 	/// <summary>
