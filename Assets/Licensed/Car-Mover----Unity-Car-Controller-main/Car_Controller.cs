@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -5,6 +6,9 @@ using UnityEngine.SceneManagement;
 public class Car_Controller : MonoBehaviour
 {
     //Public Variables
+    [Header("CUSTOM - Eden")]
+    public bool isAllowedInput = true;
+
     [Header("Wheel Colliders")]
     public List<WheelCollider> Front_Wheels; //The front wheels (Wheel Colliders)
     public List<WheelCollider> Back_Wheels; //The rear wheels (Wheel Colliders)
@@ -256,18 +260,20 @@ public class Car_Controller : MonoBehaviour
     }
 
     public void FixedUpdate(){
+
         //Turning car off
         if(Input.GetKeyDown(Car_Off_Key) && (Car_Speed_KPH >= 0 && Car_Speed_KPH <= 1.5f) && Use_Car_States){ //if the car off key has been pressed and the car speed is 0 and the "use car states" is true
             Turn_Off_Car(); //Turn car off
         }
 
         //Turning Car on
-        if(Input.GetKeyDown(Car_Start_Key) && Use_Car_States){ //if the "use car states" is true and that the car start key is pressed
+        if(Input.GetKeyDown(Car_Start_Key) && Use_Car_States && isAllowedInput){ //if the "use car states" is true and that the car start key is pressed
             Car_Started = true;
         }
 
         //If the car states are not in use
-        if(!Use_Car_States){
+        if(!Use_Car_States)
+        {
             Car_Started = true;
         }
 
@@ -386,7 +392,23 @@ public class Car_Controller : MonoBehaviour
         }
     }
 
+    private void OnEnable()
+        => EventManager.Game.OnTimerComplete.Get().AddListener(() => AllowInput(false));
+
+    private void OnDisable()
+        => EventManager.Game.OnTimerComplete.Get().AddListener(() => AllowInput(false));
+
+    private void AllowInput(bool isAllowed)
+    {
+        isAllowedInput = isAllowed;
+        if (isAllowedInput)
+            Car_Started = true;
+        else
+            Turn_Off_Car();
+    }
+
     public void Update(){
+
         //Scene Settings
         if(Use_Scene_Settings){
             if(Input.GetKeyDown(Scene_Reset_Key)){ //When the reset key is pressed
