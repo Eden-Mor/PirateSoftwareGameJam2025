@@ -64,7 +64,10 @@ public class World : MonoBehaviour
 	{
 		float chunkWorldSize = chunkSize * tileSize;
 		Vector3 chunkLocation = new Vector3( x * chunkWorldSize, 0.0f, z * chunkWorldSize );
-		GameObject chunkGameObject = Instantiate( chunkPrefab, chunkLocation, Quaternion.identity, chunksParent );
+		//GameObject chunkGameObject = Instantiate( chunkPrefab, chunkLocation, Quaternion.identity, chunksParent );
+		GameObject chunkGameObject = Instantiate( chunkPrefab );
+		chunkGameObject.transform.SetParent( chunksParent, false );
+		chunkGameObject.transform.localPosition = chunkLocation;
 
 		Chunk chunk = chunkGameObject.GetComponent<Chunk>();
 		chunk.size = chunkSize;
