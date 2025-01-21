@@ -513,8 +513,14 @@ public class Car_Controller : MonoBehaviour
 
         //Play the crash sound:
         foreach (string tag in Crash_Object_Tags)
+        {
             if (col.gameObject.CompareTag(tag))
+            {
                 Crash_Sound.Play();
+
+                EventManager.Player.OnCarCollide.Get().Invoke(col.collider.GetComponent<Component>(), Car_Speed_In_KPH);
+            }
+        }
     }
 
     //Functions to turn on/off the brakelights
