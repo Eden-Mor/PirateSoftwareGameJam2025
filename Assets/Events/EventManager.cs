@@ -1,10 +1,21 @@
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
 public static class EventManager
 {
     public static readonly GameEvents Game = new();
+    public static readonly PlayerEvents Player = new();
+
+    public class PlayerEvents
+    {
+        //If you need an explanation how this works, check OnCarCollide references
+        public class CarCollideEvent : UnityEvent<Component, int> { }
+        public GenericEvent<CarCollideEvent> OnCarCollide = new();
+        public class ReviewStopEvent : UnityEvent { }
+        public GenericEvent<ReviewStopEvent> OnReviewStop = new();
+        public class ReviewStartEvent : UnityEvent { }
+        public GenericEvent<ReviewStartEvent> OnReviewStart = new();
+    }
 
     public class GameEvents
     {
@@ -12,20 +23,5 @@ public static class EventManager
         public GenericEvent<TimerCompleteEvent> OnTimerComplete = new();
         public class ResetTimerEvent : UnityEvent { }
         public GenericEvent<TimerCompleteEvent> OnResetTimer = new();
-
-        //HOW TO USE, How to subscribe, how to invoke, how to unsubscribe, how to add filters.Get("Filter")
-        //EventManager.Game.OnTimerComplete.Get().Invoke(this, 1);
-        //private void OnEnable()
-        //{
-        //    EventManager.Player.OnHealthChanged.Get().AddListener(UpdateHealth);
-        //}
-        //private void OnDisable()
-        //{
-        //    EventManager.Player.OnHealthChanged.Get().AddListener(UpdateHealth);
-        //}
-        //private void UpdateHealth(Component component, int health)
-        //{
-        //    label.SetText(health.ToString());
-        //}
     }
 }
