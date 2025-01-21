@@ -297,6 +297,37 @@ Transform:
   - {fileID: 2118493972}
   m_Father: {fileID: 543450652016626244}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &185950871
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 185950872}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &185950872
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 185950871}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &347930045
 GameObject:
   m_ObjectHideFlags: 0
@@ -545,8 +576,8 @@ MonoBehaviour:
   Maximum_Speed: 120
   handBrakeFrictionMultiplier: 2
   tempo: 0
-  enable_boost: 0
-  Boost_Cooldown: 10
+  enable_boost: 1
+  Boost_Cooldown: 1
   Boost_Amount: 10
   Boost_KeyCode: 256
   Enable_Boost_particles: 0
@@ -1356,6 +1387,10 @@ PrefabInstance:
       value: World
       objectReference: {fileID: 0}
     - target: {fileID: 5236296346280275388, guid: 12aa4d840b3a58740adeb1ab343a5cd1, type: 3}
+      propertyPath: size
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5236296346280275388, guid: 12aa4d840b3a58740adeb1ab343a5cd1, type: 3}
       propertyPath: tileSize
       value: 1
       objectReference: {fileID: 0}
@@ -1634,3 +1669,4 @@ SceneRoots:
   - {fileID: 1048317021}
   - {fileID: 1135516171}
   - {fileID: 6359930866299732963}
+  - {fileID: 185950872}

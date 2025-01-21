@@ -42,6 +42,11 @@ public class Chunk : MonoBehaviour
 	public Transform tilesParent;
 
 	/// <summary>
+	/// Reference to the world as we need to get some settings from it.
+	/// </summary>
+	public World world;
+
+	/// <summary>
 	/// Data structure that holds a representation of the chunk (from which the scene can be built),
 	/// queried, and modified.
 	/// </summary>
@@ -113,30 +118,56 @@ public class Chunk : MonoBehaviour
 			for(int x = 0; x < size; x++)
 			{
 				if(tiles[ x, z ] == null)
-				{
 					tiles[ x, z ] = SelectRandomTile( x, z );
-				}
 			}
 		}
 	}
 
 	/// <summary>
-	/// Select a random tile from the lists of tiles in tilesets.  This is currently done very 
-	/// simplistically - first we randomly pick which tileset to use, then we randomly pick which 
-	/// tile to use from the selected tileset.
-	/// 
-	/// TODO: Use weight maps to alter the probability of which tileset will be selected in a given 
-	/// location.
+	/// Select a random tile from the lists of tiles in tilesets.  Each tileset has a weight curve
+	/// which is used to determine the chances of that tileset being picked based on the distance to
+	/// the centre of the World.
 	/// </summary>
 	/// <param name="x">x-coordinate of the tile within the chunk.  Not currently used, but will be soon.</param>
 	/// <param name="z">z-coordinate of the tile within the chunk.  Not currently used, but will be soon.</param>
 	/// <returns></returns>
 	Tile SelectRandomTile( int x, int z )
 	{
-		// First we're going to select which tileset we're going to select from.
-		// TODO: Use weight maps to influence this decision.
-		int tilesetIndex = UnityEngine.Random.Range( 0, tilesets.Length);
-		TileSet tileset = tilesets[ tilesetIndex ];
+		// Determine how far this tile is from the world origin as a fraction of the total radius of the city.
+		Vector2 tilePosition = new Vector2( transform.position.x + (x * tileSize), transform.position.z + (z * tileSize) );
+		Vector2 worldOrigin = new Vector2( world.transform.position.x, world.transform.position.z );
+		float distanceFromOrigin = Vector2.Distance( worldOrigin, tilePosition );
+		float normalisedDistanceFromOrigin = Mathf.Clamp( distanceFromOrigin / world.WorldRadius(), 0f, 1f );
+
+		// Total all the weights of the tilesets.
+		// TODO: Do this on start so we're not calculating it every tile.
+		float totalWeight = 0f;
+		foreach(TileSet t in tilesets)
+			totalWeight += t.weight.Evaluate( normalisedDistanceFromOrigin );
+
+		// Generate a random number between 0 and totalWeight, then loop through each tileset to
+		// determine which one is chosen.  Therefore, tilesets with more weight will be more likely to 
+		// be selected.  We default to the first tileset 
+		float target = UnityEngine.Random.Range( 0f, totalWeight );
+		float current = 0f;
+
+		TileSet tileset = tilesets[0];
+		foreach(TileSet t in tilesets)
+		{
+			float weight = t.weight.Evaluate( normalisedDistanceFromOrigin );
+			if(weight > 0f)
+			{
+				if(target >= current && target <= current + weight)
+				{
+					tileset = t;
+					break;
+				}
+				else
+				{
+					current += weight;
+				}
+			}
+		}
 
 		// Now we're going to randomly select a tile within the chosen tileset.
 		int tileIndex = UnityEngine.Random.Range( 0, tileset.tiles.Length );
@@ -154,9 +185,7 @@ public class Chunk : MonoBehaviour
 			for(int x = 0; x < size; x++)
 			{
 				if(tiles[ x, z ] != null)
-				{
 					BuildTile( x, z );
-				}
 			}
 		}
 	}

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,20 +12,16 @@ using UnityEngine;
 /// </summary>
 public class World : MonoBehaviour
 {
+	[Header( "Chunks" )]
 	/// <summary>
 	/// The size of the world in chunks (width and length).
 	/// </summary>
-	public int worldSize = 10;
-
+	public int size = 10;
+	
 	/// <summary>
 	/// The size of the chunks to build the world from (width and length).
 	/// </summary>
 	public int chunkSize = 5;
-
-	/// <summary>
-	/// The size of the tile models (width and length).
-	/// </summary>
-	public float tileSize = 1.0f;
 
 	/// <summary>
 	/// The prefab to use for creating chunks.
@@ -36,6 +33,14 @@ public class World : MonoBehaviour
 	/// </summary>
 	public Transform chunksParent;
 
+	[Space( 10 )]
+	[Header( "Tiles" )]
+
+	/// <summary>
+	/// The size of the tile models (width and length).
+	/// </summary>
+	public float tileSize = 1.0f;
+
 	/// <summary>
 	/// References to all currently active chunks, such that we can easily remove them and identify if
 	/// we need to build a chunk in this location or not.
@@ -44,7 +49,7 @@ public class World : MonoBehaviour
 
 	void Start()
 	{
-		int worldRadius = worldSize / 2;
+		int worldRadius = size / 2;
 		// DEBUG: Just creating something rather than dynamically creating it based on player/camera location.
 		for (int z = -worldRadius; z < worldRadius; z++)
 		{
@@ -53,6 +58,12 @@ public class World : MonoBehaviour
 				BuildChunk( x, z );
 			}
 		}
+	}
+
+	public float WorldRadius()
+	{
+		// TODO: Change this to have the radius to the corners of the city by using the diagonals?
+		return (size * chunkSize * tileSize * transform.localScale.x) / 2;
 	}
 
 	/// <summary>
@@ -70,6 +81,7 @@ public class World : MonoBehaviour
 		chunkGameObject.transform.localPosition = chunkLocation;
 
 		Chunk chunk = chunkGameObject.GetComponent<Chunk>();
+		chunk.world = this;
 		chunk.size = chunkSize;
 		chunk.tileSize = tileSize;
 		chunk.seed = ChunkSeed( x, z );

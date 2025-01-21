@@ -51,3 +51,45 @@ MonoBehaviour:
     connections: 5
   - prefab: {fileID: 8152202684055889159, guid: eb47096b28d7114448731fbb8a8fb7bc, type: 3}
     connections: 5
+  weight:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: -0.31134924
+      outSlope: -0.31134924
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.040142633
+      value: 0.9875016
+      inSlope: 0.000002355411
+      outSlope: 0.000002355411
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.50877196
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.3019176
+      value: -0.014779791
+      inSlope: -0.035263054
+      outSlope: -0.035263054
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.6166371
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0.021171987
+      outSlope: 0.021171987
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4

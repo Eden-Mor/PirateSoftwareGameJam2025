@@ -49,3 +49,27 @@ MonoBehaviour:
     connections: -1
   - prefab: {fileID: 8152202684055889159, guid: 41be00d7f1fa39a4cbe21b049479f4f2, type: 3}
     connections: -1
+  weight:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0.003490448
+      value: 0.49375153
+      inSlope: 0.5080217
+      outSlope: 0.5080217
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0.5080217
+      outSlope: 0.5080217
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
