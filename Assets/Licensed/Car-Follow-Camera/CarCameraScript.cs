@@ -44,19 +44,10 @@ public class CarCameraScript : MonoBehaviour
 
     void FixedUpdate()
     {
-        Vector3 localVelocity = car.InverseTransformDirection(car.GetComponent<Rigidbody>().velocity);
-        if (localVelocity.z < -0.1f)
-        {
-            Vector3 temp = rotationVector; //because temporary variables seem to be removed after a closing bracket "}" we can use the same variable name multiple times.
-            temp.y = car.eulerAngles.y + 180;
-            rotationVector = temp;
-        }
-        else
-        {
-            Vector3 temp = rotationVector;
-            temp.y = car.eulerAngles.y;
-            rotationVector = temp;
-        }
+        Vector3 temp = rotationVector;
+        temp.y = car.eulerAngles.y;
+        rotationVector = temp;
+
         float acc = car.GetComponent<Rigidbody>().velocity.magnitude;
         GetComponent<Camera>().fieldOfView = defaultFOV + acc * zoomRatio * Time.deltaTime;  //he removed * Time.deltaTime but it works better if you leave it like this.
 

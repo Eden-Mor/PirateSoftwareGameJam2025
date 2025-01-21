@@ -185,13 +185,8 @@ public class Car_Controller : MonoBehaviour
     public int Car_Speed_In_KPH; //Car speed in KPH (integer form)
     public int Car_Speed_In_MPH; //Car speed in MPH (integer form)
 
-    public bool Is_Flying() //bool for if the car is flying or not
-    {
-        if (!Back_Wheels[0].isGrounded && !Front_Wheels[0].isGrounded)
-            return true;
-        else
-            return false;
-    }
+    public bool Is_Flying() //bool for if the car is flying or
+        => !Back_Wheels[0].isGrounded && !Front_Wheels[0].isGrounded;
 
     //private Variables
     private Rigidbody rb; //The rb
@@ -217,12 +212,8 @@ public class Car_Controller : MonoBehaviour
 
         //Play Car Smoke Particle System
         if (Use_Particle_Systems)
-        {
             foreach (ParticleSystem P in Car_Smoke_From_Silencer)
-            {
                 P.Play(); //Play the smoke from silencer particle system
-            }
-        }
 
         //Here we just set the lights to turn on and off at play.
 
@@ -232,34 +223,22 @@ public class Car_Controller : MonoBehaviour
 
         //Here we turn the reverse light(s) off
         if (Enable_Reverselights_Lights)
-        {
             foreach (Light R in ReverseLights)
-            {
                 R.enabled = false;
-            }
-        }
 
         if (Enable_Reverselights_MeshRenderers)
-        {
             foreach (MeshRenderer RM in ReverseLights_MeshRenderers)
-            {
                 RM.enabled = false;
-            }
-        }
 
         //Here we turn off the brakelights
         Turn_Off_Brakelights();
 
         //Turning some things off if their options are disabled
         if (!Enable_Horn && Horn_Source != null)
-        {
             Horn_Source.gameObject.SetActive(false); //is horn is not enabled and the horn source there, disable the horn
-        }
 
         if (!Enable_Engine_Audio && Engine_Sound != null)
-        {
             Engine_Sound.gameObject.SetActive(false); //Disable the engine sound if the engine sound has not been enabled and it is set to some audio source.
-        }
 
         if (!Enable_Audio && (Engine_Sound != null || Horn_Source != null))
         {
@@ -272,71 +251,51 @@ public class Car_Controller : MonoBehaviour
     {
 
         //Turning car off
+        //if the car off key has been pressed and the car speed is 0 and the "use car states" is true
         if (Input.GetKeyDown(Car_Off_Key) && (Car_Speed_KPH >= 0 && Car_Speed_KPH <= 1.5f) && Use_Car_States)
-        { //if the car off key has been pressed and the car speed is 0 and the "use car states" is true
             Turn_Off_Car(); //Turn car off
-        }
 
         //Turning Car on
+        //if the "use car states" is true and that the car start key is pressed
         if (Input.GetKeyDown(Car_Start_Key) && Use_Car_States && canCarBeStarted)
-        { //if the "use car states" is true and that the car start key is pressed
             Car_Started = true;
-        }
 
         //If the car states are not in use
         if (!Use_Car_States)
-        {
             Car_Started = true;
-        }
 
         //Check the keys for headlights and turn them off/on
         if (Input.GetKeyDown(Headlights_Key) && Car_Started == true)
-        { //if the headlights key was pressed
-            if (!HeadLights_On)
-            {
-                HeadLights_On = true; //set the headlights on to true
+        {
+            //if the headlights key was pressed
+            HeadLights_On = !HeadLights_On;
+            if (HeadLights_On)
                 Turn_On_Headlights(); //turn on headlights
-            }
-
             else
-            {
-                HeadLights_On = false; //Set the headlights on to false
                 Turn_Off_Headlights(); //turn off the headlights
-            }
         }
 
+        //if the car is off
         if (Car_Started == false)
-        { //if the car is off
             Turn_Off_Headlights();//turn the headlights off
-        }
 
         //Applying Maximum Speed
+        //if the car's current speed is less than the maximum speed
+        //Let car move forward and backward
         if (Car_Speed_In_KPH < Maximum_Speed && Car_Started)
-        { //if the car's current speed is less than the maximum speed
-            //Let car move forward and backward
             foreach (WheelCollider Wheel in Back_Wheels)
-            {
                 Wheel.motorTorque = Input.GetAxis("Vertical") * ((Motor_Torque * 5) / (Back_Wheels.Count + Front_Wheels.Count));
-            }
-        }
 
+        //if the car's current speed is more than the top speed
+        //Don't let the car accelerate anymore so it does not exceed the maximum speed
         if (Car_Speed_In_KPH > Maximum_Speed && Car_Started)
-        { //if the car's current speed is more than the top speed
-            //Don't let the car accelerate anymore so it does not exceed the maximum speed
             foreach (WheelCollider Wheel in Back_Wheels)
-            {
                 Wheel.motorTorque = 0;
-            }
-        }
 
         //Making The Car Turn/Steer
         if (Car_Started)
-        {
             foreach (WheelCollider Wheel in Front_Wheels)
-            {
                 Wheel.steerAngle = Input.GetAxis("Horizontal") * Max_Steer_Angle; //Turn the wheels
-            }
-        }
 
         //Changing speed of the car
         Car_Speed_KPH = Car_Rigidbody.velocity.magnitude * 3.6f; //Calculate car speed in KPH
@@ -363,24 +322,16 @@ public class Car_Controller : MonoBehaviour
             if (wheelHit.sidewaysSlip < 0)
                 tempo = (1 + -Input.GetAxis("Horizontal")) * Mathf.Abs(wheelHit.sidewaysSlip * handBrakeFrictionMultiplier);
 
-            if (tempo < 0.5) tempo = 0.5f;
-
             if (wheelHit.sidewaysSlip > 0)
                 tempo = (1 + Input.GetAxis("Horizontal")) * Mathf.Abs(wheelHit.sidewaysSlip * handBrakeFrictionMultiplier);
 
-            if (tempo < 0.5) tempo = 0.5f;
+            if (tempo < 0.5)
+                tempo = 0.5f;
 
-            if (wheelHit.sidewaysSlip > .99f || wheelHit.sidewaysSlip < -.99f)
-            {
-                //handBrakeFriction = tempo * 3;
-                float velocity = 0;
-                handBrakeFriction = Mathf.SmoothDamp(handBrakeFriction, tempo * 3, ref velocity, 0.1f * Time.deltaTime);
-            }
-
-            else
-            {
-                handBrakeFriction = tempo;
-            }
+            float velocity = 0;
+            handBrakeFriction = wheelHit.sidewaysSlip > .99f || wheelHit.sidewaysSlip < -.99f
+                ? Mathf.SmoothDamp(handBrakeFriction, tempo * 3, ref velocity, 0.1f * Time.deltaTime)
+                : tempo;
         }
 
         foreach (WheelCollider Wheel in Front_Wheels)
@@ -390,37 +341,27 @@ public class Car_Controller : MonoBehaviour
             if (wheelHit.sidewaysSlip < 0)
                 tempo = (1 + -Input.GetAxis("Horizontal")) * Mathf.Abs(wheelHit.sidewaysSlip * handBrakeFrictionMultiplier);
 
-            if (tempo < 0.5) tempo = 0.5f;
-
             if (wheelHit.sidewaysSlip > 0)
                 tempo = (1 + Input.GetAxis("Horizontal")) * Mathf.Abs(wheelHit.sidewaysSlip * handBrakeFrictionMultiplier);
 
-            if (tempo < 0.5) tempo = 0.5f;
+            if (tempo < 0.5)
+                tempo = 0.5f;
 
-            if (wheelHit.sidewaysSlip > .99f || wheelHit.sidewaysSlip < -.99f)
-            {
-                //handBrakeFriction = tempo * 3;
-                float velocity = 0;
-                handBrakeFriction = Mathf.SmoothDamp(handBrakeFriction, tempo * 3, ref velocity, 0.1f * Time.deltaTime);
-            }
-
-            else
-            {
-                handBrakeFriction = tempo;
-            }
+            float velocity = 0;
+            //handBrakeFriction = tempo * 3;
+            handBrakeFriction = wheelHit.sidewaysSlip > .99f || wheelHit.sidewaysSlip < -.99f
+                ? Mathf.SmoothDamp(handBrakeFriction, tempo * 3, ref velocity, 0.1f * Time.deltaTime)
+                : tempo;
         }
 
+        //Turn on the reverse lights when car is reversing
+        //Turn on reverse light(s)
         if ((Input.GetAxis("Vertical") < 0) && Car_Started)
-        { //Turn on the reverse lights when car is reversing
-            //Turn on reverse light(s)
             Turn_On_ReverseLights();
-        }
 
+        //Turn off reverse light(s)
         if ((Input.GetAxis("Vertical") > 0) && Car_Started)
-        {
-            //Turn off reverse light(s)
             Turn_Off_ReverseLights();
-        }
     }
 
     private void OnEnable()
@@ -438,15 +379,10 @@ public class Car_Controller : MonoBehaviour
 
     public void Update()
     {
-
         //Scene Settings
         if (Use_Scene_Settings)
-        {
             if (Input.GetKeyDown(Scene_Reset_Key))
-            { //When the reset key is pressed
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); //Restart the current scene
-            }
-        }
 
         //Rotating The Wheels Meshes so they have the same position and rotation as the wheel colliders
         var pos = Vector3.zero; //position value (temporary)
@@ -467,7 +403,11 @@ public class Car_Controller : MonoBehaviour
         }
 
         //Make Car Brake
-        if (Input.GetKey(KeyCode.Space) && Car_Started)
+        if (!Input.GetKey(KeyCode.Space) || !Car_Started)
+        {
+            Brakes = 0f;
+        }
+        else
         {
             Brakes = BrakeForce;
 
@@ -494,12 +434,10 @@ public class Car_Controller : MonoBehaviour
                     Wheel_sidewaysFriction.extremumValue = Wheel_sidewaysFriction.asymptoteValue = ((currSpeed * frictionMultiplier) / 300) + 1;
                 }
             }
-
-            if (!Set_Drift_Settings_Automatically)
+            else
             {
                 foreach (WheelCollider Wheel in Back_Wheels)
                 {
-                    //Variables getting assigned
                     Wheel_forwardFriction = Wheel.forwardFriction;
                     Wheel_sidewaysFriction = Wheel.sidewaysFriction;
 
@@ -510,7 +448,6 @@ public class Car_Controller : MonoBehaviour
 
                 foreach (WheelCollider Wheel in Front_Wheels)
                 {
-                    //Variables getting assigned
                     Wheel_forwardFriction = Wheel.forwardFriction;
                     Wheel_sidewaysFriction = Wheel.sidewaysFriction;
 
@@ -521,96 +458,63 @@ public class Car_Controller : MonoBehaviour
             }
         }
 
-        else
-        {
-            Brakes = 0f;
-        }
-
         //Apply brake force
         foreach (WheelCollider Wheel in Front_Wheels)
-        {
             Wheel.brakeTorque = Brakes; //set the brake torque of the wheels to the brake torque
-        }
 
         foreach (WheelCollider Wheel in Back_Wheels)
-        {
             Wheel.brakeTorque = Brakes; //set the brake torque of the wheels to the brake torque
-        }
 
         //Turn the brakelights on
+        //When the car brake button is pressed
         if (!Input.GetKey(KeyCode.Space) && Car_Started)
-        { //When the car brake button is pressed
             Turn_Off_Brakelights();
-        }
 
         //Audio System
-        if (Enable_Audio)
+        if (!Enable_Audio)
+            return;
+
+        if (Enable_Engine_Audio && Car_Started)
         {
-            if (Enable_Engine_Audio && Car_Started)
-            {
-                //Setting the pitch according to the speed of the car.
-                pitch = Car_Speed_In_KPH / Maximum_Speed + 1f;
+            //Setting the pitch according to the speed of the car.
+            pitch = Car_Speed_In_KPH / Maximum_Speed + 1f;
 
-                //Do this if the pitch variable exceeds the maximum pitch value
-                if (pitch > Maximum_Pitch_Value)
-                {
-                    pitch = Maximum_Pitch_Value;
-                }
+            if (pitch > Maximum_Pitch_Value)
+                pitch = Maximum_Pitch_Value;
+            else if (pitch < Minimum_Pitch_Value)
+                pitch = Minimum_Pitch_Value;
 
-                //Do this if the pitch variable is lower than the minimum pitch value
-                else if (pitch < Minimum_Pitch_Value)
-                {
-                    pitch = Minimum_Pitch_Value;
-                }
-
-                //This actually sets the audio source pitch
-                Engine_Sound.pitch = pitch;
-            }
-
-            if (Enable_Engine_Audio && !Car_Started)
-            {
-                //Stop Engine
-                Engine_Sound.Stop();
-            }
-
-            //Car Horn
-            if (Enable_Horn)
-            {
-                if (Input.GetKey(Car_Horn_Key) && !Horn_Source.isPlaying)
-                {
-                    //Play the sound
-                    Horn_Source.Play();
-                }
-
-                if (!Input.GetKey(Car_Horn_Key))
-                {
-                    //Stop playing the sound
-                    Horn_Source.Stop();
-                }
-            }
+            //This actually sets the audio source pitch
+            Engine_Sound.pitch = pitch;
         }
+
+        //Stop Engine
+        if (Enable_Engine_Audio && !Car_Started)
+            Engine_Sound.Stop();
+
+        //Car Horn
+        if (!Enable_Horn)
+            return;
+
+        //Play the sound
+        if (Input.GetKey(Car_Horn_Key) && !Horn_Source.isPlaying)
+            Horn_Source.Play();
+
+        //Stop playing the sound
+        if (!Input.GetKey(Car_Horn_Key))
+            Horn_Source.Stop();
     }
 
     void OnCollisionEnter(Collision col)
     {
         //Play the crash sound when car crashes into an object with the tag in the "Crash_Object_Tags" list
-        if (Enable_Crash_Noise && Enable_Audio)
-        {
-            foreach (string tag in Crash_Object_Tags)
-            {
-                if (col.gameObject.tag == tag)
-                {
-                    //Play the crash sound:
-                    Crash_Sound.Play();
-                }
+        if (!Enable_Crash_Noise || !Enable_Audio)
+            return;
 
-                else
-                {
-                    //Stop playing the crash sound
-                    Crash_Sound.Stop();
-                }
-            }
-        }
+        //Play the crash sound:
+        foreach (string tag in Crash_Object_Tags)
+            if (col.gameObject.CompareTag(tag))
+                Crash_Sound.Play();
     }
 
     //Functions to turn on/off the brakelights
@@ -619,21 +523,13 @@ public class Car_Controller : MonoBehaviour
     {
         //When using lights
         if (Enable_Brakelights_Lights)
-        {
             foreach (Light L in BrakeLights)
-            {
                 L.enabled = true;
-            }
-        }
 
         //When using Mesh Renderers
         if (Enable_Brakelights_MeshRenderers)
-        {
             foreach (MeshRenderer BM in BrakeLights_MeshRenderers)
-            {
                 BM.enabled = true;
-            }
-        }
 
         //When using Materials
         if (Enable_Brakelights_Materials)
@@ -647,30 +543,20 @@ public class Car_Controller : MonoBehaviour
 
         //When using colors (by changing the color of material)
         if (Enable_Brakelights_Colors)
-        {
             BrakeLight_Material.SetColor("_Color", BrakeLights_On_Color);
-        }
     }
 
     public void Turn_Off_Brakelights()
     {
         //When using lights
         if (Enable_Brakelights_Lights)
-        {
             foreach (Light L in BrakeLights)
-            {
                 L.enabled = false;
-            }
-        }
 
         //When using Mesh Renderers
         if (Enable_Brakelights_MeshRenderers)
-        {
             foreach (MeshRenderer BM in BrakeLights_MeshRenderers)
-            {
                 BM.enabled = false;
-            }
-        }
 
         //When using Materials
         if (Enable_Brakelights_Materials)
@@ -684,9 +570,7 @@ public class Car_Controller : MonoBehaviour
 
         //When using colors (by changing the color of material)
         if (Enable_Brakelights_Colors)
-        {
             BrakeLight_Material.SetColor("_Color", BrakeLights_Off_Color);
-        }
     }
 
     //These are funtions for turning the headlights on & off (so I dont copy/paste the same thing again and again)
@@ -695,21 +579,13 @@ public class Car_Controller : MonoBehaviour
     {
         //Headlights when using lights
         if (Enable_Headlights_Lights)
-        {
             foreach (Light H in HeadLights)
-            {
                 H.enabled = true;
-            }
-        }
 
         //When using Mesh Renderers
         if (Enable_Headlights_MeshRenderers)
-        {
             foreach (MeshRenderer HM in HeadLights_MeshRenderers)
-            {
                 HM.enabled = true;
-            }
-        }
 
         //When using Materials
         if (Enable_Headlights_Materials)
@@ -723,28 +599,18 @@ public class Car_Controller : MonoBehaviour
 
         //When using colors (by changing the color of material)
         if (Enable_Headlights_Colors)
-        {
             HeadLight_Material.SetColor("_Color", HeadLights_On_Color);
-        }
     }
 
     public void Turn_Off_Headlights()
     {
         if (Enable_Headlights_Lights)
-        {
             foreach (Light H in HeadLights)
-            {
                 H.enabled = false;
-            }
-        }
 
         if (Enable_Headlights_MeshRenderers)
-        {
             foreach (MeshRenderer HM in HeadLights_MeshRenderers)
-            {
                 HM.enabled = false;
-            }
-        }
 
         //When using Materials
         if (Enable_Headlights_Materials)
@@ -758,9 +624,7 @@ public class Car_Controller : MonoBehaviour
 
         //When using colors (by changing the color of material)
         if (Enable_Headlights_Colors)
-        {
             HeadLight_Material.SetColor("_Color", HeadLights_Off_Color);
-        }
     }
 
     //Turn off/on reverse lights functions
@@ -768,21 +632,13 @@ public class Car_Controller : MonoBehaviour
     {
         //When using Light objects
         if (Enable_Reverselights_Lights)
-        {
             foreach (Light Rl in ReverseLights)
-            {
                 Rl.enabled = false;
-            }
-        }
 
         //When using Mesh renderers
         if (Enable_Reverselights_MeshRenderers)
-        {
             foreach (MeshRenderer RM in ReverseLights_MeshRenderers)
-            {
                 RM.enabled = false;
-            }
-        }
 
         //When using Materials
         if (Enable_Reverselights_Materials)
@@ -796,30 +652,20 @@ public class Car_Controller : MonoBehaviour
 
         //When using colors (by changing the color of material)
         if (Enable_Reverselights_Colors)
-        {
             ReverseLight_Material.SetColor("_Color", ReverseLights_Off_Color);
-        }
     }
 
     public void Turn_On_ReverseLights()
     {
         //When using light objects
         if (Enable_Reverselights_Lights)
-        {
             foreach (Light Rl in ReverseLights)
-            {
                 Rl.enabled = true;
-            }
-        }
 
         //When using Mesh renderers
         if (Enable_Reverselights_MeshRenderers)
-        {
             foreach (MeshRenderer RM in ReverseLights_MeshRenderers)
-            {
                 RM.enabled = true;
-            }
-        }
 
         //When using Materials
         if (Enable_Reverselights_Materials)
@@ -833,9 +679,7 @@ public class Car_Controller : MonoBehaviour
 
         //When using colors (by changing the color of material)
         if (Enable_Reverselights_Colors)
-        {
             ReverseLight_Material.SetColor("_Color", ReverseLights_On_Color);
-        }
     }
 
     //Turn off car function
@@ -859,12 +703,10 @@ public class Car_Controller : MonoBehaviour
     {
         rb.AddForce(Boost_Amount * transform.forward, ForceMode.VelocityChange);
 
-        if (Enable_Boost_particles)
-        {
-            foreach (ParticleSystem P in Boost_particles)
-            {
-                P.Play();
-            }
-        }
+        if (!Enable_Boost_particles)
+            return;
+
+        foreach (ParticleSystem P in Boost_particles)
+            P.Play();
     }
 }
