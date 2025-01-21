@@ -1,9 +1,12 @@
+using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class CarCameraScript : MonoBehaviour
 {
-
     public Transform car;
+
+    [Header("Camera Settings")]
     public float distance = 6.4f;
     public float height = 1.4f;
     public float rotationDamping = 3.0f;
@@ -11,6 +14,13 @@ public class CarCameraScript : MonoBehaviour
     public float zoomRatio = 0.5f;
     public float defaultFOV = 60f;
 
+    [Space(10)]
+    [Header("Fade Options")]
+    public int raycastMaxHits = 10;
+    public Transform raycastFadeLocation;
+
+
+    private List<CustomObjectFader> faders = new();
     private Vector3 rotationVector;
 
     void LateUpdate()
@@ -34,20 +44,48 @@ public class CarCameraScript : MonoBehaviour
 
     void FixedUpdate()
     {
-        Vector3 localVelocity = car.InverseTransformDirection(car.GetComponent<Rigidbody>().velocity);
-        if (localVelocity.z < -0.1f)
-        {
-            Vector3 temp = rotationVector; //because temporary variables seem to be removed after a closing bracket "}" we can use the same variable name multiple times.
-            temp.y = car.eulerAngles.y + 180;
-            rotationVector = temp;
-        }
-        else
-        {
-            Vector3 temp = rotationVector;
-            temp.y = car.eulerAngles.y;
-            rotationVector = temp;
-        }
+        Vector3 temp = rotationVector;
+        temp.y = car.eulerAngles.y;
+        rotationVector = temp;
+
         float acc = car.GetComponent<Rigidbody>().velocity.magnitude;
         GetComponent<Camera>().fieldOfView = defaultFOV + acc * zoomRatio * Time.deltaTime;  //he removed * Time.deltaTime but it works better if you leave it like this.
+
+        FadeHandler();
+    }
+
+    private void FadeHandler()
+    {
+        Vector3 dir = raycastFadeLocation.transform.position - transform.position;
+        Ray ray = new(transform.position, dir);
+
+        var hits = new RaycastHit[raycastMaxHits];
+        if (Physics.RaycastNonAlloc(ray, hits) == 0)
+            return;
+
+        for (int i = 0; i < hits.Length; i++)
+        {
+            RaycastHit hit = hits[i];
+            if (hit.collider == null)
+                continue;
+
+            if (hit.collider.gameObject == car.gameObject)
+            {
+                if (i != 1)
+                    continue;
+
+                for (int j = faders.Count - 1; j >= 0; j--)
+                {
+                    CustomObjectFader fadeIn = faders[j];
+                    fadeIn.DoFade = false;
+                    faders.RemoveAt(j);
+                }
+            }
+            else if (hit.collider.gameObject.TryGetComponent(out CustomObjectFader fader) && fader.DoFade == false)
+            {
+                faders.Add(fader);
+                fader.DoFade = true;
+            }
+        }
     }
 }
