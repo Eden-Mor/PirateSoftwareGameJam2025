@@ -6,7 +6,6 @@ public class SleepyRigidBody : MonoBehaviour
 {
 	private void Awake()
 	{
-		Debug.Log( "Tree is awake!" );
 		Rigidbody rb = GetComponent<Rigidbody>();
 		rb.Sleep();
 	}
