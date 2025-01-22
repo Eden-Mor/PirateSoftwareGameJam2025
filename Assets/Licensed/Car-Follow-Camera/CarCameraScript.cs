@@ -77,14 +77,18 @@ public class CarCameraScript : MonoBehaviour
                 for (int j = faders.Count - 1; j >= 0; j--)
                 {
                     CustomObjectFader fadeIn = faders[j];
-                    fadeIn.DoFade = false;
+                    fadeIn.Reveal();
                     faders.RemoveAt(j);
                 }
             }
-            else if (hit.collider.gameObject.TryGetComponent(out CustomObjectFader fader) && fader.DoFade == false)
+            else 
             {
+                var fader = hit.collider.gameObject.GetComponentInChildren<CustomObjectFader>();
+                if (fader == null || fader.IsFading())
+                    continue;
+
                 faders.Add(fader);
-                fader.DoFade = true;
+                fader.Fade();
             }
         }
     }

@@ -116,6 +116,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1586525915030296759}
   - component: {fileID: 2176963877589444304}
+  - component: {fileID: -761751733630658188}
   m_Layer: 0
   m_Name: skyscraper_b
   m_TagString: Untagged
@@ -161,6 +162,21 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.9, y: 2.2, z: 0.9}
   m_Center: {x: 0, y: 1.1, z: 0}
+--- !u!114 &-761751733630658188
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8152202684055889159}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 169278da57a4ff74b85da150c5bec5bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DoFade: 0
+  fadeSpeed: 20
+  fadeAmount: 0.3
 --- !u!1001 &5917526246564960907
 PrefabInstance:
   m_ObjectHideFlags: 0
