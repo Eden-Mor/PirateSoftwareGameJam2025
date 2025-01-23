@@ -3,7 +3,17 @@ guid: 4e90ee39680216e46b1201bef8975652
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: _defaultMat
+    second: {fileID: 2100000, guid: 58720a2dbec6bc74190f9ad3abf50e09, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pavement
+    second: {fileID: 2100000, guid: c13f63cbd41224f499728fda21179496, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

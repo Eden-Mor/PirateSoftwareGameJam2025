@@ -1,6 +1,4 @@
-using System;
 using System.Collections;
-using System.Linq;
 using UnityEngine;
 
 public class CustomObjectFader : MonoBehaviour
@@ -9,53 +7,62 @@ public class CustomObjectFader : MonoBehaviour
     private float originalOpacity;
     private Material[] mats;
 
-    private bool? doFade = false;
     private bool isFaded = false;
 
     void Start()
     {
         mats = GetComponentInChildren<Renderer>().materials;
-        originalOpacity = 100f;
+        originalOpacity = 1f;
+        fadeAmount += 0.3f;
     }
 
     private IEnumerator FadeNow()
     {
-        while (doFade == true)
+        float alpha = 1f;
+        Color smoothColor = Color.red;
+        Color currentColor = Color.red;
+        while (isFaded)
         {
-            Color? smoothColor = null;
-
             foreach (Material mat in mats)
             {
-                Color currentColor = mat.GetColor("_Base_Color");
-                smoothColor = new(currentColor.r, currentColor.g, currentColor.b, Mathf.Lerp(currentColor.a, fadeAmount, fadeSpeed * Time.deltaTime));
-                mat.SetColor("_Base_Color", smoothColor.Value);
-            }
+                currentColor = mat.GetColor("_Base_Color");
+                alpha = Mathf.Lerp(currentColor.a, fadeAmount, fadeSpeed * 0.1f * Time.deltaTime);
+                if (alpha >= 0.99f)
+                    alpha = 1f;
 
+                smoothColor = new(currentColor.r, currentColor.g, currentColor.b, alpha);
+                mat.SetColor("_Base_Color", smoothColor);
+            }
 
             yield return 0;
 
-            if (!smoothColor.HasValue || smoothColor.Value.a == fadeAmount)
-                doFade = null;
+            if (smoothColor.a <= fadeAmount + 0.02f)
+                break;
         }
     }
 
     private IEnumerator ResetFade()
     {
-        while (!(doFade == true))
+        float alpha = 100f;
+        Color smoothColor = Color.red;
+        Color currentColor = Color.red;
+        while (!isFaded)
         {
-            Color? smoothColor = null;
-
             foreach (Material mat in mats)
             {
-                Color currentColor = mat.GetColor("_Base_Color");
-                smoothColor = new(currentColor.r, currentColor.g, currentColor.b, Mathf.Lerp(currentColor.a, originalOpacity, fadeSpeed * Time.deltaTime));
-                mat.SetColor("_Base_Color", smoothColor.Value);
+                currentColor = mat.GetColor("_Base_Color");
+                alpha = Mathf.Lerp(currentColor.a, originalOpacity, fadeSpeed * 0.1f * Time.deltaTime);
+                if (alpha >= 0.99f)
+                    alpha = 1f;
+
+                smoothColor = new(currentColor.r, currentColor.g, currentColor.b, alpha);
+                mat.SetColor("_Base_Color", smoothColor);
             }
 
             yield return 0;
 
-            if (!smoothColor.HasValue || smoothColor.Value.a == originalOpacity)
-                doFade = null;
+            if (alpha + 0.01f >= originalOpacity)
+                break;
         }
     }
 
@@ -64,25 +71,21 @@ public class CustomObjectFader : MonoBehaviour
 
     public void Reveal()
     {
-        isFaded = false;
-
-        //If its already false, do nothing
-        if (!(doFade == true))
+        if (!isFaded)
             return;
 
-        doFade = false;
+        isFaded = false;
+
         StartCoroutine(ResetFade());
     }
 
     public void Fade()
     {
-        isFaded = true;
-
-        //If its already true, do nothing
-        if (doFade == true)
+        if (isFaded)
             return;
 
-        doFade = true;
+        isFaded = true;
+
         StartCoroutine(FadeNow());
     }
 }

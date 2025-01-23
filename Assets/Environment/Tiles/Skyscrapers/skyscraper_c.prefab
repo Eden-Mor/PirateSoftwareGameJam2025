@@ -116,7 +116,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1586525915030296759}
   - component: {fileID: 2198813261719834211}
-  - component: {fileID: 1865828295690331346}
   - component: {fileID: 5676005817056988097}
   m_Layer: 0
   m_Name: skyscraper_c
@@ -163,20 +162,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.9, y: 2.2, z: 0.85}
   m_Center: {x: 0, y: 1.1, z: 0}
---- !u!114 &1865828295690331346
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8152202684055889159}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 169278da57a4ff74b85da150c5bec5bd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fadeSpeed: 20
-  fadeAmount: 0.3
 --- !u!114 &5676005817056988097
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -261,10 +246,32 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e4dfb55aed39c8045afba0cb7a11aa5b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3834702760936610504}
   m_SourcePrefab: {fileID: 100100000, guid: e4dfb55aed39c8045afba0cb7a11aa5b, type: 3}
 --- !u!4 &6167116437693627744 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: e4dfb55aed39c8045afba0cb7a11aa5b, type: 3}
   m_PrefabInstance: {fileID: 5917526246564960907}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &6835953052567152602 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: e4dfb55aed39c8045afba0cb7a11aa5b, type: 3}
+  m_PrefabInstance: {fileID: 5917526246564960907}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &3834702760936610504
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6835953052567152602}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 169278da57a4ff74b85da150c5bec5bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadeSpeed: 20
+  fadeAmount: 0.3

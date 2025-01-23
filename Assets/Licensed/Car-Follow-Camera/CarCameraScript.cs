@@ -20,7 +20,6 @@ public class CarCameraScript : MonoBehaviour
     public Transform raycastFadeLocation;
 
 
-    private CustomObjectFader? cameraColliderFader = null;
     private List<CustomObjectFader> faders = new();
     private Vector3 rotationVector;
 
@@ -58,7 +57,6 @@ public class CarCameraScript : MonoBehaviour
     private void FadeHandler()
     {
         CalculateRayCollider();
-        CalculateCameraOverlapCollider();
     }
 
     private void CalculateRayCollider()
@@ -101,28 +99,24 @@ public class CarCameraScript : MonoBehaviour
 
     }
 
-    private void CalculateCameraOverlapCollider()
+
+    private void OnCollisionEnter(Collision collision)
     {
-        Collider[] cameraCollider = new Collider[1];
-        Physics.OverlapBoxNonAlloc(transform.position, Vector3.one, cameraCollider);
-        CustomObjectFader tempCameraColliderFader = null;
-        if (cameraCollider[0] != null)
-            tempCameraColliderFader = cameraCollider[0].gameObject.GetComponentInChildren<CustomObjectFader>();
+        Debug.Log("Object Entered Collision With Camera");
+        CustomObjectFader tempCameraColliderFader = collision.gameObject.GetComponentInChildren<CustomObjectFader>();
+        if (tempCameraColliderFader == null)
+            return;
 
-        if (cameraCollider[0] == null || tempCameraColliderFader == null)
-        {
-            if (cameraColliderFader != null)
-                cameraColliderFader.Reveal();
+        tempCameraColliderFader.Fade();
+    }
 
-            cameraColliderFader = null;
-        }
-        else if (!tempCameraColliderFader.IsFaded())
-        {
-            if (cameraColliderFader != null)
-                cameraColliderFader.Reveal();
+    private void OnCollisionExit(Collision collision)
+    {
+        Debug.Log("Object Exited Collision With Camera");
+        CustomObjectFader tempCameraColliderFader = collision.gameObject.GetComponentInChildren<CustomObjectFader>();
+        if (tempCameraColliderFader == null)
+            return;
 
-            cameraColliderFader = tempCameraColliderFader;
-            cameraColliderFader.Fade();
-        }
+        tempCameraColliderFader.Reveal();
     }
 }
