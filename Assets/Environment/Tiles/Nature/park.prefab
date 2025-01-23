@@ -115,6 +115,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1586525915030296759}
+  - component: {fileID: 8891372814807652662}
   m_Layer: 0
   m_Name: park
   m_TagString: Untagged
@@ -149,6 +150,19 @@ Transform:
   - {fileID: 2355928770999803296}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8891372814807652662
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8152202684055889159}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b4a7a51bf65f1143b22b2e0da321266, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  connections: -1
 --- !u!1001 &248189925318137139
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -613,10 +627,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1586525915030296759}
     m_Modifications:
-    - target: {fileID: 919132149155446097, guid: 325e1565c7c290447a4ce75b5d54c99f, type: 3}
-      propertyPath: m_TagString
-      value: Tree
-      objectReference: {fileID: 0}
     - target: {fileID: 6770867592499134185, guid: 27d4fbc31d6007040a3d0139eb440e6c, type: 3}
       propertyPath: m_Name
       value: WoodenFence
@@ -676,6 +686,10 @@ PrefabInstance:
     - target: {fileID: 8294154860423018783, guid: 27d4fbc31d6007040a3d0139eb440e6c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 325e1565c7c290447a4ce75b5d54c99f, type: 3}
+      propertyPath: m_TagString
+      value: Tree
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -773,10 +787,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1586525915030296759}
     m_Modifications:
-    - target: {fileID: 919132149155446097, guid: 325e1565c7c290447a4ce75b5d54c99f, type: 3}
-      propertyPath: m_TagString
-      value: Tree
-      objectReference: {fileID: 0}
     - target: {fileID: 6770867592499134185, guid: 27d4fbc31d6007040a3d0139eb440e6c, type: 3}
       propertyPath: m_Name
       value: WoodenFence (1)
@@ -836,6 +846,10 @@ PrefabInstance:
     - target: {fileID: 8294154860423018783, guid: 27d4fbc31d6007040a3d0139eb440e6c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 325e1565c7c290447a4ce75b5d54c99f, type: 3}
+      propertyPath: m_TagString
+      value: Tree
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
