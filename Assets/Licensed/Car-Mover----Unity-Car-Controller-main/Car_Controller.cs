@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
 
 public class Car_Controller : MonoBehaviour
@@ -514,12 +515,16 @@ public class Car_Controller : MonoBehaviour
         //Play the crash sound:
         foreach (string tag in Crash_Object_Tags)
         {
-            if (col.gameObject.CompareTag(tag))
-            {
-                Crash_Sound.Play();
+            if (!col.gameObject.CompareTag(tag))
+                continue;
 
-                EventManager.Player.OnCarCollide.Get().Invoke(col.collider.GetComponent<Component>(), Car_Speed_In_KPH);
-            }
+            float clampedVelocity = Mathf.Clamp(Car_Speed_In_KPH, 0, Maximum_Speed);
+            float volume = Mathf.Lerp(0.1f, 1f, clampedVelocity / Maximum_Speed);
+
+            Crash_Sound.volume = volume;
+
+            Crash_Sound.Play();
+            EventManager.Player.OnCarCollide.Get().Invoke(col.collider.GetComponent<Component>(), Car_Speed_In_KPH);
         }
     }
 

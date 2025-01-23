@@ -62,7 +62,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 2531c45122c8436469afe78301c1bf8d, type: 2}
+  - {fileID: 2100000, guid: 428be64068c84654c96305a4c7ccf8e8, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -161,6 +161,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WoodenFence (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 6770867592499134185, guid: 27d4fbc31d6007040a3d0139eb440e6c, type: 3}
+      propertyPath: m_TagString
+      value: Fence
+      objectReference: {fileID: 0}
     - target: {fileID: 8294154860423018783, guid: 27d4fbc31d6007040a3d0139eb440e6c, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
@@ -234,6 +238,10 @@ PrefabInstance:
     - target: {fileID: 6770867592499134185, guid: 27d4fbc31d6007040a3d0139eb440e6c, type: 3}
       propertyPath: m_Name
       value: WoodenFence (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6770867592499134185, guid: 27d4fbc31d6007040a3d0139eb440e6c, type: 3}
+      propertyPath: m_TagString
+      value: Fence
       objectReference: {fileID: 0}
     - target: {fileID: 8294154860423018783, guid: 27d4fbc31d6007040a3d0139eb440e6c, type: 3}
       propertyPath: m_LocalScale.x
@@ -309,6 +317,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WoodenFence (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 6770867592499134185, guid: 27d4fbc31d6007040a3d0139eb440e6c, type: 3}
+      propertyPath: m_TagString
+      value: Fence
+      objectReference: {fileID: 0}
     - target: {fileID: 8294154860423018783, guid: 27d4fbc31d6007040a3d0139eb440e6c, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
@@ -382,6 +394,10 @@ PrefabInstance:
     - target: {fileID: 6770867592499134185, guid: 27d4fbc31d6007040a3d0139eb440e6c, type: 3}
       propertyPath: m_Name
       value: WoodenFence (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6770867592499134185, guid: 27d4fbc31d6007040a3d0139eb440e6c, type: 3}
+      propertyPath: m_TagString
+      value: Fence
       objectReference: {fileID: 0}
     - target: {fileID: 8294154860423018783, guid: 27d4fbc31d6007040a3d0139eb440e6c, type: 3}
       propertyPath: m_LocalScale.x
@@ -457,6 +473,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TreeSmall
       objectReference: {fileID: 0}
+    - target: {fileID: 5790290671320130714, guid: 17e574c9271420a43aedd9bec3f2f210, type: 3}
+      propertyPath: m_TagString
+      value: Tree
+      objectReference: {fileID: 0}
     - target: {fileID: 6562006355492421152, guid: 17e574c9271420a43aedd9bec3f2f210, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.33
@@ -518,6 +538,10 @@ PrefabInstance:
     - target: {fileID: 6770867592499134185, guid: 27d4fbc31d6007040a3d0139eb440e6c, type: 3}
       propertyPath: m_Name
       value: WoodenFence (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6770867592499134185, guid: 27d4fbc31d6007040a3d0139eb440e6c, type: 3}
+      propertyPath: m_TagString
+      value: Fence
       objectReference: {fileID: 0}
     - target: {fileID: 8294154860423018783, guid: 27d4fbc31d6007040a3d0139eb440e6c, type: 3}
       propertyPath: m_LocalScale.x
@@ -589,9 +613,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1586525915030296759}
     m_Modifications:
+    - target: {fileID: 919132149155446097, guid: 325e1565c7c290447a4ce75b5d54c99f, type: 3}
+      propertyPath: m_TagString
+      value: Tree
+      objectReference: {fileID: 0}
     - target: {fileID: 6770867592499134185, guid: 27d4fbc31d6007040a3d0139eb440e6c, type: 3}
       propertyPath: m_Name
       value: WoodenFence
+      objectReference: {fileID: 0}
+    - target: {fileID: 6770867592499134185, guid: 27d4fbc31d6007040a3d0139eb440e6c, type: 3}
+      propertyPath: m_TagString
+      value: Fence
       objectReference: {fileID: 0}
     - target: {fileID: 8294154860423018783, guid: 27d4fbc31d6007040a3d0139eb440e6c, type: 3}
       propertyPath: m_LocalScale.x
@@ -667,6 +699,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WoodenFence (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 6770867592499134185, guid: 27d4fbc31d6007040a3d0139eb440e6c, type: 3}
+      propertyPath: m_TagString
+      value: Fence
+      objectReference: {fileID: 0}
     - target: {fileID: 8294154860423018783, guid: 27d4fbc31d6007040a3d0139eb440e6c, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
@@ -737,9 +773,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1586525915030296759}
     m_Modifications:
+    - target: {fileID: 919132149155446097, guid: 325e1565c7c290447a4ce75b5d54c99f, type: 3}
+      propertyPath: m_TagString
+      value: Tree
+      objectReference: {fileID: 0}
     - target: {fileID: 6770867592499134185, guid: 27d4fbc31d6007040a3d0139eb440e6c, type: 3}
       propertyPath: m_Name
       value: WoodenFence (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6770867592499134185, guid: 27d4fbc31d6007040a3d0139eb440e6c, type: 3}
+      propertyPath: m_TagString
+      value: Fence
       objectReference: {fileID: 0}
     - target: {fileID: 8294154860423018783, guid: 27d4fbc31d6007040a3d0139eb440e6c, type: 3}
       propertyPath: m_LocalScale.x
@@ -815,6 +859,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TreeSmall (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 5790290671320130714, guid: 17e574c9271420a43aedd9bec3f2f210, type: 3}
+      propertyPath: m_TagString
+      value: Tree
+      objectReference: {fileID: 0}
     - target: {fileID: 6562006355492421152, guid: 17e574c9271420a43aedd9bec3f2f210, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.14506328
@@ -855,6 +903,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 325e1565c7c290447a4ce75b5d54c99f, type: 3}
+      propertyPath: m_Name
+      value: tree_small
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 325e1565c7c290447a4ce75b5d54c99f, type: 3}
+      propertyPath: m_TagString
+      value: Tree
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -876,6 +932,14 @@ PrefabInstance:
     - target: {fileID: 5790290671320130714, guid: 17e574c9271420a43aedd9bec3f2f210, type: 3}
       propertyPath: m_Name
       value: TreeSmall (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5790290671320130714, guid: 17e574c9271420a43aedd9bec3f2f210, type: 3}
+      propertyPath: m_TagString
+      value: Tree
+      objectReference: {fileID: 0}
+    - target: {fileID: 6562006355492421152, guid: 17e574c9271420a43aedd9bec3f2f210, type: 3}
+      propertyPath: 
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 6562006355492421152, guid: 17e574c9271420a43aedd9bec3f2f210, type: 3}
       propertyPath: m_LocalPosition.x
@@ -913,9 +977,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6562006355492421152, guid: 17e574c9271420a43aedd9bec3f2f210, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
+    - target: {fileID: 919132149155446097, guid: 325e1565c7c290447a4ce75b5d54c99f, type: 3}
+      propertyPath: m_Name
+      value: tree_small (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 325e1565c7c290447a4ce75b5d54c99f, type: 3}
+      propertyPath: m_TagString
+      value: Tree
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
