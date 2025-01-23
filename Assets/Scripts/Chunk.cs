@@ -52,12 +52,17 @@ public class Chunk : MonoBehaviour
 	/// </summary>
 	public GameObject[,] tiles;
 
+	// TODO: Do this in a better way.
+	public GameObject[,] instances;
+
 	/// <summary>
 	/// Initialises the tiles array then sets off the Generation and Building process.
 	/// </summary>
 	public void Start()
 	{
+		// TODO: Create seperate model and instance datastructures, using composition to reduce duplication.
 		tiles = new GameObject[ size, size ];
+		instances = new GameObject[ size, size ];
 		Generate();
 		Build();
 	}
@@ -201,6 +206,7 @@ public class Chunk : MonoBehaviour
 		GameObject tile = Instantiate( tiles[ x, z ] );
 		tile.transform.SetParent( tilesParent, false );
 		tile.transform.localPosition = new Vector3( x * tileSize, 0.0f, z * tileSize );
+		instances[ x, z ] = tile;
 	}
 }
 

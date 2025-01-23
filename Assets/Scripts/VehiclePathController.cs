@@ -47,7 +47,7 @@ public class VehiclePathController : MonoBehaviour
 
 			path.Evaluate( Mathf.Clamp(progress, 0f, 1f), out position, out tangent, out up );
 
-			Debug.Log( "VehiclePathController > UpdatTransform > position: " + position );
+			Debug.Log( "VehiclePathController > UpdateTransform > position: " + position );
 
 			transform.position = position;
 		}

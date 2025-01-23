@@ -36,7 +36,7 @@ public class VehicleSpawner : MonoBehaviour
 
 		// Get a road tile from the chunk.
 		// TODO: Randomise.
-		GameObject tileObject = chunk.tiles[ 0, 2 ];
+		GameObject tileObject = chunk.instances[ 2, 0 ];
 		Debug.Log( "VehicleSpawner > SpawnVehicle > tileObject.name: " + tileObject.name );
 
 		// Get a Tile Path from the tile, which we'll have the vehicle follow.
