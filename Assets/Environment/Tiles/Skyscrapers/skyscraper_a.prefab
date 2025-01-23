@@ -240,6 +240,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: skyscraperA
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 5c0ab78f941ee214480acf6a4e11af4d, type: 3}
+      propertyPath: m_TagString
+      value: Building
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
