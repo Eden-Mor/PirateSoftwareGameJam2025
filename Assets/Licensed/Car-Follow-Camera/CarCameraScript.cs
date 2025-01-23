@@ -20,6 +20,7 @@ public class CarCameraScript : MonoBehaviour
     public Transform raycastFadeLocation;
 
 
+    private CustomObjectFader? cameraColliderFader = null;
     private List<CustomObjectFader> faders = new();
     private Vector3 rotationVector;
 
@@ -56,6 +57,12 @@ public class CarCameraScript : MonoBehaviour
 
     private void FadeHandler()
     {
+        CalculateRayCollider();
+        CalculateCameraOverlapCollider();
+    }
+
+    private void CalculateRayCollider()
+    {
         Vector3 dir = raycastFadeLocation.transform.position - transform.position;
         Ray ray = new(transform.position, dir);
 
@@ -81,15 +88,41 @@ public class CarCameraScript : MonoBehaviour
                     faders.RemoveAt(j);
                 }
             }
-            else 
+            else
             {
                 var fader = hit.collider.gameObject.GetComponentInChildren<CustomObjectFader>();
-                if (fader == null || fader.IsFading())
+                if (fader == null || fader.IsFaded())
                     continue;
 
                 faders.Add(fader);
                 fader.Fade();
             }
+        }
+
+    }
+
+    private void CalculateCameraOverlapCollider()
+    {
+        Collider[] cameraCollider = new Collider[1];
+        Physics.OverlapBoxNonAlloc(transform.position, Vector3.one, cameraCollider);
+        CustomObjectFader tempCameraColliderFader = null;
+        if (cameraCollider[0] != null)
+            tempCameraColliderFader = cameraCollider[0].gameObject.GetComponentInChildren<CustomObjectFader>();
+
+        if (cameraCollider[0] == null || tempCameraColliderFader == null)
+        {
+            if (cameraColliderFader != null)
+                cameraColliderFader.Reveal();
+
+            cameraColliderFader = null;
+        }
+        else if (!tempCameraColliderFader.IsFaded())
+        {
+            if (cameraColliderFader != null)
+                cameraColliderFader.Reveal();
+
+            cameraColliderFader = tempCameraColliderFader;
+            cameraColliderFader.Fade();
         }
     }
 }

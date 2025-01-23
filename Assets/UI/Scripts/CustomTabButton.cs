@@ -7,7 +7,7 @@ using UnityEngine.UI;
 //Originally by Game Dev Guide
 
 [RequireComponent(typeof(Image))]
-public class TabButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
+public class CustomTabButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
 {
     public TabGroup tabGroup;
     public Image background;
