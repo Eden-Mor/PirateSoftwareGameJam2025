@@ -44,26 +44,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 823052bca88ee074582afc5d3f90108f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  weight:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   tiles:
-  - prefab: {fileID: 2374855546814945421, guid: 52fe8edf59bcb1b48877bf37d40ef01a, type: 3}
-    connections: 3
-  - prefab: {fileID: 2374855546814945421, guid: 8b38b6b8e4d233d46b9a11b38aabcfaa, type: 3}
-    connections: 9
-  - prefab: {fileID: 2374855546814945421, guid: 409f921fc9eceeb4aa6cf8883ac2edac, type: 3}
-    connections: 6
-  - prefab: {fileID: 2374855546814945421, guid: 482784d3838781a4086b19a7ae2d5b1d, type: 3}
-    connections: 12
-  - prefab: {fileID: 2374855546814945421, guid: 89e5fa7fec9bbf049bf95c2b3388d257, type: 3}
-    connections: -1
-  - prefab: {fileID: 2374855546814945421, guid: 2a9614eca42b7b043aaf27b3965ec2a7, type: 3}
-    connections: 11
-  - prefab: {fileID: 2374855546814945421, guid: 865fa1eb042e6774593fd44555d600f9, type: 3}
-    connections: 14
-  - prefab: {fileID: 2374855546814945421, guid: 3177304606db2f44e9b66e420632f7a9, type: 3}
-    connections: 7
-  - prefab: {fileID: 2374855546814945421, guid: eff7927e18fef3845b49d29b0205b052, type: 3}
-    connections: 13
-  - prefab: {fileID: 2374855546814945421, guid: 6ecd2a2073b2d98488e5a6d36ba13507, type: 3}
-    connections: 10
-  - prefab: {fileID: 2374855546814945421, guid: 11c35ab7aed4e86449ff9821f977a13f, type: 3}
-    connections: 5
+  - {fileID: 2374855546814945421, guid: 52fe8edf59bcb1b48877bf37d40ef01a, type: 3}
+  - {fileID: 2374855546814945421, guid: 8b38b6b8e4d233d46b9a11b38aabcfaa, type: 3}
+  - {fileID: 2374855546814945421, guid: 409f921fc9eceeb4aa6cf8883ac2edac, type: 3}
+  - {fileID: 2374855546814945421, guid: 482784d3838781a4086b19a7ae2d5b1d, type: 3}
+  - {fileID: 2374855546814945421, guid: 89e5fa7fec9bbf049bf95c2b3388d257, type: 3}
+  - {fileID: 2374855546814945421, guid: 2a9614eca42b7b043aaf27b3965ec2a7, type: 3}
+  - {fileID: 2374855546814945421, guid: 865fa1eb042e6774593fd44555d600f9, type: 3}
+  - {fileID: 2374855546814945421, guid: 3177304606db2f44e9b66e420632f7a9, type: 3}
+  - {fileID: 2374855546814945421, guid: eff7927e18fef3845b49d29b0205b052, type: 3}
+  - {fileID: 2374855546814945421, guid: 6ecd2a2073b2d98488e5a6d36ba13507, type: 3}
+  - {fileID: 2374855546814945421, guid: 11c35ab7aed4e86449ff9821f977a13f, type: 3}

@@ -44,11 +44,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 823052bca88ee074582afc5d3f90108f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tiles:
-  - prefab: {fileID: 8152202684055889159, guid: d094e3ed8bf4e3a42a3f6355368a634d, type: 3}
-    connections: -1
-  - prefab: {fileID: 8152202684055889159, guid: 41be00d7f1fa39a4cbe21b049479f4f2, type: 3}
-    connections: -1
   weight:
     serializedVersion: 2
     m_Curve:
@@ -73,3 +68,6 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  tiles:
+  - {fileID: 8152202684055889159, guid: d094e3ed8bf4e3a42a3f6355368a634d, type: 3}
+  - {fileID: 8152202684055889159, guid: 41be00d7f1fa39a4cbe21b049479f4f2, type: 3}

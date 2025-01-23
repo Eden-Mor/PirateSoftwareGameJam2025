@@ -50,14 +50,14 @@ public class Chunk : MonoBehaviour
 	/// Data structure that holds a representation of the chunk (from which the scene can be built),
 	/// queried, and modified.
 	/// </summary>
-	Tile[,] tiles;
+	GameObject[,] tiles;
 
 	/// <summary>
 	/// Initialises the tiles array then sets off the Generation and Building process.
 	/// </summary>
 	public void Start()
 	{
-		tiles = new Tile[ size, size ];
+		tiles = new GameObject[ size, size ];
 		Generate();
 		Build();
 	}
@@ -131,7 +131,7 @@ public class Chunk : MonoBehaviour
 	/// <param name="x">x-coordinate of the tile within the chunk.  Not currently used, but will be soon.</param>
 	/// <param name="z">z-coordinate of the tile within the chunk.  Not currently used, but will be soon.</param>
 	/// <returns></returns>
-	Tile SelectRandomTile( int x, int z )
+	GameObject SelectRandomTile( int x, int z )
 	{
 		// Determine how far this tile is from the world origin as a fraction of the total radius of the city.
 		Vector2 tilePosition = new Vector2( transform.position.x + (x * tileSize), transform.position.z + (z * tileSize) );
@@ -198,7 +198,7 @@ public class Chunk : MonoBehaviour
 	/// <param name="z">z-coordinate of the tile.</param>
 	void BuildTile( int x, int z )
 	{
-		GameObject tile = Instantiate( tiles[ x, z ].prefab );
+		GameObject tile = Instantiate( tiles[ x, z ] );
 		tile.transform.SetParent( tilesParent, false );
 		tile.transform.localPosition = new Vector3( x * tileSize, 0.0f, z * tileSize );
 	}
