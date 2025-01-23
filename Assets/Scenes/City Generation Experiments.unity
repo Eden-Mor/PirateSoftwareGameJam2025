@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 29971271}
   m_Layer: 0
   m_Name: BL_Collider
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -205,7 +205,7 @@ GameObject:
   - component: {fileID: 33221742}
   m_Layer: 0
   m_Name: FR_Collider
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -275,7 +275,7 @@ GameObject:
   - component: {fileID: 46878500}
   m_Layer: 0
   m_Name: BR
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -338,6 +338,7 @@ GameObject:
   m_Component:
   - component: {fileID: 347930047}
   - component: {fileID: 347930046}
+  - component: {fileID: 347930048}
   m_Layer: 0
   m_Name: Directional Light
   m_TagString: Untagged
@@ -422,6 +423,29 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!114 &347930048
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 347930045}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Version: 3
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_RenderingLayers: 1
+  m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_ShadowRenderingLayers: 1
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
+  m_SoftShadowQuality: 0
 --- !u!1 &680179682
 GameObject:
   m_ObjectHideFlags: 0
@@ -433,7 +457,7 @@ GameObject:
   - component: {fileID: 680179683}
   m_Layer: 0
   m_Name: FL
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -466,7 +490,7 @@ GameObject:
   - component: {fileID: 828121315}
   m_Layer: 0
   m_Name: BL
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -499,7 +523,7 @@ GameObject:
   - component: {fileID: 865729902}
   m_Layer: 0
   m_Name: FR
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -535,7 +559,7 @@ GameObject:
   - component: {fileID: 1048317023}
   m_Layer: 0
   m_Name: Driveable Taxi
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -855,7 +879,7 @@ GameObject:
   - component: {fileID: 1808561430}
   m_Layer: 0
   m_Name: CenterOfMass
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1001,7 +1025,7 @@ GameObject:
   - component: {fileID: 2021774114}
   m_Layer: 0
   m_Name: FL_Collider
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1072,7 +1096,7 @@ GameObject:
   - component: {fileID: 2118493973}
   m_Layer: 0
   m_Name: BR_Collider
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1170,7 +1194,7 @@ GameObject:
   - component: {fileID: 543450652016626244}
   m_Layer: 0
   m_Name: taxi
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1188,7 +1212,7 @@ GameObject:
   - component: {fileID: 3758833742459682917}
   m_Layer: 0
   m_Name: wheel-front-right
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1221,7 +1245,7 @@ GameObject:
   - component: {fileID: 2717756171909227638}
   m_Layer: 0
   m_Name: wheel-back-left
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1354,7 +1378,7 @@ GameObject:
   - component: {fileID: 8449996118870021907}
   m_Layer: 0
   m_Name: body
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1372,7 +1396,7 @@ GameObject:
   - component: {fileID: 7038207621626577557}
   m_Layer: 0
   m_Name: wheel-front-left
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1529,7 +1553,7 @@ GameObject:
   - component: {fileID: 8498878673577913552}
   m_Layer: 0
   m_Name: wheel-back-right
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
