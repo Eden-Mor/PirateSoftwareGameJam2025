@@ -45,7 +45,7 @@ public class World : MonoBehaviour
 	/// References to all currently active chunks, such that we can easily remove them and identify if
 	/// we need to build a chunk in this location or not.
 	/// </summary>
-	Dictionary<string, GameObject> chunks = new Dictionary<string, GameObject>();
+	public Dictionary<string, GameObject> chunks = new Dictionary<string, GameObject>();
 
 	void Start()
 	{
@@ -74,11 +74,11 @@ public class World : MonoBehaviour
 	void BuildChunk( int x, int z )
 	{
 		float chunkWorldSize = chunkSize * tileSize;
-		Vector3 chunkLocation = new Vector3( x * chunkWorldSize, 0.0f, z * chunkWorldSize );
-		//GameObject chunkGameObject = Instantiate( chunkPrefab, chunkLocation, Quaternion.identity, chunksParent );
+
 		GameObject chunkGameObject = Instantiate( chunkPrefab );
 		chunkGameObject.transform.SetParent( chunksParent, false );
-		chunkGameObject.transform.localPosition = chunkLocation;
+		chunkGameObject.transform.localPosition = new Vector3( x * chunkWorldSize, 0.0f, z * chunkWorldSize );
+		chunkGameObject.name = ChunkKey( x, z );
 
 		Chunk chunk = chunkGameObject.GetComponent<Chunk>();
 		chunk.world = this;

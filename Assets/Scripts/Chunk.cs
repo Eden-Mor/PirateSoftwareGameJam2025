@@ -50,7 +50,7 @@ public class Chunk : MonoBehaviour
 	/// Data structure that holds a representation of the chunk (from which the scene can be built),
 	/// queried, and modified.
 	/// </summary>
-	GameObject[,] tiles;
+	public GameObject[,] tiles;
 
 	/// <summary>
 	/// Initialises the tiles array then sets off the Generation and Building process.
