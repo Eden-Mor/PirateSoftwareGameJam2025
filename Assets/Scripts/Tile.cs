@@ -22,13 +22,8 @@ public enum Directions
 /// needed in the generation process, for example in which directions the tile has connections.
 /// </summary>
 [Serializable]
-public class Tile
+public class Tile : MonoBehaviour
 {
-	/// <summary>
-	/// The prefab to instantiate for this tile.
-	/// </summary>
-	public GameObject prefab;
-
 	/// <summary>
 	/// The cardinal directions that this tile has connections with, which will be used in some 
 	/// generation algorithms (e.g. for connecting roads together).
