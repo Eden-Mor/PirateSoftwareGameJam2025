@@ -116,6 +116,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1586525915030296759}
   - component: {fileID: 3314891326089233284}
+  - component: {fileID: 6048637101348138825}
   m_Layer: 0
   m_Name: house_7
   m_TagString: Untagged
@@ -154,6 +155,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fadeSpeed: 20
   fadeAmount: 0.3
+--- !u!114 &6048637101348138825
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8152202684055889159}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b4a7a51bf65f1143b22b2e0da321266, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  connections: 5
 --- !u!1001 &5917526246564960907
 PrefabInstance:
   m_ObjectHideFlags: 0
