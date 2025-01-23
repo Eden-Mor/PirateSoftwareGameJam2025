@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6872336039321090096}
   m_Layer: 0
   m_Name: floor
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -115,7 +115,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1586525915030296759}
-  - component: {fileID: -5348585239950301206}
   m_Layer: 0
   m_Name: smallbuilding_a
   m_TagString: Untagged
@@ -140,20 +139,6 @@ Transform:
   - {fileID: 5921658253338629460}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &-5348585239950301206
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8152202684055889159}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 169278da57a4ff74b85da150c5bec5bd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fadeSpeed: 20
-  fadeAmount: 0.3
 --- !u!1001 &5917526246564960907
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -229,6 +214,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 0b6aac44d2af80d42bc3c1aed985ab46, type: 3}
       insertIndex: -1
       addedObject: {fileID: 379402276593953780}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 0b6aac44d2af80d42bc3c1aed985ab46, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 9139663782188908833}
   m_SourcePrefab: {fileID: 100100000, guid: 0b6aac44d2af80d42bc3c1aed985ab46, type: 3}
 --- !u!4 &6167116437693627744 stripped
 Transform:
@@ -261,3 +249,17 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.78, y: 1.28, z: 0.79}
   m_Center: {x: 0, y: 0.64, z: 0}
+--- !u!114 &9139663782188908833
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6835953052567152602}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 169278da57a4ff74b85da150c5bec5bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadeSpeed: 20
+  fadeAmount: 0.3
