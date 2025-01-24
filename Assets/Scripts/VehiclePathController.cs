@@ -95,7 +95,10 @@ public class VehiclePathController : MonoBehaviour
 			TilePath nextTilePath = nextTile.RandomTilePath(invertedDirection);
 
 			if(nextTilePath == null)
-				spawner.DespawnVehicle(gameObject);
+			{
+				spawner.DespawnVehicle( gameObject );
+				return;
+			}
 
 			// Set our tile and path references to the next things and off we go.
 			tileObject = nextTileObject;
