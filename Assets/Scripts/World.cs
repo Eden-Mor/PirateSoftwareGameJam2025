@@ -48,6 +48,8 @@ public class World : MonoBehaviour
 	/// </summary>
 	public Dictionary<string, GameObject> chunks = new Dictionary<string, GameObject>();
 
+	public List<GameObject> roadTiles = new List<GameObject>();
+
 	void Start()
 	{
 		// DEBUG: Just creating something rather than dynamically creating it based on player/camera location.
@@ -119,7 +121,7 @@ public class World : MonoBehaviour
 		int x = chunkCoords.x * chunkSize + tileCoords.x;
 		int z = chunkCoords.z * chunkSize + tileCoords.z;
 
-		return new Vector3Int(x, 0, z);
+		return new Vector3Int( x, 0, z );
 	}
 
 	public GameObject GetTileObject( Vector3Int worldCoords )
@@ -132,16 +134,17 @@ public class World : MonoBehaviour
 		if(tileX < 0 || tileX > chunkSize || tileZ < 0 || tileZ > chunkSize)
 			return null;
 
-		GameObject chunkObject = chunks[ ChunkKey( chunkX, chunkZ) ];
+		GameObject chunkObject = chunks[ ChunkKey( chunkX, chunkZ ) ];
 
-		if ( chunkObject == null )
+		if(chunkObject == null)
 			return null;
 
 		Chunk chunk = chunkObject.GetComponent<Chunk>();
-
-		Debug.Log( $"World > GetTileObject > chunkObject: {chunkObject}, chunk: {chunk}, chunk.instances.Length: {chunk.instances.Length}" );
-		Debug.Log( $"World > GetTileObject > tileX: {tileX}, tileZ: {tileZ}" );
-
 		return chunk.instances[ tileX, tileZ ];
+	}
+
+	public GameObject GetRandomRoadTile()
+	{
+		return roadTiles[ UnityEngine.Random.Range( 0, roadTiles.Count ) ];
 	}
 }

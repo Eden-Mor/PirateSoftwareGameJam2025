@@ -219,6 +219,10 @@ public class Chunk : MonoBehaviour
 		tileObject.transform.name = tile.worldCoords.x + "," + tile.worldCoords.z;
 
 		instances[ x, z ] = tileObject;
+
+		// Add all our road tile instances to the world roadTiles variable so spawners can use them.
+		if(tiles[ x, z ].name.StartsWith( "road" ))
+			world.roadTiles.Add( tileObject );
 	}
 
 	string TileKey( int x, int z )

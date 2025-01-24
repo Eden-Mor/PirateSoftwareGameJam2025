@@ -1587,6 +1587,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1557231209}
     - target: {fileID: 6558694701578110996, guid: 3d2d5d2f0dd46fd48aac7ffcf6f06e91, type: 3}
+      propertyPath: numberOfVehicles
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 6558694701578110996, guid: 3d2d5d2f0dd46fd48aac7ffcf6f06e91, type: 3}
       propertyPath: vehiclePrefabs.Array.size
       value: 1
       objectReference: {fileID: 0}

@@ -5,6 +5,7 @@ using UnityEngine.Splines;
 
 public class VehicleSpawner : MonoBehaviour
 {
+	public int numberOfVehicles = 10;
 	public GameObject[] vehiclePrefabs;
 	public GameObject worldObject;
 	public Transform vehiclesParent;
@@ -23,21 +24,17 @@ public class VehicleSpawner : MonoBehaviour
 		// TODO: A much nicer solution than this!
 		if(!spawned && world.chunks.Count > 0)
 		{
-			SpawnVehicle();
+			for (int i = 0; i < numberOfVehicles; i++)
+				SpawnVehicle();
+
+			spawned = true;
 		}
 	}
 
 	public void SpawnVehicle()
 	{
-		// Get the chunk in which we're spawning.
-		// TODO: Randomise (based on player location).
-		GameObject chunkObject = world.chunks[ "0,0" ];
-		Chunk chunk = chunkObject.GetComponent<Chunk>();
-
-		// Get a road tile from the chunk.
-		// TODO: Randomise.
-		GameObject tileObject = chunk.instances[ 2, 0 ];
-		Debug.Log( "VehicleSpawner > SpawnVehicle > tileObject.name: " + tileObject.name );
+		// TODO: Take into account player view frustrum, where we've recently spawned vehicles, etc.
+		var tileObject = world.GetRandomRoadTile();
 
 		// Get a Tile Path from the tile, which we'll have the vehicle follow.
 		Tile tile = tileObject.GetComponent<Tile>();
@@ -58,13 +55,11 @@ public class VehicleSpawner : MonoBehaviour
 			vehicle.tilePath = tilePath;
 			vehicle.spawner = this;
 		}
-
-		spawned = true;
 	}
 
 	public void DespawnVehicle(GameObject vehicleObject )
 	{
-		// TODO: Track spawns and despawns.
 		Destroy( vehicleObject );
+		SpawnVehicle();
 	}
 }
