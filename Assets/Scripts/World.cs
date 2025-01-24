@@ -48,6 +48,10 @@ public class World : MonoBehaviour
 	/// </summary>
 	public Dictionary<string, GameObject> chunks = new Dictionary<string, GameObject>();
 
+	/// <summary>
+	/// List of all the road tiles from the chunk generator, used to be able to pick where to spawn 
+	/// vehicles, pick-ups, and drop-offs.
+	/// </summary>
 	public List<GameObject> roadTiles = new List<GameObject>();
 
 	void Start()
@@ -62,17 +66,22 @@ public class World : MonoBehaviour
 		}
 	}
 
+	/// <summary>
+	/// The radius of the world in real units from the centre directly to one of its edges (NOT the 
+	/// diagonal distance to the corner).  Takes into account world scaling (using x axis as a 
+	/// reference, the world is assumed to be square.)
+	/// </summary>
+	/// <returns>The radius of the world in real units.</returns>
 	public float WorldRadius()
 	{
-		// TODO: Change this to have the radius to the corners of the city by using the diagonals?
 		return (size * chunkSize * tileSize * transform.localScale.x) / 2;
 	}
 
 	/// <summary>
 	/// Builds the chunk at the specified coordinates and stores a reference to it in chunks.
 	/// </summary>
-	/// <param name="x"></param>
-	/// <param name="z"></param>
+	/// <param name="x">The x-coordinate of the chunk to build.</param>
+	/// <param name="z">The y-coordinate of the chunk to build.</param>
 	void BuildChunk( int x, int z )
 	{
 		float chunkWorldSize = chunkSize * tileSize;
@@ -116,6 +125,15 @@ public class World : MonoBehaviour
 		return (z * 100000) + x;
 	}
 
+	/// <summary>
+	/// Given a set of chunk coordinates and tile coordinates within that chunk, returns the 
+	/// coordinates of that tile within the world.
+	/// 
+	/// NOTE: This is coordinates within our data model of the world, not unity transforms.
+	/// </summary>
+	/// <param name="chunkCoords">The coordinates of the chunk.</param>
+	/// <param name="tileCoords">The local coordinates of the tile within that chunk.</param>
+	/// <returns>The world coordinates of the tile.</returns>
 	public Vector3Int WorldCoords( Vector3Int chunkCoords, Vector3Int tileCoords )
 	{
 		int x = chunkCoords.x * chunkSize + tileCoords.x;
@@ -124,6 +142,13 @@ public class World : MonoBehaviour
 		return new Vector3Int( x, 0, z );
 	}
 
+	/// <summary>
+	/// Get the tile at the specified world coordinates.
+	/// 
+	/// NOTE: The world coordinates are those within our model, not unity transforms.
+	/// </summary>
+	/// <param name="worldCoords">The world coordinates to get the tile from.</param>
+	/// <returns>The tile's instance game object.</returns>
 	public GameObject GetTileObject( Vector3Int worldCoords )
 	{
 		int chunkX = worldCoords.x / chunkSize;

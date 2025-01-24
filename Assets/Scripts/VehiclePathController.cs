@@ -7,13 +7,35 @@ using UnityEngine.Splines;
 public class VehiclePathController : MonoBehaviour
 {
 	[Header("Vehicle Properties")]
+	
+	/// <summary>
+	/// The distance that the vehicle will move per-second.
+	/// 
+	/// TODO: Add other properties like acceleration, max speed, braking, and so on to give a more 
+	/// realistic sense of movement and allow them to better interact with the world.
+	/// </summary>
 	public float speed = 1f;
 
 	[Header( "Internals" )]
-	public bool active = true;
+
+	/// <summary>
+	/// What fraction of the path has the vehicle travelled along, from 0 to 1.
+	/// </summary>
 	public float progress = 0f;
+
+	/// <summary>
+	/// The tile that this vehicle is currently traversing.
+	/// </summary>
 	public GameObject tileObject;
+
+	/// <summary>
+	/// The tile path that this vehicle is currently traversing.
+	/// </summary>
 	public TilePath tilePath;
+
+	/// <summary>
+	/// Refernce to the vehicle spawner so we can request to be de-spawned.
+	/// </summary>
 	public VehicleSpawner spawner;
 
 	public void Start()
@@ -83,24 +105,29 @@ public class VehiclePathController : MonoBehaviour
 		UpdateTransform();
 	}
 
+	/// <summary>
+	/// Updates the position and rotation of the vehicle based on its progress along the path.
+	/// </summary>
 	public void UpdateTransform()
 	{
-		if (active)
-		{
-			var path = GetPath();
+		var path = GetPath();
 
-			float3 position;
-			float3 tangent;
-			float3 up;
+		float3 position;
+		float3 tangent;
+		float3 up;
 
-			path.Evaluate( Mathf.Clamp(progress, 0f, 1f), out position, out tangent, out up );
-			Vector3 forward = Vector3.Cross( Vector3.up, tangent );
+		path.Evaluate( Mathf.Clamp(progress, 0f, 1f), out position, out tangent, out up );
+		Vector3 forward = Vector3.Cross( Vector3.up, tangent );
 
-			transform.position = position;
-			transform.rotation = Quaternion.LookRotation( forward, Vector3.up ) * Quaternion.Euler(new Vector3(0f, -90f, 0f));
-		}
+		transform.position = position;
+		transform.rotation = Quaternion.LookRotation( forward, Vector3.up ) * Quaternion.Euler(new Vector3(0f, -90f, 0f));
 	}
 
+	/// <summary>
+	/// We often want the SplineContainer component from the tile path, this makes getting that a 
+	/// fraction easier.
+	/// </summary>
+	/// <returns>The SplineContainer for the current tile path.</returns>
 	SplineContainer GetPath()
 	{
 		GameObject pathObject = tilePath.path;

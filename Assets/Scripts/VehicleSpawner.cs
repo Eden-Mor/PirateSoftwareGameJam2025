@@ -5,12 +5,35 @@ using UnityEngine.Splines;
 
 public class VehicleSpawner : MonoBehaviour
 {
+	/// <summary>
+	/// The number of vehicles to maintain in the world.
+	/// </summary>
 	public int numberOfVehicles = 10;
+
+	/// <summary>
+	/// The vehicle prefabs to spawn, they will be randomly picked.
+	/// </summary>
 	public GameObject[] vehiclePrefabs;
+
+	/// <summary>
+	/// Refence to the world object.
+	/// </summary>
 	public GameObject worldObject;
+
+	/// <summary>
+	/// Transform to put all our instantiated vehicles as children of.
+	/// </summary>
 	public Transform vehiclesParent;
+
+	/// <summary>
+	/// The World.
+	/// </summary>
 	public World world;
 
+	/// <summary>
+	/// Used to determine if the initial spawn has occurred, as we need to wait for the world to be 
+	/// created before spawning vehicles within it.
+	/// </summary>
 	bool spawned = false;
 
 	public void Start()
@@ -31,6 +54,10 @@ public class VehicleSpawner : MonoBehaviour
 		}
 	}
 
+	/// <summary>
+	/// Spawns a random vehicle on a random road tile.
+	/// TODO: Have this the behaviour of the initial spawn, though eliminating tiles each time so we don't collide.
+	/// </summary>
 	public void SpawnVehicle()
 	{
 		// TODO: Take into account player view frustrum, where we've recently spawned vehicles, etc.
@@ -57,6 +84,10 @@ public class VehicleSpawner : MonoBehaviour
 		}
 	}
 
+	/// <summary>
+	/// Despawns the passed vehicle then randomly spawns another.
+	/// </summary>
+	/// <param name="vehicleObject">The game object of the vehicle to despawn.</param>
 	public void DespawnVehicle(GameObject vehicleObject )
 	{
 		Destroy( vehicleObject );
