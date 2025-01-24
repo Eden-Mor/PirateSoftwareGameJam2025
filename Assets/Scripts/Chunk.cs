@@ -50,14 +50,21 @@ public class Chunk : MonoBehaviour
 	/// Data structure that holds a representation of the chunk (from which the scene can be built),
 	/// queried, and modified.
 	/// </summary>
-	GameObject[,] tiles;
+	public GameObject[,] tiles;
+
+	// TODO: Do this in a better way.
+	public GameObject[,] instances;
+
+	public Vector3Int coords;
 
 	/// <summary>
 	/// Initialises the tiles array then sets off the Generation and Building process.
 	/// </summary>
 	public void Start()
 	{
+		// TODO: Create seperate model and instance datastructures, using composition to reduce duplication.
 		tiles = new GameObject[ size, size ];
+		instances = new GameObject[ size, size ];
 		Generate();
 		Build();
 	}
@@ -151,7 +158,7 @@ public class Chunk : MonoBehaviour
 		float target = UnityEngine.Random.Range( 0f, totalWeight );
 		float current = 0f;
 
-		TileSet tileset = tilesets[0];
+		TileSet tileset = tilesets[ 0 ];
 		foreach(TileSet t in tilesets)
 		{
 			float weight = t.weight.Evaluate( normalisedDistanceFromOrigin );
@@ -198,9 +205,29 @@ public class Chunk : MonoBehaviour
 	/// <param name="z">z-coordinate of the tile.</param>
 	void BuildTile( int x, int z )
 	{
-		GameObject tile = Instantiate( tiles[ x, z ] );
-		tile.transform.SetParent( tilesParent, false );
-		tile.transform.localPosition = new Vector3( x * tileSize, 0.0f, z * tileSize );
+		GameObject tileObject = Instantiate( tiles[ x, z ] );
+		tileObject.transform.SetParent( tilesParent, false );
+		tileObject.transform.localPosition = new Vector3( x * tileSize, 0.0f, z * tileSize );
+
+		Debug.Log( "Chunk > Building Tile: " + x + "," + z + " (" + tileObject.name + ")" );
+
+		Tile tile = tileObject.GetComponent<Tile>();
+		tile.chunk = this;
+		tile.coords = new Vector3Int( x, 0, z );
+		tile.worldCoords = world.WorldCoords( this.coords, tile.coords );
+
+		tileObject.transform.name = tile.worldCoords.x + "," + tile.worldCoords.z;
+
+		instances[ x, z ] = tileObject;
+
+		// Add all our road tile instances to the world roadTiles variable so spawners can use them.
+		if(tiles[ x, z ].name.StartsWith( "road" ))
+			world.roadTiles.Add( tileObject );
+	}
+
+	string TileKey( int x, int z )
+	{
+		return x + "," + z;
 	}
 }
 
