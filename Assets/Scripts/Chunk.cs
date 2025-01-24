@@ -142,7 +142,7 @@ public class Chunk : MonoBehaviour
 	{
 		// Determine how far this tile is from the world origin as a fraction of the total radius of the city.
 		Vector2 tilePosition = new Vector2( transform.position.x + (x * tileSize), transform.position.z + (z * tileSize) );
-		Vector2 worldOrigin = new Vector2( world.transform.position.x, world.transform.position.z );
+		Vector2 worldOrigin = new Vector2( world.transform.position.x + world.WorldRadius() - (world.chunkSize * tileSize), world.transform.position.z + world.WorldRadius() - (world.chunkSize * tileSize) );
 		float distanceFromOrigin = Vector2.Distance( worldOrigin, tilePosition );
 		float normalisedDistanceFromOrigin = Mathf.Clamp( distanceFromOrigin / world.WorldRadius(), 0f, 1f );
 
