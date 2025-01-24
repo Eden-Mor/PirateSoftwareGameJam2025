@@ -3872,15 +3872,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5874467429916742984, guid: 12aa4d840b3a58740adeb1ab343a5cd1, type: 3}
       propertyPath: m_LocalScale.x
-      value: 3
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 5874467429916742984, guid: 12aa4d840b3a58740adeb1ab343a5cd1, type: 3}
       propertyPath: m_LocalScale.y
-      value: 3
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 5874467429916742984, guid: 12aa4d840b3a58740adeb1ab343a5cd1, type: 3}
       propertyPath: m_LocalScale.z
-      value: 3
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 5874467429916742984, guid: 12aa4d840b3a58740adeb1ab343a5cd1, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4274,7 +4274,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 66.27, y: 0.3, z: 60.27}
-  m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 543450652016626244}
@@ -5730,6 +5730,18 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4332357441165483766, guid: 6f263572539339a4eb19ebf76bcc2a37, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4332357441165483766, guid: 6f263572539339a4eb19ebf76bcc2a37, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4332357441165483766, guid: 6f263572539339a4eb19ebf76bcc2a37, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4332357441165483766, guid: 6f263572539339a4eb19ebf76bcc2a37, type: 3}
       propertyPath: m_LocalPosition.x
       value: 66.27
       objectReference: {fileID: 0}
@@ -6302,7 +6314,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 808f91e656a8af94d9855bc02bf37488, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxDistance: 100
+  maxDistance: 500
   NearColor: {r: 1, g: 0.9733143, b: 0.6650944, a: 1}
   FarColor: {r: 1, g: 0, b: 0, a: 1}
   objectToLookAt: {fileID: 1704314473}
@@ -7432,12 +7444,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   car: {fileID: 1048317021}
-  distance: 5
-  height: 3
+  distance: 8
+  height: 8.83
   rotationDamping: 3
   heightDamping: 2
   zoomRatio: 0.5
-  defaultFOV: 60
+  defaultFOV: 91
   raycastMaxHits: 10
   raycastFadeLocation: {fileID: 1098090855}
 --- !u!114 &2020276575

@@ -17,7 +17,7 @@ public class PointToObject : MonoBehaviour
         childArrowMat = mats;
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
         this.transform.LookAt(objectToLookAt.transform);
         var distance = (objectToLookAt.transform.position - transform.position).magnitude;
