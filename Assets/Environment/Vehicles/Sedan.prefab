@@ -45,13 +45,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a2b66f026c7fd44cbca11eb75eb3624, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.2
+  speed: 1
   active: 1
   progress: 0
+  tileObject: {fileID: 0}
   tilePath:
     start: 0
     end: 0
     path: {fileID: 0}
+  spawner: {fileID: 0}
 --- !u!1001 &3551828703240744909
 PrefabInstance:
   m_ObjectHideFlags: 0

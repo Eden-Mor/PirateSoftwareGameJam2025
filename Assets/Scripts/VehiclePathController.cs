@@ -18,14 +18,15 @@ public class VehiclePathController : MonoBehaviour
 
 	public void Start()
 	{
-		// TODO: Cache distance calculation(s) for the path.
 		UpdateTransform();
 	}
 
 	public void Update()
 	{
-		// TODO: Have speed represent distance travelled over time, rather than percentage of path travelled over time.
-		progress += speed * Time.deltaTime;
+		// TODO: Cache distance calculation(s) for the path.
+		var path = GetPath();
+		float pathLength = path.CalculateLength();
+		progress += (speed / pathLength) * Time.deltaTime;
 
 		// If we've reached the end of the path, get the next tile in our direction of travel and a path
 		// from it, or despawn if there's no route.
@@ -48,8 +49,6 @@ public class VehiclePathController : MonoBehaviour
 
 			Tile currentTile = tileObject.GetComponent<Tile>();
 			Vector3Int nextTileCoords = currentTile.worldCoords + nextTileOffset;
-
-			Debug.Log( $"VehiclePathController > Update > currentTile.coords: {currentTile.coords}, nextTileOffset: {nextTileOffset}, nextTileCoords: {nextTileCoords}" );
 
 			// Get the next tile object or despawn if there isn't one (reached the edge of the world).
 			GameObject nextTileObject = spawner.world.GetTileObject(nextTileCoords);
