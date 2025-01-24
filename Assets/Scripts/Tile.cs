@@ -48,6 +48,10 @@ public class Tile : MonoBehaviour
 
 	public TilePath[] paths;
 
+	public Chunk chunk;
+	public Vector3Int coords = new Vector3Int();
+	public Vector3Int worldCoords = new Vector3Int();
+
 	public TilePath RandomTilePath()
 	{
 		if(paths.Length > 0)

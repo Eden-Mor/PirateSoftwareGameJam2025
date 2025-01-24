@@ -12,7 +12,9 @@ public class VehiclePathController : MonoBehaviour
 	[Header( "Internals" )]
 	public bool active = true;
 	public float progress = 0f;
+	public GameObject tileObject;
 	public TilePath tilePath;
+	public VehicleSpawner spawner;
 
 	public void Start()
 	{
@@ -25,15 +27,56 @@ public class VehiclePathController : MonoBehaviour
 		// TODO: Have speed represent distance travelled over time, rather than percentage of path travelled over time.
 		progress += speed * Time.deltaTime;
 
+		// If we've reached the end of the path, get the next tile in our direction of travel and a path
+		// from it, or despawn if there's no route.
 		if (progress >= 1f)
 		{
-			// TODO: Get the next path to move along.
+			// Maintain any excess progress into the next tile.
+			// TODO: This will need to be different when using distance not percentage of path.
 			progress -= 1f;
+
+			// Get the coords of the next tile in our direction.
+			Vector3Int nextTileOffset = new Vector3Int();
+			if(tilePath.end == Direction.North)
+				nextTileOffset.z = 1;
+			else if(tilePath.end == Direction.South)
+				nextTileOffset.z = -1;
+			else if(tilePath.end == Direction.East)
+				nextTileOffset.x = 1;
+			else
+				nextTileOffset.x = -1;
+
+			Tile currentTile = tileObject.GetComponent<Tile>();
+			Vector3Int nextTileCoords = currentTile.coords + nextTileOffset;
+
+			// Get the next tile object or despawn if there isn't one (reached the edge of the world).
+			GameObject nextTileObject = spawner.world.GetTileObject(nextTileCoords);
+			if(tileObject == null)
+				spawner.DespawnVehicle( gameObject );
+
+			// Get an appropriate tile path for us to follow.
+			Direction invertedDirection;
+			if(tilePath.end == Direction.North)
+				invertedDirection = Direction.South;
+			else if (tilePath.end == Direction.South)
+				invertedDirection = Direction.North;
+			else if (tilePath.end == Direction.East)
+				invertedDirection = Direction.West;
+			else
+				invertedDirection = Direction.East;
+
+			Tile nextTile = nextTileObject.GetComponent<Tile>();
+			TilePath nextTilePath = nextTile.RandomTilePath(invertedDirection);
+			if(nextTilePath == null)
+				spawner.DespawnVehicle(gameObject);
+
+			// Set our tile and path references to the next things and off we go.
+			tileObject = nextTileObject;
+			tilePath = nextTilePath;
 		}
 
 		UpdateTransform();
 	}
-
 
 	public void UpdateTransform()
 	{

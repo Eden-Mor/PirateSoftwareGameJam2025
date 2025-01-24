@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Xml.Serialization;
 using UnityEngine;
 
 /// <summary>
@@ -17,7 +18,7 @@ public class World : MonoBehaviour
 	/// The size of the world in chunks (width and length).
 	/// </summary>
 	public int size = 10;
-	
+
 	/// <summary>
 	/// The size of the chunks to build the world from (width and length).
 	/// </summary>
@@ -51,9 +52,9 @@ public class World : MonoBehaviour
 	{
 		int worldRadius = size / 2;
 		// DEBUG: Just creating something rather than dynamically creating it based on player/camera location.
-		for (int z = -worldRadius; z < worldRadius; z++)
+		for(int z = -worldRadius; z < worldRadius; z++)
 		{
-			for (int  x = -worldRadius; x < worldRadius; x++)
+			for(int x = -worldRadius; x < worldRadius; x++)
 			{
 				BuildChunk( x, z );
 			}
@@ -85,7 +86,7 @@ public class World : MonoBehaviour
 		chunk.size = chunkSize;
 		chunk.tileSize = tileSize;
 		chunk.seed = ChunkSeed( x, z );
-
+		chunk.coords = new Vector3Int( x, 0, z );
 		chunks[ ChunkKey( x, z ) ] = chunkGameObject;
 	}
 
@@ -112,5 +113,26 @@ public class World : MonoBehaviour
 	int ChunkSeed( int x, int z )
 	{
 		return (z * 100000) + x;
+	}
+
+	public Vector3Int WorldCoords( Vector3Int chunkCoords, Vector3Int tileCoords )
+	{
+		int x = chunkCoords.x * chunkSize + tileCoords.x;
+		int z = chunkCoords.z * chunkSize + tileCoords.z;
+
+		return new Vector3Int(x, 0, z);
+	}
+
+	public GameObject GetTileObject( Vector3Int worldCoords )
+	{
+		int chunkX = worldCoords.x / chunkSize;
+		int chunkZ = worldCoords.z / chunkSize;
+		int tileX = worldCoords.x % chunkSize;
+		int tileZ = worldCoords.z % chunkSize;
+
+		GameObject chunkObject = chunks[ ChunkKey( chunkX, chunkZ) ];
+		Chunk chunk = chunkObject.GetComponent<Chunk>();
+
+		return chunk.instances[ tileX, tileZ ];
 	}
 }

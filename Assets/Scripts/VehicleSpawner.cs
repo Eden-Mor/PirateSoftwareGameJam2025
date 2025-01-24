@@ -8,8 +8,8 @@ public class VehicleSpawner : MonoBehaviour
 	public GameObject[] vehiclePrefabs;
 	public GameObject worldObject;
 	public Transform vehiclesParent;
+	public World world;
 
-	World world;
 	bool spawned = false;
 
 	public void Start()
@@ -54,9 +54,17 @@ public class VehicleSpawner : MonoBehaviour
 			vehicleObject.transform.SetParent( vehiclesParent.transform, false );
 
 			VehiclePathController vehicle = vehicleObject.GetComponent<VehiclePathController>();
+			vehicle.tileObject = tileObject;
 			vehicle.tilePath = tilePath;
+			vehicle.spawner = this;
 		}
 
 		spawned = true;
+	}
+
+	public void DespawnVehicle(GameObject vehicleObject )
+	{
+		// TODO: Track spawns and despawns.
+		Destroy( vehicleObject );
 	}
 }
