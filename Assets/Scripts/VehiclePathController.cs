@@ -94,9 +94,10 @@ public class VehiclePathController : MonoBehaviour
 			float3 up;
 
 			path.Evaluate( Mathf.Clamp(progress, 0f, 1f), out position, out tangent, out up );
+			Vector3 forward = Vector3.Cross( Vector3.up, tangent );
 
-			// TODO: Rotation using tangent.
 			transform.position = position;
+			transform.rotation = Quaternion.LookRotation( forward, Vector3.up ) * Quaternion.Euler(new Vector3(0f, -90f, 0f));
 		}
 	}
 
