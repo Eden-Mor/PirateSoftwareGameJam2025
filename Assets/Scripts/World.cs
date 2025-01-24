@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Xml.Serialization;
 using UnityEngine;
 
 /// <summary>
@@ -17,7 +18,7 @@ public class World : MonoBehaviour
 	/// The size of the world in chunks (width and length).
 	/// </summary>
 	public int size = 10;
-	
+
 	/// <summary>
 	/// The size of the chunks to build the world from (width and length).
 	/// </summary>
@@ -45,47 +46,57 @@ public class World : MonoBehaviour
 	/// References to all currently active chunks, such that we can easily remove them and identify if
 	/// we need to build a chunk in this location or not.
 	/// </summary>
-	Dictionary<string, GameObject> chunks = new Dictionary<string, GameObject>();
+	public Dictionary<string, GameObject> chunks = new Dictionary<string, GameObject>();
+
+	/// <summary>
+	/// List of all the road tiles from the chunk generator, used to be able to pick where to spawn 
+	/// vehicles, pick-ups, and drop-offs.
+	/// </summary>
+	public List<GameObject> roadTiles = new List<GameObject>();
 
 	void Start()
 	{
-		int worldRadius = size / 2;
 		// DEBUG: Just creating something rather than dynamically creating it based on player/camera location.
-		for (int z = -worldRadius; z < worldRadius; z++)
+		for(int z = 0; z < size; z++)
 		{
-			for (int  x = -worldRadius; x < worldRadius; x++)
+			for(int x = 0; x < size; x++)
 			{
 				BuildChunk( x, z );
 			}
 		}
 	}
 
+	/// <summary>
+	/// The radius of the world in real units from the centre directly to one of its edges (NOT the 
+	/// diagonal distance to the corner).  Takes into account world scaling (using x axis as a 
+	/// reference, the world is assumed to be square.)
+	/// </summary>
+	/// <returns>The radius of the world in real units.</returns>
 	public float WorldRadius()
 	{
-		// TODO: Change this to have the radius to the corners of the city by using the diagonals?
 		return (size * chunkSize * tileSize * transform.localScale.x) / 2;
 	}
 
 	/// <summary>
 	/// Builds the chunk at the specified coordinates and stores a reference to it in chunks.
 	/// </summary>
-	/// <param name="x"></param>
-	/// <param name="z"></param>
+	/// <param name="x">The x-coordinate of the chunk to build.</param>
+	/// <param name="z">The y-coordinate of the chunk to build.</param>
 	void BuildChunk( int x, int z )
 	{
 		float chunkWorldSize = chunkSize * tileSize;
-		Vector3 chunkLocation = new Vector3( x * chunkWorldSize, 0.0f, z * chunkWorldSize );
-		//GameObject chunkGameObject = Instantiate( chunkPrefab, chunkLocation, Quaternion.identity, chunksParent );
+
 		GameObject chunkGameObject = Instantiate( chunkPrefab );
 		chunkGameObject.transform.SetParent( chunksParent, false );
-		chunkGameObject.transform.localPosition = chunkLocation;
+		chunkGameObject.transform.localPosition = new Vector3( x * chunkWorldSize, 0.0f, z * chunkWorldSize );
+		chunkGameObject.name = ChunkKey( x, z );
 
 		Chunk chunk = chunkGameObject.GetComponent<Chunk>();
 		chunk.world = this;
 		chunk.size = chunkSize;
 		chunk.tileSize = tileSize;
 		chunk.seed = ChunkSeed( x, z );
-
+		chunk.coords = new Vector3Int( x, 0, z );
 		chunks[ ChunkKey( x, z ) ] = chunkGameObject;
 	}
 
@@ -112,5 +123,53 @@ public class World : MonoBehaviour
 	int ChunkSeed( int x, int z )
 	{
 		return (z * 100000) + x;
+	}
+
+	/// <summary>
+	/// Given a set of chunk coordinates and tile coordinates within that chunk, returns the 
+	/// coordinates of that tile within the world.
+	/// 
+	/// NOTE: This is coordinates within our data model of the world, not unity transforms.
+	/// </summary>
+	/// <param name="chunkCoords">The coordinates of the chunk.</param>
+	/// <param name="tileCoords">The local coordinates of the tile within that chunk.</param>
+	/// <returns>The world coordinates of the tile.</returns>
+	public Vector3Int WorldCoords( Vector3Int chunkCoords, Vector3Int tileCoords )
+	{
+		int x = chunkCoords.x * chunkSize + tileCoords.x;
+		int z = chunkCoords.z * chunkSize + tileCoords.z;
+
+		return new Vector3Int( x, 0, z );
+	}
+
+	/// <summary>
+	/// Get the tile at the specified world coordinates.
+	/// 
+	/// NOTE: The world coordinates are those within our model, not unity transforms.
+	/// </summary>
+	/// <param name="worldCoords">The world coordinates to get the tile from.</param>
+	/// <returns>The tile's instance game object.</returns>
+	public GameObject GetTileObject( Vector3Int worldCoords )
+	{
+		int chunkX = worldCoords.x / chunkSize;
+		int chunkZ = worldCoords.z / chunkSize;
+		int tileX = worldCoords.x % chunkSize;
+		int tileZ = worldCoords.z % chunkSize;
+
+		if(tileX < 0 || tileX > chunkSize || tileZ < 0 || tileZ > chunkSize)
+			return null;
+
+		GameObject chunkObject = chunks[ ChunkKey( chunkX, chunkZ ) ];
+
+		if(chunkObject == null)
+			return null;
+
+		Chunk chunk = chunkObject.GetComponent<Chunk>();
+		return chunk.instances[ tileX, tileZ ];
+	}
+
+	public GameObject GetRandomRoadTile()
+	{
+		return roadTiles[ UnityEngine.Random.Range( 0, roadTiles.Count ) ];
 	}
 }
