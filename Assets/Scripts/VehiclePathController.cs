@@ -7,7 +7,7 @@ using UnityEngine.Splines;
 public class VehiclePathController : MonoBehaviour
 {
 	[Header("Vehicle Properties")]
-	public float speed = 0.2f;
+	public float speed = 1f;
 
 	[Header( "Internals" )]
 	public bool active = true;
@@ -47,12 +47,17 @@ public class VehiclePathController : MonoBehaviour
 				nextTileOffset.x = -1;
 
 			Tile currentTile = tileObject.GetComponent<Tile>();
-			Vector3Int nextTileCoords = currentTile.coords + nextTileOffset;
+			Vector3Int nextTileCoords = currentTile.worldCoords + nextTileOffset;
+
+			Debug.Log( $"VehiclePathController > Update > currentTile.coords: {currentTile.coords}, nextTileOffset: {nextTileOffset}, nextTileCoords: {nextTileCoords}" );
 
 			// Get the next tile object or despawn if there isn't one (reached the edge of the world).
 			GameObject nextTileObject = spawner.world.GetTileObject(nextTileCoords);
-			if(tileObject == null)
+			if(nextTileObject == null)
+			{
 				spawner.DespawnVehicle( gameObject );
+				return;
+			}
 
 			// Get an appropriate tile path for us to follow.
 			Direction invertedDirection;
@@ -67,6 +72,7 @@ public class VehiclePathController : MonoBehaviour
 
 			Tile nextTile = nextTileObject.GetComponent<Tile>();
 			TilePath nextTilePath = nextTile.RandomTilePath(invertedDirection);
+
 			if(nextTilePath == null)
 				spawner.DespawnVehicle(gameObject);
 
@@ -90,8 +96,7 @@ public class VehiclePathController : MonoBehaviour
 
 			path.Evaluate( Mathf.Clamp(progress, 0f, 1f), out position, out tangent, out up );
 
-			Debug.Log( "VehiclePathController > UpdateTransform > position: " + position );
-
+			// TODO: Rotation using tangent.
 			transform.position = position;
 		}
 	}

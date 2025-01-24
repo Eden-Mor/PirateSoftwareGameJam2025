@@ -50,11 +50,10 @@ public class World : MonoBehaviour
 
 	void Start()
 	{
-		int worldRadius = size / 2;
 		// DEBUG: Just creating something rather than dynamically creating it based on player/camera location.
-		for(int z = -worldRadius; z < worldRadius; z++)
+		for(int z = 0; z < size; z++)
 		{
-			for(int x = -worldRadius; x < worldRadius; x++)
+			for(int x = 0; x < size; x++)
 			{
 				BuildChunk( x, z );
 			}
@@ -130,8 +129,18 @@ public class World : MonoBehaviour
 		int tileX = worldCoords.x % chunkSize;
 		int tileZ = worldCoords.z % chunkSize;
 
+		if(tileX < 0 || tileX > chunkSize || tileZ < 0 || tileZ > chunkSize)
+			return null;
+
 		GameObject chunkObject = chunks[ ChunkKey( chunkX, chunkZ) ];
+
+		if ( chunkObject == null )
+			return null;
+
 		Chunk chunk = chunkObject.GetComponent<Chunk>();
+
+		Debug.Log( $"World > GetTileObject > chunkObject: {chunkObject}, chunk: {chunk}, chunk.instances.Length: {chunk.instances.Length}" );
+		Debug.Log( $"World > GetTileObject > tileX: {tileX}, tileZ: {tileZ}" );
 
 		return chunk.instances[ tileX, tileZ ];
 	}
