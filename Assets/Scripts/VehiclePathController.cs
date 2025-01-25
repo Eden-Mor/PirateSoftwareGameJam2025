@@ -26,7 +26,7 @@ public class VehiclePathController : MonoBehaviour
 	/// <summary>
 	/// The tile that this vehicle is currently traversing.
 	/// </summary>
-	public GameObject tileObject;
+	public Tile tile;
 
 	/// <summary>
 	/// The tile path that this vehicle is currently traversing.
@@ -69,12 +69,12 @@ public class VehiclePathController : MonoBehaviour
 			else
 				nextTileOffset.x = -1;
 
-			Tile currentTile = tileObject.GetComponent<Tile>();
+			Tile currentTile = tile;
 			Vector3Int nextTileCoords = currentTile.worldCoords + nextTileOffset;
 
 			// Get the next tile object or despawn if there isn't one (reached the edge of the world).
-			GameObject nextTileObject = spawner.world.GetTileObject(nextTileCoords);
-			if(nextTileObject == null)
+			Tile nextTile = spawner.world.GetTile(nextTileCoords);
+			if(nextTile == null)
 			{
 				spawner.DespawnVehicle( gameObject );
 				return;
@@ -91,7 +91,6 @@ public class VehiclePathController : MonoBehaviour
 			else
 				invertedDirection = Direction.East;
 
-			Tile nextTile = nextTileObject.GetComponent<Tile>();
 			TilePath nextTilePath = nextTile.RandomTilePath(invertedDirection);
 
 			if(nextTilePath == null)
@@ -101,7 +100,7 @@ public class VehiclePathController : MonoBehaviour
 			}
 
 			// Set our tile and path references to the next things and off we go.
-			tileObject = nextTileObject;
+			tile = nextTile;
 			tilePath = nextTilePath;
 		}
 

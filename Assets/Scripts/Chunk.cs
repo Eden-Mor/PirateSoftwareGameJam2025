@@ -53,7 +53,7 @@ public class Chunk : MonoBehaviour
 	public GameObject[,] tiles;
 
 	// TODO: Do this in a better way.
-	public GameObject[,] instances;
+	public Tile[,] instances;
 
 	public Vector3Int coords;
 
@@ -64,7 +64,7 @@ public class Chunk : MonoBehaviour
 	{
 		// TODO: Create seperate model and instance datastructures, using composition to reduce duplication.
 		tiles = new GameObject[ size, size ];
-		instances = new GameObject[ size, size ];
+		instances = new Tile[ size, size ];
 		Generate();
 		Build();
 	}
@@ -216,13 +216,13 @@ public class Chunk : MonoBehaviour
 		tile.coords = new Vector3Int( x, 0, z );
 		tile.worldCoords = world.WorldCoords( this.coords, tile.coords );
 
-		tileObject.transform.name = tile.worldCoords.x + "," + tile.worldCoords.z;
+        tile.transform.name = tile.worldCoords.x + "," + tile.worldCoords.z;
 
-		instances[ x, z ] = tileObject;
+		instances[ x, z ] = tile;
 
 		// Add all our road tile instances to the world roadTiles variable so spawners can use them.
 		if(tiles[ x, z ].name.StartsWith( "road" ))
-			world.roadTiles.Add( tileObject );
+			world.roadTiles.Add(tile);
 	}
 
 	string TileKey( int x, int z )

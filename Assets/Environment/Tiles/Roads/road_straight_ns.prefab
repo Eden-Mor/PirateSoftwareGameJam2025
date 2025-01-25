@@ -58,6 +58,7 @@ MonoBehaviour:
   chunk: {fileID: 0}
   coords: {x: 0, y: 0, z: 0}
   worldCoords: {x: 0, y: 0, z: 0}
+  pickupPointsParent: {fileID: 3892348035486483788}
 --- !u!1 &3618328951848179236
 GameObject:
   m_ObjectHideFlags: 0
@@ -228,7 +229,7 @@ Transform:
   m_GameObject: {fileID: 4754883906992310943}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.0243, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

@@ -51,6 +51,7 @@ public class Tile : MonoBehaviour
 	public Chunk chunk;
 	public Vector3Int coords = new Vector3Int();
 	public Vector3Int worldCoords = new Vector3Int();
+	public Transform pickupPointsParent;
 
 	public TilePath RandomTilePath()
 	{
@@ -75,5 +76,17 @@ public class Tile : MonoBehaviour
 		}
 
 		return null;
+	}
+
+	public Transform[] GetTilePickupPoints()
+	{
+		if (pickupPointsParent == null || pickupPointsParent.childCount <= 0)
+			return null;
+
+		Transform[] children = new Transform[pickupPointsParent.childCount];
+        for (int i = 0; i < children.Length; i++)
+			children[i] = pickupPointsParent.GetChild(i);
+
+		return children;
 	}
 }
