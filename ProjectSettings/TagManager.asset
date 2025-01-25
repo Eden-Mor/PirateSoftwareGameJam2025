@@ -8,6 +8,7 @@ TagManager:
   - Tree
   - Fence
   - Floor
+  - Traffic
   layers:
   - Default
   - TransparentFX
