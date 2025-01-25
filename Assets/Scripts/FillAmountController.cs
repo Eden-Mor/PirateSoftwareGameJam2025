@@ -12,7 +12,7 @@ public class FillAmountController : MonoBehaviour
     void Start()
     {
         childImages = GetComponentsInChildren<Image>();
-        UpdateFillAmounts(0);
+        UpdateFillAmounts(-5f);
     }
 
     public void UpdateFillAmounts(float value)
