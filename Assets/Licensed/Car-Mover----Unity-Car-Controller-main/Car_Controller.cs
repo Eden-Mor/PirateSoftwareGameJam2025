@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
 
@@ -205,8 +206,12 @@ public class Car_Controller : MonoBehaviour
     //Hidden Variables (not private, but hidden in inspector)
     [HideInInspector] public float currSpeed; //Current speed
 
+    private UnityAction allowInputListener;
+
     void Start()
     {
+        allowInputListener = () => AllowInput(false);
+
         //To Prevent The Car From Toppling When Turning Too Much
         rb = GetComponent<Rigidbody>(); //get rigidbody
         rb.centerOfMass = Center_of_Mass.localPosition; //Set the centre of mass of the rigid body to the centre of mass transform
@@ -366,10 +371,10 @@ public class Car_Controller : MonoBehaviour
     }
 
     private void OnEnable()
-        => EventManager.Game.OnTimerComplete.Get().AddListener(() => AllowInput(false));
+        => EventManager.Game.OnTimerComplete.Get().AddListener(allowInputListener);
 
     private void OnDisable()
-        => EventManager.Game.OnTimerComplete.Get().AddListener(() => AllowInput(false));
+        => EventManager.Game.OnTimerComplete.Get().RemoveListener(allowInputListener);
 
     private void AllowInput(bool isAllowed)
     {

@@ -17,7 +17,7 @@ public class Timer : MonoBehaviour
         => EventManager.Game.OnResetTimer.Get().AddListener(ResetTimer);
 
     private void OnDisable()
-        => EventManager.Game.OnResetTimer.Get().AddListener(ResetTimer);
+        => EventManager.Game.OnResetTimer.Get().RemoveListener(ResetTimer);
 
 
     // Starts the timer automatically

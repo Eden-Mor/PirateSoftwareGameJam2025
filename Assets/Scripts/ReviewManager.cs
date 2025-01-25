@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class ReviewManager : MonoBehaviour
 {
@@ -13,28 +14,29 @@ public class ReviewManager : MonoBehaviour
     private int reviewTickDownRate = -1;
 
     [Range(-5f, 5f), SerializeField]
-    private float reviewCounter = 0f;
+    private float reviewCounter = -5f;
 
     [SerializeField]
     private bool tickDownReview = true;
 
+    [SerializeField]
+    private bool isReviewing = false;
+
+    private UnityAction reviewStopListener;
+    private GameObject fillAmountParent;
+
     private void Start()
     {
+        reviewStopListener = () => StartCoroutine(OnReviewStop());
+        EventManager.Player.OnCarCollide.Get().AddListener(OnCarCollided);
+        EventManager.Player.OnReviewStop.Get().AddListener(reviewStopListener);
+        EventManager.Player.OnReviewStart.Get().AddListener(OnReviewStart);
+
+        fillAmountParent = fillAmountController.transform.parent.gameObject;
+
         StartCoroutine(StartReviewTicking());
-    }
 
-    private void OnEnable()
-    {
-        EventManager.Player.OnCarCollide.Get().AddListener(OnCarCollided);
-        EventManager.Player.OnReviewStop.Get().AddListener(OnReviewStop);
-        EventManager.Player.OnReviewStart.Get().AddListener(OnReviewStart);
-    }
-
-    private void OnDisable()
-    {
-        EventManager.Player.OnCarCollide.Get().AddListener(OnCarCollided);
-        EventManager.Player.OnReviewStop.Get().AddListener(OnReviewStop);
-        EventManager.Player.OnReviewStart.Get().AddListener(OnReviewStart);
+        fillAmountParent.SetActive(false);
     }
 
     public float GetReviewValue() 
@@ -42,34 +44,47 @@ public class ReviewManager : MonoBehaviour
 
     IEnumerator StartReviewTicking()
     {
-        while (tickDownReview)
+        while (tickDownReview && isReviewing)
         {
             yield return new WaitForSeconds(reviewTickDownRate);
             AddToReviewCounter(reviewTickDownAmount);
         }
     }
 
-    private void AddToReviewCounter(float amount)
+    private void AddToReviewCounter(float amount) 
+        => SetReviewCounter(reviewCounter + amount);
+
+    private void SetReviewCounter(float amount)
     {
-        reviewCounter += amount;
+        reviewCounter = Mathf.Clamp(amount, -5f, 5f);
         fillAmountController.UpdateFillAmounts(reviewCounter);
     }
 
     private void OnCarCollided(Component component, int velocity)
     {
         // in the future check what component it was colliding with to determine better values for decreasing the review count;
-        AddToReviewCounter(velocity / 100f);
+        if (isReviewing)
+            AddToReviewCounter(velocity / 100f);
     }
 
-    private void OnReviewStop()
+    private IEnumerator OnReviewStop()
     {
+        isReviewing = false;
         tickDownReview = false;
+
+        //Play animation or something that shows what their review was
+        yield return new WaitForSeconds(1);
+
+        fillAmountParent.SetActive(false);
     }
 
     private void OnReviewStart()
     {
-        reviewCounter = 0f;
+        fillAmountParent.SetActive(true);
+        isReviewing = true;
         tickDownReview = true;
+        
+        SetReviewCounter(-5f);
         StartCoroutine(StartReviewTicking());
     }
 }
