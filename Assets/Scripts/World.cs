@@ -48,11 +48,11 @@ public class World : MonoBehaviour
 	/// </summary>
 	public Dictionary<string, GameObject> chunks = new Dictionary<string, GameObject>();
 
-	/// <summary>
-	/// List of all the road tiles from the chunk generator, used to be able to pick where to spawn 
-	/// vehicles, pick-ups, and drop-offs.
-	/// </summary>
-	public List<GameObject> roadTiles = new List<GameObject>();
+    /// <summary>
+    /// List of all the road tiles from the chunk generator, used to be able to pick where to spawn 
+    /// vehicles, pick-ups, and drop-offs.
+    /// </summary>
+    public List<Tile> roadTiles = new List<Tile>();
 
 	void Start()
 	{
@@ -149,7 +149,7 @@ public class World : MonoBehaviour
 	/// </summary>
 	/// <param name="worldCoords">The world coordinates to get the tile from.</param>
 	/// <returns>The tile's instance game object.</returns>
-	public GameObject GetTileObject( Vector3Int worldCoords )
+	public Tile GetTile( Vector3Int worldCoords )
 	{
 		int chunkX = worldCoords.x / chunkSize;
 		int chunkZ = worldCoords.z / chunkSize;
@@ -168,7 +168,7 @@ public class World : MonoBehaviour
 		return chunk.instances[ tileX, tileZ ];
 	}
 
-	public GameObject GetRandomRoadTile()
+	public Tile GetRandomRoadTile()
 	{
 		return roadTiles[ UnityEngine.Random.Range( 0, roadTiles.Count ) ];
 	}
