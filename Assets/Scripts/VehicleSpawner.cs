@@ -61,13 +61,12 @@ public class VehicleSpawner : MonoBehaviour
 	public void SpawnVehicle()
 	{
 		// TODO: Take into account player view frustrum, where we've recently spawned vehicles, etc.
-		var tileObject = world.GetRandomRoadTile();
+		var tile = world.GetRandomRoadTile();
 
 		// Get a Tile Path from the tile, which we'll have the vehicle follow.
-		Tile tile = tileObject.GetComponent<Tile>();
 		TilePath tilePath = tile.RandomTilePath();
 
-		Debug.Log( "VehicleSpawner > SpawnVehicle > tileObject.transform.position: " + tileObject.transform.position );
+		Debug.Log( "VehicleSpawner > SpawnVehicle > tile.transform.position: " + tile.transform.position );
 
 		if(tilePath != null)
 		{
@@ -78,7 +77,7 @@ public class VehicleSpawner : MonoBehaviour
 			vehicleObject.transform.SetParent( vehiclesParent.transform, false );
 
 			VehiclePathController vehicle = vehicleObject.GetComponent<VehiclePathController>();
-			vehicle.tileObject = tileObject;
+			vehicle.tile = tile;
 			vehicle.tilePath = tilePath;
 			vehicle.spawner = this;
 		}
