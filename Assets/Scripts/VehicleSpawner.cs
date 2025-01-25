@@ -16,11 +16,6 @@ public class VehicleSpawner : MonoBehaviour
 	public GameObject[] vehiclePrefabs;
 
 	/// <summary>
-	/// Refence to the world object.
-	/// </summary>
-	public GameObject worldObject;
-
-	/// <summary>
 	/// Transform to put all our instantiated vehicles as children of.
 	/// </summary>
 	public Transform vehiclesParent;
@@ -35,11 +30,6 @@ public class VehicleSpawner : MonoBehaviour
 	/// created before spawning vehicles within it.
 	/// </summary>
 	bool spawned = false;
-
-	public void Start()
-	{
-		world = worldObject.GetComponent<World>();
-	}
 
 	public void Update()
 	{

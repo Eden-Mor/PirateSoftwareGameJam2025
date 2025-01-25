@@ -159,11 +159,10 @@ public class World : MonoBehaviour
 		if(tileX < 0 || tileX > chunkSize || tileZ < 0 || tileZ > chunkSize)
 			return null;
 
-		GameObject chunkObject = chunks[ ChunkKey( chunkX, chunkZ ) ];
-
-		if(chunkObject == null)
+		if(!chunks.ContainsKey( ChunkKey( chunkX, chunkZ ) ))
 			return null;
 
+		GameObject chunkObject = chunks[ ChunkKey( chunkX, chunkZ ) ];
 		Chunk chunk = chunkObject.GetComponent<Chunk>();
 		return chunk.instances[ tileX, tileZ ];
 	}
