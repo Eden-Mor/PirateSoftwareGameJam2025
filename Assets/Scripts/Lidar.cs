@@ -5,12 +5,12 @@ using UnityEngine;
 
 public class Lidar : MonoBehaviour
 {
-
+    public CapsuleCollider capColider;
     private VehiclePathController controller;
     // Start is called before the first frame update
     void Start()
     {
-        controller = transform.parent.gameObject.GetComponent<VehiclePathController>();
+        controller = GetComponentInParent<VehiclePathController>();
 
     }
 
@@ -20,6 +20,9 @@ public class Lidar : MonoBehaviour
 
     }
 
+   
+
+
     private void OnTriggerStay(Collider other)
     {
         if (!other.CompareTag("Building"))
@@ -28,12 +31,17 @@ public class Lidar : MonoBehaviour
 
         }
 
-      
-
+     
+    
     }
 
     private void OnTriggerExit(Collider other)
     {
         controller.isBraking = false;
+    }
+
+    private void FixedUpdate()
+    {
+       
     }
 }

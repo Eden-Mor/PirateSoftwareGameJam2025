@@ -20,7 +20,8 @@ public class VehiclePathController : MonoBehaviour
 	public float maxSpeed = 4f;
 	public bool isBraking = false;
 	public float brakeSensitvity = 0.1f;
-	public AudioSource honkSound;
+	public float acceleration = 0.075f;
+	
 	[Header( "Internals" )]
 
 	/// <summary>
@@ -154,13 +155,14 @@ public class VehiclePathController : MonoBehaviour
         if (this.isBraking == true) {
 			if(speed > 0)
 			{
-				speed = speed - this.brakeSensitvity;
+				speed = Mathf.Max(speed - brakeSensitvity, 0f);
 			}
+			
 		}
 		else
 		{
 			if (speed < maxSpeed) {
-				speed = speed + 0.075f;
+				speed = speed + acceleration;
 			}
 		}
     }

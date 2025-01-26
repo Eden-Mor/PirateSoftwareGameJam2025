@@ -68,6 +68,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 121fc9587b70c794780dd0f85e968534, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  capColider: {fileID: 8478715366769773824}
 --- !u!1 &3389728885608118090
 GameObject:
   m_ObjectHideFlags: 0
@@ -77,9 +78,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6519628497639936200}
-  - component: {fileID: 559706498602068621}
+  - component: {fileID: 6764685322723722651}
   m_Layer: 0
-  m_Name: BoatHorn
+  m_Name: Honk
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -93,14 +94,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3389728885608118090}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 4333001034710748832}
+  m_Father: {fileID: 3945179792332949542}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!82 &559706498602068621
+--- !u!82 &6764685322723722651
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -110,9 +111,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 719ca0e24b719de43936820a51dda379, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 4feaf34aee8ef7347964abae1218b74d, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.583
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -196,6 +197,75 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!1 &6487271322036506294
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2738560526099860210}
+  - component: {fileID: 5268340954716148395}
+  - component: {fileID: 353820173008300194}
+  m_Layer: 0
+  m_Name: HonkAndBrake
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2738560526099860210
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6487271322036506294}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.033, y: -0.078, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4333001034710748832}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!136 &5268340954716148395
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6487271322036506294}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.98
+  m_Height: 0
+  m_Direction: 2
+  m_Center: {x: 0, y: 0.87, z: 1.98}
+--- !u!114 &353820173008300194
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6487271322036506294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f181058916d30e542aedccdb86b527c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  honkSound: {fileID: 6764685322723722651}
 --- !u!1 &6655375981094646734
 GameObject:
   m_ObjectHideFlags: 0
@@ -227,9 +297,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 2738560526099860210}
   - {fileID: 5041445029190718582}
   - {fileID: 3945179792332949542}
-  - {fileID: 6519628497639936200}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7213021772763487256
@@ -246,7 +316,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 4
   maxSpeed: 4
-  honkSound: {fileID: 559706498602068621}
+  isBraking: 0
+  brakeSensitvity: 0.1
+  acceleration: 0.75
   progress: 0
   tile: {fileID: 0}
   tilePath:
@@ -347,7 +419,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: d2f35f3fd97918b4caf77013fc6be309, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6519628497639936200}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: -4819223349682164798, guid: d2f35f3fd97918b4caf77013fc6be309, type: 3}
       insertIndex: -1
