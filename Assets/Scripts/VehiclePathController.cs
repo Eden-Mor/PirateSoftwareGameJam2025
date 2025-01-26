@@ -21,7 +21,7 @@ public class VehiclePathController : MonoBehaviour
 	public bool isBraking = false;
 	public float brakeSensitvity = 0.1f;
 	public float acceleration = 0.075f;
-	
+	public bool isPathing = true;
 	[Header( "Internals" )]
 
 	/// <summary>
@@ -44,12 +44,25 @@ public class VehiclePathController : MonoBehaviour
 	/// </summary>
 	public VehicleSpawner spawner;
 
+	Rigidbody rb;
+
 	public void Start()
 	{
 		UpdateTransform();
-	}
+        rb = GetComponent<Rigidbody>();
+    }
 
- 
+    private void OnCollisionEnter(Collision collision)
+    {
+	
+		
+		if (collision.gameObject.CompareTag("Player"))
+		{
+			rb.isKinematic = false;
+			isPathing = false;
+		}
+    }
+
 
 
 
@@ -60,65 +73,71 @@ public class VehiclePathController : MonoBehaviour
     public void Update()
 	{
 		// TODO: Cache distance calculation(s) for the path.
-		var path = GetPath();
-		float pathLength = path.CalculateLength();
-		progress += (speed / pathLength) * Time.deltaTime;
-
-		// If we've reached the end of the path, get the next tile in our direction of travel and a path
-		// from it, or despawn if there's no route.
-		if (progress >= 1f)
+		if (isPathing)
 		{
-			// Maintain any excess progress into the next tile.
-			// TODO: This will need to be different when using distance not percentage of path.
-			progress -= 1f;
 
-			// Get the coords of the next tile in our direction.
-			Vector3Int nextTileOffset = new Vector3Int();
-			if(tilePath.end == Direction.North)
-				nextTileOffset.z = 1;
-			else if(tilePath.end == Direction.South)
-				nextTileOffset.z = -1;
-			else if(tilePath.end == Direction.East)
-				nextTileOffset.x = 1;
-			else
-				nextTileOffset.x = -1;
 
-			Tile currentTile = tile;
-			Vector3Int nextTileCoords = currentTile.worldCoords + nextTileOffset;
+			var path = GetPath();
+			float pathLength = path.CalculateLength();
+			progress += (speed / pathLength) * Time.deltaTime;
 
-			// Get the next tile object or despawn if there isn't one (reached the edge of the world).
-			Tile nextTile = spawner.world.GetTile(nextTileCoords);
-			if(nextTile == null)
+			// If we've reached the end of the path, get the next tile in our direction of travel and a path
+			// from it, or despawn if there's no route.
+			if (progress >= 1f)
 			{
-				spawner.DespawnVehicle( gameObject );
-				return;
+				// Maintain any excess progress into the next tile.
+				// TODO: This will need to be different when using distance not percentage of path.
+				progress -= 1f;
+
+				// Get the coords of the next tile in our direction.
+				Vector3Int nextTileOffset = new Vector3Int();
+				if (tilePath.end == Direction.North)
+					nextTileOffset.z = 1;
+				else if (tilePath.end == Direction.South)
+					nextTileOffset.z = -1;
+				else if (tilePath.end == Direction.East)
+					nextTileOffset.x = 1;
+				else
+					nextTileOffset.x = -1;
+
+				Tile currentTile = tile;
+				Vector3Int nextTileCoords = currentTile.worldCoords + nextTileOffset;
+
+				// Get the next tile object or despawn if there isn't one (reached the edge of the world).
+				Tile nextTile = spawner.world.GetTile(nextTileCoords);
+				if (nextTile == null)
+				{
+					spawner.DespawnVehicle(gameObject);
+					return;
+				}
+
+				// Get an appropriate tile path for us to follow.
+				Direction invertedDirection;
+				if (tilePath.end == Direction.North)
+					invertedDirection = Direction.South;
+				else if (tilePath.end == Direction.South)
+					invertedDirection = Direction.North;
+				else if (tilePath.end == Direction.East)
+					invertedDirection = Direction.West;
+				else
+					invertedDirection = Direction.East;
+
+				TilePath nextTilePath = nextTile.RandomTilePath(invertedDirection);
+
+				if (nextTilePath == null)
+				{
+					spawner.DespawnVehicle(gameObject);
+					return;
+				}
+
+				// Set our tile and path references to the next things and off we go.
+				tile = nextTile;
+				tilePath = nextTilePath;
 			}
 
-			// Get an appropriate tile path for us to follow.
-			Direction invertedDirection;
-			if(tilePath.end == Direction.North)
-				invertedDirection = Direction.South;
-			else if (tilePath.end == Direction.South)
-				invertedDirection = Direction.North;
-			else if (tilePath.end == Direction.East)
-				invertedDirection = Direction.West;
-			else
-				invertedDirection = Direction.East;
-
-			TilePath nextTilePath = nextTile.RandomTilePath(invertedDirection);
-
-			if(nextTilePath == null)
-			{
-				spawner.DespawnVehicle( gameObject );
-				return;
-			}
-
-			// Set our tile and path references to the next things and off we go.
-			tile = nextTile;
-			tilePath = nextTilePath;
+			UpdateTransform();
 		}
 
-		UpdateTransform();
 	}
 
 	/// <summary>

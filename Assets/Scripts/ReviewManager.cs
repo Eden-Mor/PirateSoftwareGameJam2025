@@ -31,7 +31,7 @@ public class ReviewManager : MonoBehaviour
         EventManager.Player.OnCarCollide.Get().AddListener(OnCarCollided);
         EventManager.Player.OnReviewStop.Get().AddListener(reviewStopListener);
         EventManager.Player.OnReviewStart.Get().AddListener(OnReviewStart);
-
+        EventManager.Player.onCarHonked.Get().AddListener(onCarHonked);
         fillAmountParent = fillAmountController.transform.parent.gameObject;
 
         StartCoroutine(StartReviewTicking());
@@ -65,6 +65,12 @@ public class ReviewManager : MonoBehaviour
         // in the future check what component it was colliding with to determine better values for decreasing the review count;
         if (isReviewing)
             AddToReviewCounter(velocity / 100f);
+    }
+
+    private void onCarHonked()
+    {
+        if (isReviewing)
+            AddToReviewCounter(0.25f);
     }
 
     private IEnumerator OnReviewStop()
