@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Mathematics;
+using UnityEditor.Profiling.Memory.Experimental;
 using UnityEngine;
 using UnityEngine.Splines;
 
@@ -15,7 +17,10 @@ public class VehiclePathController : MonoBehaviour
 	/// realistic sense of movement and allow them to better interact with the world.
 	/// </summary>
 	public float speed = 1f;
-
+	public float maxSpeed = 4f;
+	public bool isBraking = false;
+	public float brakeSensitvity = 0.1f;
+	public AudioSource honkSound;
 	[Header( "Internals" )]
 
 	/// <summary>
@@ -43,7 +48,15 @@ public class VehiclePathController : MonoBehaviour
 		UpdateTransform();
 	}
 
-	public void Update()
+ 
+
+
+
+
+
+
+
+    public void Update()
 	{
 		// TODO: Cache distance calculation(s) for the path.
 		var path = GetPath();
@@ -135,4 +148,20 @@ public class VehiclePathController : MonoBehaviour
 		GameObject pathObject = tilePath.path;
 		return pathObject.GetComponent<SplineContainer>();
 	}
+
+    private void FixedUpdate()
+    {
+        if (this.isBraking == true) {
+			if(speed > 0)
+			{
+				speed = speed - this.brakeSensitvity;
+			}
+		}
+		else
+		{
+			if (speed < maxSpeed) {
+				speed = speed + 0.075f;
+			}
+		}
+    }
 }

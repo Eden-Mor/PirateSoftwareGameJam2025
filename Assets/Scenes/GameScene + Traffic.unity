@@ -4211,6 +4211,7 @@ MonoBehaviour:
   Crash_Object_Tags:
   - Building
   - Tree
+  - Traffic
   Crash_Sound: {fileID: 494084243}
   Set_Drift_Settings_Automatically: 1
   Forward_Extremium_Value_When_Drifting: 0
@@ -5030,6 +5031,79 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 658bc8e18027a6e46857be36e4a61dd4, type: 3}
+--- !u!1001 &1326607774
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1220713896262776230, guid: 3d2d5d2f0dd46fd48aac7ffcf6f06e91, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1220713896262776230, guid: 3d2d5d2f0dd46fd48aac7ffcf6f06e91, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1220713896262776230, guid: 3d2d5d2f0dd46fd48aac7ffcf6f06e91, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1220713896262776230, guid: 3d2d5d2f0dd46fd48aac7ffcf6f06e91, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1220713896262776230, guid: 3d2d5d2f0dd46fd48aac7ffcf6f06e91, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1220713896262776230, guid: 3d2d5d2f0dd46fd48aac7ffcf6f06e91, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1220713896262776230, guid: 3d2d5d2f0dd46fd48aac7ffcf6f06e91, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1220713896262776230, guid: 3d2d5d2f0dd46fd48aac7ffcf6f06e91, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1220713896262776230, guid: 3d2d5d2f0dd46fd48aac7ffcf6f06e91, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1220713896262776230, guid: 3d2d5d2f0dd46fd48aac7ffcf6f06e91, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4128009881582071550, guid: 3d2d5d2f0dd46fd48aac7ffcf6f06e91, type: 3}
+      propertyPath: m_Name
+      value: VehicleSpawner
+      objectReference: {fileID: 0}
+    - target: {fileID: 6558694701578110996, guid: 3d2d5d2f0dd46fd48aac7ffcf6f06e91, type: 3}
+      propertyPath: world
+      value: 
+      objectReference: {fileID: 2145371448}
+    - target: {fileID: 6558694701578110996, guid: 3d2d5d2f0dd46fd48aac7ffcf6f06e91, type: 3}
+      propertyPath: numberOfVehicles
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 6558694701578110996, guid: 3d2d5d2f0dd46fd48aac7ffcf6f06e91, type: 3}
+      propertyPath: vehiclePrefabs.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6558694701578110996, guid: 3d2d5d2f0dd46fd48aac7ffcf6f06e91, type: 3}
+      propertyPath: vehiclePrefabs.Array.data[0]
+      value: 
+      objectReference: {fileID: 6655375981094646734, guid: a0383ca5d8313704cb31edc13bc9553a, type: 3}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 3d2d5d2f0dd46fd48aac7ffcf6f06e91, type: 3}
 --- !u!1001 &1334988703
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14603,3 +14677,4 @@ SceneRoots:
   - {fileID: 759134078}
   - {fileID: 1820316201}
   - {fileID: 1089703972}
+  - {fileID: 1326607774}
