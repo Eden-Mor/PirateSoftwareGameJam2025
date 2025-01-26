@@ -15,13 +15,17 @@ public class HonkAndBrake : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.name == "Driveable Taxi") {
-            Debug.Log("honk and brake");
-            honkSound.Play();
+        if (other.gameObject.name == "Driveable Taxi")
+        {
+            if (!honkSound.isPlaying)
+            {
+                honkSound.Play();
+            }
+
             controller.speed = 0f;
         }
-       
-       
+
+
 
     }
     private void OnTriggerExit(Collider other)

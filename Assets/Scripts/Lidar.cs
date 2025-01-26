@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
+using System.Transactions;
 using UnityEngine;
 
 public class Lidar : MonoBehaviour
@@ -28,8 +29,15 @@ public class Lidar : MonoBehaviour
         if (!other.CompareTag("Building"))
         {
             controller.isBraking = true;
+           
 
         }
+
+        if (other.gameObject.name == "Lidar") {
+            controller.isBraking = false;
+        }
+
+      
 
      
     

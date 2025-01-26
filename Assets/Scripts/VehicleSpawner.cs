@@ -56,7 +56,7 @@ public class VehicleSpawner : MonoBehaviour
 		// Get a Tile Path from the tile, which we'll have the vehicle follow.
 		TilePath tilePath = tile.RandomTilePath();
 
-		Debug.Log( "VehicleSpawner > SpawnVehicle > tile.transform.position: " + tile.transform.position );
+	//	Debug.Log( "VehicleSpawner > SpawnVehicle > tile.transform.position: " + tile.transform.position );
 
 		if(tilePath != null)
 		{
