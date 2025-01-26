@@ -37,7 +37,7 @@ public class VehicleSpawner : MonoBehaviour
 		// TODO: A much nicer solution than this!
 		if(!spawned && world.chunks.Count > 0)
 		{
-			for (int i = 0; i < numberOfVehicles; i++)
+			for(int i = 0; i < numberOfVehicles; i++)
 				SpawnVehicle();
 
 			spawned = true;
@@ -77,7 +77,7 @@ public class VehicleSpawner : MonoBehaviour
 	/// Despawns the passed vehicle then randomly spawns another.
 	/// </summary>
 	/// <param name="vehicleObject">The game object of the vehicle to despawn.</param>
-	public void DespawnVehicle(GameObject vehicleObject )
+	public void DespawnVehicle( GameObject vehicleObject )
 	{
 		Destroy( vehicleObject );
 		SpawnVehicle();
