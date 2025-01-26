@@ -216,13 +216,13 @@ public class Chunk : MonoBehaviour
 		tile.coords = new Vector3Int( x, 0, z );
 		tile.worldCoords = world.WorldCoords( this.coords, tile.coords );
 
-        tile.transform.name = tile.worldCoords.x + "," + tile.worldCoords.z;
+		tile.transform.name = tile.worldCoords.x + "," + tile.worldCoords.z;
 
 		instances[ x, z ] = tile;
 
 		// Add all our road tile instances to the world roadTiles variable so spawners can use them.
 		if(tiles[ x, z ].name.StartsWith( "road" ))
-			world.roadTiles.Add(tile);
+			world.roadTiles.Add( tile );
 	}
 
 	string TileKey( int x, int z )
