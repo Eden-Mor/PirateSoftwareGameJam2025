@@ -12,44 +12,23 @@ public class Lidar : MonoBehaviour
     void Start()
     {
         controller = GetComponentInParent<VehiclePathController>();
-
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
-   
-
 
     private void OnTriggerStay(Collider other)
     {
         if (!other.CompareTag("Building"))
         {
             controller.isBraking = true;
-           
-
         }
 
-        if (other.gameObject.name == "Lidar") {
+        if (other.gameObject.name == "Lidar")
+        {
             controller.isBraking = false;
         }
-
-      
-
-     
-    
     }
 
     private void OnTriggerExit(Collider other)
     {
         controller.isBraking = false;
-    }
-
-    private void FixedUpdate()
-    {
-       
-    }
+    }   
 }

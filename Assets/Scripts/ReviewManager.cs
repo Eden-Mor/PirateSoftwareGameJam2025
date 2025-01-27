@@ -31,7 +31,7 @@ public class ReviewManager : MonoBehaviour
         EventManager.Player.OnCarCollide.Get().AddListener(OnCarCollided);
         EventManager.Player.OnReviewStop.Get().AddListener(reviewStopListener);
         EventManager.Player.OnReviewStart.Get().AddListener(OnReviewStart);
-        EventManager.Player.onCarHonked.Get().AddListener(onCarHonked);
+        EventManager.Player.onCarHonked.Get().AddListener(OnCarHonked);
         fillAmountParent = fillAmountController.transform.parent.gameObject;
 
         StartCoroutine(StartReviewTicking());
@@ -39,7 +39,7 @@ public class ReviewManager : MonoBehaviour
         fillAmountParent.SetActive(false);
     }
 
-    public float GetReviewValue() 
+    public float GetReviewValue()
         => reviewCounter;
 
     IEnumerator StartReviewTicking()
@@ -51,7 +51,7 @@ public class ReviewManager : MonoBehaviour
         }
     }
 
-    private void AddToReviewCounter(float amount) 
+    private void AddToReviewCounter(float amount)
         => SetReviewCounter(reviewCounter + amount);
 
     private void SetReviewCounter(float amount)
@@ -67,7 +67,7 @@ public class ReviewManager : MonoBehaviour
             AddToReviewCounter(velocity / 100f);
     }
 
-    private void onCarHonked()
+    private void OnCarHonked()
     {
         if (isReviewing)
             AddToReviewCounter(0.25f);
@@ -89,7 +89,7 @@ public class ReviewManager : MonoBehaviour
         fillAmountParent.SetActive(true);
         isReviewing = true;
         tickDownReview = true;
-        
+
         SetReviewCounter(-5f);
         StartCoroutine(StartReviewTicking());
     }

@@ -12,9 +12,8 @@ public class HonkAndBrake : MonoBehaviour
     {
         controller = GetComponentInParent<VehiclePathController>();
         rm = GetComponent<ReviewManager>();
-        
-    }
 
+    }
 
     public void OnTriggerEnter(Collider other)
     {
@@ -28,17 +27,10 @@ public class HonkAndBrake : MonoBehaviour
 
             controller.speed = 0f;
         }
-
-
-
     }
+
     private void OnTriggerExit(Collider other)
     {
         controller.speed = controller.maxSpeed;
-    }
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 }

@@ -8,59 +8,56 @@ using UnityEngine.Splines;
 
 public class VehiclePathController : MonoBehaviour
 {
-	[Header("Vehicle Properties")]
-	
-	/// <summary>
-	/// The distance that the vehicle will move per-second.
-	/// 
-	/// TODO: Add other properties like acceleration, max speed, braking, and so on to give a more 
-	/// realistic sense of movement and allow them to better interact with the world.
-	/// </summary>
-	public float speed = 1f;
-	public float maxSpeed = 4f;
-	public bool isBraking = false;
-	public float brakeSensitvity = 0.1f;
-	public float acceleration = 0.075f;
-	public bool isPathing = true;
-	[Header( "Internals" )]
+    [Header("Vehicle Properties")]
 
-	/// <summary>
-	/// What fraction of the path has the vehicle travelled along, from 0 to 1.
-	/// </summary>
-	public float progress = 0f;
+    /// <summary>
+    /// The distance that the vehicle will move per-second.
+    /// 
+    /// TODO: Add other properties like acceleration, max speed, braking, and so on to give a more 
+    /// realistic sense of movement and allow them to better interact with the world.
+    /// </summary>
+    public float speed = 1f;
+    public float maxSpeed = 4f;
+    public bool isBraking = false;
+    public float brakeSensitvity = 0.1f;
+    public float acceleration = 0.075f;
+    public bool isPathing = true;
+    [Header("Internals")]
 
-	/// <summary>
-	/// The tile that this vehicle is currently traversing.
-	/// </summary>
-	public Tile tile;
+    /// <summary>
+    /// What fraction of the path has the vehicle travelled along, from 0 to 1.
+    /// </summary>
+    public float progress = 0f;
 
-	/// <summary>
-	/// The tile path that this vehicle is currently traversing.
-	/// </summary>
-	public TilePath tilePath;
+    /// <summary>
+    /// The tile that this vehicle is currently traversing.
+    /// </summary>
+    public Tile tile;
 
-	/// <summary>
-	/// Refernce to the vehicle spawner so we can request to be de-spawned.
-	/// </summary>
-	public VehicleSpawner spawner;
-	public Rigidbody rb;
+    /// <summary>
+    /// The tile path that this vehicle is currently traversing.
+    /// </summary>
+    public TilePath tilePath;
 
-	private CapsuleCollider capsuleCollider;
+    /// <summary>
+    /// Refernce to the vehicle spawner so we can request to be de-spawned.
+    /// </summary>
+    public VehicleSpawner spawner;
+    public Rigidbody rb;
 
-	public void Start()
-	{
-		UpdateTransform();
+    public void Start()
+    {
+        UpdateTransform();
         rb = GetComponent<Rigidbody>();
     }
 
-
     public void OnCollisionEnter(Collision collision)
     {
-		if (collision.gameObject.CompareTag("Player"))
-		{
-			rb.isKinematic = false;
-			isPathing = false;
-		}
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            rb.isKinematic = false;
+            isPathing = false;
+        }
     }
 
     public void Update()
@@ -163,18 +160,20 @@ public class VehiclePathController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (this.isBraking == true) {
-			if(speed > 0)
-			{
-				speed = Mathf.Max(speed - brakeSensitvity, 0f);
-			}
-			
-		}
-		else
-		{
-			if (speed < maxSpeed) {
-				speed = speed + acceleration;
-			}
-		}
+        if (this.isBraking == true)
+        {
+            if (speed > 0)
+            {
+                speed = Mathf.Max(speed - brakeSensitvity, 0f);
+            }
+
+        }
+        else
+        {
+            if (speed < maxSpeed)
+            {
+                speed = speed + acceleration;
+            }
+        }
     }
 }
