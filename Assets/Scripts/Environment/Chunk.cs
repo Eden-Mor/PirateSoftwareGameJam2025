@@ -76,6 +76,7 @@ public class Chunk : MonoBehaviour
 	public void Generate()
 	{
 		GenerateRoads();
+		GeneratePointsOfInterest();
 		GenerateOthers();
 	}
 
@@ -105,6 +106,11 @@ public class Chunk : MonoBehaviour
 				}
 			}
 		}
+	}
+
+	public void GeneratePointsOfInterest()
+	{
+
 	}
 
 	/// <summary>
