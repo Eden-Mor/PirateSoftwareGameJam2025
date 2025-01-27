@@ -22,7 +22,7 @@ public class HonkAndBrake : MonoBehaviour
             if (!honkSound.isPlaying)
             {
                 honkSound.Play();
-                EventManager.Player.onCarHonked.Get().Invoke();
+                EventManager.Player.OnCarHonked.Get().Invoke();
             }
 
             controller.speed = 0f;

@@ -31,7 +31,7 @@ public class ReviewManager : MonoBehaviour
         EventManager.Player.OnCarCollide.Get().AddListener(OnCarCollided);
         EventManager.Player.OnReviewStop.Get().AddListener(reviewStopListener);
         EventManager.Player.OnReviewStart.Get().AddListener(OnReviewStart);
-        EventManager.Player.onCarHonked.Get().AddListener(OnCarHonked);
+        EventManager.Player.OnCarHonked.Get().AddListener(OnCarHonked);
         fillAmountParent = fillAmountController.transform.parent.gameObject;
 
         StartCoroutine(StartReviewTicking());
