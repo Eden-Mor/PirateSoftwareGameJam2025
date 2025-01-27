@@ -265,6 +265,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f181058916d30e542aedccdb86b527c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rm: {fileID: 0}
   honkSound: {fileID: 6764685322723722651}
 --- !u!1 &6655375981094646734
 GameObject:
@@ -319,6 +320,7 @@ MonoBehaviour:
   isBraking: 0
   brakeSensitvity: 0.1
   acceleration: 0.75
+  isPathing: 1
   progress: 0
   tile: {fileID: 0}
   tilePath:
@@ -326,6 +328,7 @@ MonoBehaviour:
     end: 0
     path: {fileID: 0}
   spawner: {fileID: 0}
+  rb: {fileID: 1564399682011387216}
 --- !u!54 &1564399682011387216
 Rigidbody:
   m_ObjectHideFlags: 0
