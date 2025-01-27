@@ -19,6 +19,8 @@ public static class EventManager
         public GenericEvent<ReviewStopEvent> OnReviewStop = new();
         public class ReviewStartEvent : UnityEvent { }
         public GenericEvent<ReviewStartEvent> OnReviewStart = new();
+        public class CarHonkedEvent : UnityEvent { }
+        public GenericEvent<CarHonkedEvent> OnCarHonked = new();
         public class ReviewFinishedEvent : UnityEvent<float> { }
         public GenericEvent<ReviewFinishedEvent> OnReviewFinished = new();
     }
