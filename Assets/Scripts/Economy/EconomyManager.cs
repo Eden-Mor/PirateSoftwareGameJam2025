@@ -9,6 +9,8 @@ public class EconomyManager : MonoBehaviour
     [SerializeField] private int currentCash;
     [SerializeField] private UpgradePricesSO upgradePriceSO;
     [SerializeField] private List<CarUpgradeData> purchasedUpgrades = new();
+    [SerializeField] private AudioSource coinEarned;
+    [SerializeField] private AudioSource coinSpent;
 
     private void Start()
     {
@@ -17,12 +19,32 @@ public class EconomyManager : MonoBehaviour
         var carUpgrades = Enum.GetValues(typeof(CarUpgradesEnum));
         foreach (CarUpgradesEnum upgradeType in carUpgrades)
             purchasedUpgrades.Add(new CarUpgradeData() { type = upgradeType, count = 0 });
+
+        EventManager.Player.OnReviewFinished.Get().AddListener(AddCashBasedOnReview);
+    }
+
+    private void AddCashBasedOnReview(float stars)
+    {
+        //Convert the range of -5 to 5 
+        //to a range of 0 to 10
+        //0 corresponding to "5 yellow stars"
+        stars += 5f;
+
+        //Add a free star
+        stars += 1f;
+
+        AddCash(Mathf.FloorToInt(stars * 5));
     }
 
     public void AddCash(int amount)
     {
         currentCash += Mathf.Clamp(amount, -currentCash, int.MaxValue);
         EventManager.Game.OnCashChanged.Get().Invoke(currentCash);
+
+        if (amount > 0)
+            coinEarned.Play();
+        else
+            coinSpent.Play();
     }
 
     public int GetPurchasedUpgradeCount(CarUpgradesEnum upgradeType)

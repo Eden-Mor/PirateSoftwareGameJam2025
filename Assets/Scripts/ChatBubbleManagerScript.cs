@@ -5,6 +5,13 @@ using System.Linq;
 using UnityEngine;
 
 [Serializable]
+public class ChatMessageGroup
+{
+    public string messageGroupIdentifier;
+    public List<ChatMessage> messages;
+}
+
+[Serializable]
 public class ChatMessage
 {
     public string name;
@@ -14,21 +21,19 @@ public class ChatMessage
 public class ChatBubbleManagerScript : MonoBehaviour
 {
     [SerializeField] private bool isDisplaying = false;
-    [SerializeField] private List<List<ChatMessage>> messages = new();
-    
+    [SerializeField] private List<ChatMessageGroup> messages = new();
+    [SerializeField] private AudioSource swipeSound;
+
     public List<ChatBubble> bubbles = new();
 
-    public void DEBUG()
+    private void Start()
     {
-        AddChat(new List<ChatMessage> { new() { name = "Person A", message = "Ring ring." },
-        new() { name = "Jake", message = "Ill be on in a sec." },
-        new() { name = "Person B", message = "You said that last time ive been waiting for a while :( " },
-        new() { name = "Jake", message = "Ugh fine ill come on like I promised" }});
+        EventManager.ChatBubble.OnAddChat.Get().AddListener((messages) => AddChat(messages));
     }
 
-    public void AddChat(List<ChatMessage> message)
+    public void AddChat(ChatMessageGroup messageGroup)
     {
-        messages.Add(message);
+        messages.Add(messageGroup);
         StartCoroutine(StartMessageExchange());
     }
 
@@ -42,16 +47,18 @@ public class ChatBubbleManagerScript : MonoBehaviour
         while (messages.Count > 0)
         {
             var messageExchange = messages.First();
-            foreach (var chatMessage in messageExchange)
+            foreach (var chatMessage in messageExchange.messages)
             {
                 var bubble = bubbles.First();
                 bubbles.Reverse();
 
+                swipeSound.Play();
                 bubble.DisplayMessage(chatMessage);
-                yield return new WaitForSeconds(3); // Change this later to length of message
+                yield return new WaitForSeconds(2f + chatMessage.message.Count(x => x == ' ') * 0.25f); // Change this later to length of message
                 bubble.HideMessage();
             }
             messages.RemoveAt(0);
+            EventManager.ChatBubble.OnMessageGroupDisplayed.Get().Invoke(messageExchange.messageGroupIdentifier);
 
             //After the current message sequence ends, wait 2 seconds before showing the new sequence
             yield return new WaitForSeconds(2);

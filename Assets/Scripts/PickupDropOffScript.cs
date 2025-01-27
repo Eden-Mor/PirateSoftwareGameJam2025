@@ -16,6 +16,9 @@ public class PickupDropOffScript : MonoBehaviour
     public bool isTriggered = false;
     public World worldScript;
 
+    [SerializeField] private AudioSource carDoorOpen;
+    [SerializeField] private AudioSource carDoorClose;
+
     private void Start()
     {
         parent = transform.parent;
@@ -44,6 +47,7 @@ public class PickupDropOffScript : MonoBehaviour
     private IEnumerator DropOffPerson()
     {
         //Play dropoff anim
+        carDoorClose.Play();
         yield return new WaitForSeconds(1);
         EventManager.Player.OnReviewStop.Get().Invoke();
         var waitingPerson = waitingPeople.Last();
@@ -71,9 +75,10 @@ public class PickupDropOffScript : MonoBehaviour
             waitingPeople.Remove(previousWaitingPerson);
             Destroy(previousWaitingPerson.gameObject);
         }
-
+        
         //Play pickup anim
 
+        carDoorOpen.Play();
         yield return new WaitForSeconds(1);
 
         var waitingPerson = waitingPeople.First();

@@ -18,7 +18,7 @@ public class ChatBubble : MonoBehaviour
 
     private void SetStartLocation()
     {
-        gameObject.transform.position = new(0f, -250f, 0f);
+        gameObject.transform.position = new(0f, -rectTransform.rect.height, 0f);
     }
 
     public void SetDetails(string name, string text)
@@ -31,12 +31,12 @@ public class ChatBubble : MonoBehaviour
     {
         this.gameObject.SetActive(true);
         SetDetails(chatMessage.name, chatMessage.message);
-        LeanTween.move(this.gameObject, new Vector3(0f, 250f, 0f), 0.5f);
+        LeanTween.move(this.gameObject, new Vector3(0f, 0f, 0f), 0.5f);
     }
 
     public void HideMessage()
     {
-        LeanTween.move(this.gameObject, new Vector3(-this.rectTransform.rect.width, 250f, 0f), 0.5f).setOnComplete(() =>
+        LeanTween.move(this.gameObject, new Vector3(-rectTransform.rect.width, 0, 0f), 0.5f).setOnComplete(() =>
         {
             SetStartLocation();
             this.gameObject.SetActive(false);

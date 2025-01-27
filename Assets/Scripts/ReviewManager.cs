@@ -72,6 +72,9 @@ public class ReviewManager : MonoBehaviour
         isReviewing = false;
         tickDownReview = false;
 
+
+        EventManager.Player.OnReviewFinished.Get().Invoke(reviewCounter);
+
         //Play animation or something that shows what their review was
         yield return new WaitForSeconds(1);
 
