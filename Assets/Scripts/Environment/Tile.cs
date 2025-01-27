@@ -80,12 +80,12 @@ public class Tile : MonoBehaviour
 
 	public Transform[] GetTilePickupPoints()
 	{
-		if (pickupPointsParent == null || pickupPointsParent.childCount <= 0)
+		if(pickupPointsParent == null || pickupPointsParent.childCount <= 0)
 			return null;
 
-		Transform[] children = new Transform[pickupPointsParent.childCount];
-        for (int i = 0; i < children.Length; i++)
-			children[i] = pickupPointsParent.GetChild(i);
+		Transform[] children = new Transform[ pickupPointsParent.childCount ];
+		for(int i = 0; i < children.Length; i++)
+			children[ i ] = pickupPointsParent.GetChild( i );
 
 		return children;
 	}

@@ -44,7 +44,7 @@ public class VehiclePathController : MonoBehaviour
 	/// </summary>
 	public VehicleSpawner spawner;
 
-	Rigidbody rb;
+	private CapsuleCollider capsuleCollider;
 
 	public void Start()
 	{
@@ -52,28 +52,17 @@ public class VehiclePathController : MonoBehaviour
         rb = GetComponent<Rigidbody>();
     }
 
-    private void OnCollisionEnter(Collision collision)
-    {
-	
-		
-		if (collision.gameObject.CompareTag("Player"))
-		{
-			rb.isKinematic = false;
-			isPathing = false;
-		}
-    }
 
-
-
-
-
-
-
-
-    public void Update()
+	public void Update()
 	{
-		// TODO: Cache distance calculation(s) for the path.
-		if (isPathing)
+        // TODO: Cache distance calculation(s) for the path.
+        var path = GetPath();
+		float pathLength = path.CalculateLength();
+		progress += (speed / pathLength) * Time.deltaTime;
+
+		// If we've reached the end of the path, get the next tile in our direction of travel and a path
+		// from it, or despawn if there's no route.
+		if (progress >= 1f)
 		{
 
 

@@ -5,6 +5,7 @@ public static class EventManager
 {
     public static readonly GameEvents Game = new();
     public static readonly PlayerEvents Player = new();
+    public static readonly EconomyEvents Economy = new();
 
     public class PlayerEvents
     {
@@ -26,5 +27,13 @@ public static class EventManager
         public GenericEvent<TimerCompleteEvent> OnTimerComplete = new();
         public class ResetTimerEvent : UnityEvent { }
         public GenericEvent<TimerCompleteEvent> OnResetTimer = new();
+        public class CashChangedEvent : UnityEvent<int> { }
+        public GenericEvent<CashChangedEvent> OnCashChanged = new();
+    }
+
+    public class EconomyEvents
+    {
+        public class PurchaseMadeEvent : UnityEvent { }
+        public GenericEvent<PurchaseMadeEvent> OnPurchaseMade = new();
     }
 }
