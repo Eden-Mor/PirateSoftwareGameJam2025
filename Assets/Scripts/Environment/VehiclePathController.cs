@@ -38,15 +38,18 @@ public class VehiclePathController : MonoBehaviour
 	/// </summary>
 	public VehicleSpawner spawner;
 
+	private CapsuleCollider capsuleCollider;
+
 	public void Start()
 	{
 		UpdateTransform();
 	}
 
+
 	public void Update()
 	{
-		// TODO: Cache distance calculation(s) for the path.
-		var path = GetPath();
+        // TODO: Cache distance calculation(s) for the path.
+        var path = GetPath();
 		float pathLength = path.CalculateLength();
 		progress += (speed / pathLength) * Time.deltaTime;
 

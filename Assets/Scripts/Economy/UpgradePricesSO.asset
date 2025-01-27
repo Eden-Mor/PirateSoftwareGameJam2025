@@ -1,0 +1,83 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bff2ad909549e0488f38ccf82c1448d, type: 3}
+  m_Name: UpgradePricesSO
+  m_EditorClassIdentifier: 
+  carUpgrades:
+  - carUpgradeType: 0
+    costMultiplier: 1
+    price: 15
+    maxCount: 2
+    name: Speaker System
+    description: Annoy passengers with music! Upgrading this lets you play louder
+      music to annoy passengers even more!
+    isEnabled: 1
+  - carUpgradeType: 1
+    costMultiplier: 3
+    price: 200
+    maxCount: 5
+    name: Weather controller
+    description: Control the weather using a satelite, make it rain! Upgrading this
+      let you use it more often.
+    isEnabled: 1
+  - carUpgradeType: 2
+    costMultiplier: 1
+    price: 40
+    maxCount: 5
+    name: Traffic Light Flipper
+    description: Flips traffic lights from green to red.
+    isEnabled: 1
+  - carUpgradeType: 3
+    costMultiplier: 0
+    price: 60
+    maxCount: 1
+    name: Car Spring Remover
+    description: Annoy passengers further by making your car feel clunky.
+    isEnabled: 1
+  - carUpgradeType: 4
+    costMultiplier: 3
+    price: 5
+    maxCount: 8
+    name: EMP
+    description: Lets you disable all electrical activity in an area. Upgrading this
+      allows you to use it more often.
+    isEnabled: 1
+  - carUpgradeType: 5
+    costMultiplier: 0
+    price: 15
+    maxCount: 5
+    name: Boost
+    description: Allows you to use the boost key! Ugrading lets you use it more often.
+    isEnabled: 1
+  - carUpgradeType: 6
+    costMultiplier: 0
+    price: 150
+    maxCount: 1
+    name: Police Scanner
+    description: Scans for police in your vicinity.
+    isEnabled: 1
+  - carUpgradeType: 7
+    costMultiplier: 0
+    price: 5
+    maxCount: 4
+    name: Car Jumping
+    description: Allows your car to jump! Upgrading this lets you jump higher and
+      more frequently.
+    isEnabled: 1
+  - carUpgradeType: 8
+    costMultiplier: 3
+    price: 90
+    maxCount: 4
+    name: Time Extender
+    description: Extends the time between passengers by a set amount. Upgrading this
+      gives more time.
+    isEnabled: 1
