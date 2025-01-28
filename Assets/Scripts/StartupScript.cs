@@ -24,6 +24,8 @@ public class StartupScript : MonoBehaviour
             new(){name = "You", message="SO IS MESLA INC."},
         };
 
-        EventManager.ChatBubble.OnAddChat.Get().Invoke(messages);
+        var messageGroup = new ChatMessageGroup() { messages = messages, messageGroupIdentifier="StartupStoryline" };
+
+        EventManager.ChatBubble.OnAddChat.Get().Invoke(messageGroup);
     }
 }

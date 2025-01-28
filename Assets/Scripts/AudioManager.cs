@@ -1,5 +1,7 @@
+using System;
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.Rendering;
 using UnityEngine.UI;
 
 public class AudioManager : MonoBehaviour
@@ -8,6 +10,7 @@ public class AudioManager : MonoBehaviour
     public Slider masterSlider;
     public Slider musicSlider;
     public Slider sfxSlider;
+    public Slider carHonkSlider;
 
     private void Start()
     {
@@ -17,10 +20,13 @@ public class AudioManager : MonoBehaviour
         SetMusicVolume(musicSlider.value);
         sfxSlider.value = PlayerPrefs.GetFloat("SFXVolume", 1f);
         SetSFXVolume(sfxSlider.value);
+        carHonkSlider.value = PlayerPrefs.GetFloat("CarHonkVolume", 0.5f);
+        SetCarHonkVolume(carHonkSlider.value);
 
         masterSlider.onValueChanged.AddListener(SetMasterVolume);
         musicSlider.onValueChanged.AddListener(SetMusicVolume);
         sfxSlider.onValueChanged.AddListener(SetSFXVolume);
+        carHonkSlider.onValueChanged.AddListener(SetCarHonkVolume);
     }
 
     public void SetMasterVolume(float volume)
@@ -39,5 +45,11 @@ public class AudioManager : MonoBehaviour
     {
         audioMixer.SetFloat("SFX", Mathf.Log10(volume) * 20);
         PlayerPrefs.SetFloat("SFXVolume", sfxSlider.value);
+    }
+
+    private void SetCarHonkVolume(float volume)
+    {
+        audioMixer.SetFloat("CarHonk", Mathf.Log10(volume) * 20);
+        PlayerPrefs.SetFloat("CarHonkVolume", carHonkSlider.value);
     }
 }
