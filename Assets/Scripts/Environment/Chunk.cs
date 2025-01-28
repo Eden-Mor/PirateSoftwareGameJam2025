@@ -1,4 +1,7 @@
+using JetBrains.Annotations;
 using System;
+using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 /// <summary>
@@ -52,6 +55,8 @@ public class Chunk : MonoBehaviour
 	/// </summary>
 	public GameObject[,] tiles;
 
+	public List<GameObject> roadTiles = new List<GameObject>();
+
 	// TODO: Do this in a better way.
 	public Tile[,] instances;
 
@@ -104,13 +109,66 @@ public class Chunk : MonoBehaviour
 					if(xCentre) tiles[ x, z ] = roadsTileSet.tiles[ 10 ]; // Straight (North/South)
 					if(zCentre) tiles[ x, z ] = roadsTileSet.tiles[ 9 ]; // Straight (East/West)
 				}
+
+				if(tiles[ x, z ] != null)
+					roadTiles.Add( tiles[ x, z ] );
 			}
 		}
 	}
 
 	public void GeneratePointsOfInterest()
 	{
+		// TODO: Randomly determine if this chunk has a PoI (ideally every chunk does, but if we don't
+		// have enough PoI for the world size then some chunks won't.
+		if(world.poiTilePool.Count > 0)
+		{
+			var poiTile = world.TakeRandomPoi();
+			Debug.Log( $"Chunk > GeneratePointsOfInterest > poiTile.name: {poiTile.name}" );
 
+			// Clone our list of road tiles and then start randomly searching for a neighbour that will
+			// fit our poi.
+			var remaining = new List<GameObject>( roadTiles );
+			while(remaining.Count > 0)
+			{
+				var roadObject = remaining[ UnityEngine.Random.Range( 0, remaining.Count ) ];
+				var road = roadObject.GetComponent<Tile>();
+				remaining.Remove( roadObject );
+
+				// Try each neighour in-turn to see if we can fit our poi.
+				var neighbours = GetEmptyNeighbours( road.coords );
+				if(neighbours.Count > 0)
+				{
+					foreach(var neighbour in neighbours)
+					{
+						// TODO: Take into account poi connections (so we'd need to record which direction each
+						// neighbour is from the road tile we're checking).
+						var fits = true;
+						for(var z = neighbour.z; z < neighbour.z + poiTile.size.z; z++)
+						{
+							for(var x = neighbour.x; x < neighbour.x + poiTile.size.x; x++)
+							{
+								if(z > 0 && z < size && x > 0 && x < size)
+								{
+									if(tiles[ x, z ] != null)
+									{
+										fits = false;
+										break;
+									}
+								}
+							}
+						}
+
+						if(fits)
+						{
+							Debug.Log( $"Out poi tile fits here!" );
+						}
+
+					}
+				}
+			}
+		}
+		else
+			Debug.Log( "poiTilePool empty!" );
 	}
 
 	/// <summary>
@@ -234,6 +292,41 @@ public class Chunk : MonoBehaviour
 	string TileKey( int x, int z )
 	{
 		return x + "," + z;
+	}
+
+	public bool CoordsAreWithinBounds( Vector3Int coords )
+	{
+		return coords.x > 0 && coords.x < size && coords.z > 0 && coords.z < size;
+	}
+
+	public List<Vector3Int> GetNeighbours( Vector3Int coords )
+	{
+		var neighbours = new List<Vector3Int>();
+
+		Vector3Int[] offsets =
+		{
+			new Vector3Int(1, 0, 0),
+			new Vector3Int(-1, 0, 0),
+			new Vector3Int(0, 0, 1),
+			new Vector3Int(0, 0, -1),
+		};
+
+		foreach(var offset in offsets)
+			if(CoordsAreWithinBounds( coords + offset ))
+				neighbours.Add( coords + offset );
+
+		return neighbours;
+	}
+
+	public List<Vector3Int> GetEmptyNeighbours( Vector3Int coords )
+	{
+		var neighbours = GetNeighbours( coords );
+
+		foreach(var neighbour in neighbours)
+			if(tiles[ neighbour.x, neighbour.z ] != null)
+				neighbours.Remove( neighbour );
+
+		return neighbours;
 	}
 }
 

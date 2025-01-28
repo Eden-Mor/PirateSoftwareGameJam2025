@@ -4370,8 +4370,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5236296346280275388, guid: 12aa4d840b3a58740adeb1ab343a5cd1, type: 3}
       propertyPath: size
-      value: 5
+      value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 5236296346280275388, guid: 12aa4d840b3a58740adeb1ab343a5cd1, type: 3}
+      propertyPath: poiTileSet
+      value: 
+      objectReference: {fileID: 2727039820359723707, guid: 13cfdac046db248469008a2c3df0572b, type: 3}
     - target: {fileID: 5874467429916742984, guid: 12aa4d840b3a58740adeb1ab343a5cd1, type: 3}
       propertyPath: m_LocalScale.x
       value: 12
