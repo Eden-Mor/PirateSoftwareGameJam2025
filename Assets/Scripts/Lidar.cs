@@ -8,6 +8,7 @@ public class Lidar : MonoBehaviour
 {
     public CapsuleCollider capColider;
     private VehiclePathController controller;
+    private Collider sourceCollider;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,6 +20,7 @@ public class Lidar : MonoBehaviour
         if (!other.CompareTag("Building"))
         {
             controller.isBraking = true;
+            sourceCollider = other;
         }
 
         if (other.gameObject.name == "Lidar")
@@ -30,5 +32,14 @@ public class Lidar : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         controller.isBraking = false;
-    }   
+    }
+
+    private void Update()
+    {
+        if (controller.isBraking && !sourceCollider)
+        {
+            controller.isBraking = false;
+        }
+
+    }
 }
