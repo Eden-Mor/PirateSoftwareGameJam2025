@@ -45,7 +45,5 @@ public static class EventManager
     {
         public class AddChatEvent : UnityEvent<ChatMessageGroup> { }
         public GenericEvent<AddChatEvent> OnAddChat = new();
-        public class MessageGroupDisplayedEvent : UnityEvent<string> { }
-        public GenericEvent<MessageGroupDisplayedEvent> OnMessageGroupDisplayed = new();
     }
 }

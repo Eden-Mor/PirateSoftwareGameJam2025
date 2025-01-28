@@ -3,12 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Events;
 
 [Serializable]
 public class ChatMessageGroup
 {
-    public string messageGroupIdentifier;
     public List<ChatMessage> messages;
+    public UnityAction callback;
 }
 
 [Serializable]
@@ -57,8 +58,8 @@ public class ChatBubbleManagerScript : MonoBehaviour
                 yield return new WaitForSeconds(2f + chatMessage.message.Count(x => x == ' ') * 0.25f); // Change this later to length of message
                 bubble.HideMessage();
             }
+            messageExchange.callback?.Invoke();
             messages.RemoveAt(0);
-            EventManager.ChatBubble.OnMessageGroupDisplayed.Get().Invoke(messageExchange.messageGroupIdentifier);
 
             //After the current message sequence ends, wait 2 seconds before showing the new sequence
             yield return new WaitForSeconds(2);

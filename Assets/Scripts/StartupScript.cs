@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class StartupScript : MonoBehaviour
 {
+    public GameObject pickupDropoffPortal;
     void OnEnable()
     {
         StartCoroutine(StartStoryline());
@@ -24,7 +25,24 @@ public class StartupScript : MonoBehaviour
             new(){name = "You", message="SO IS MESLA INC."},
         };
 
-        var messageGroup = new ChatMessageGroup() { messages = messages, messageGroupIdentifier="StartupStoryline" };
+        var messageGroup = new ChatMessageGroup()
+        {
+            messages = messages,
+            callback = () =>
+            {
+                pickupDropoffPortal.SetActive(true);
+                EventManager.ChatBubble.OnAddChat.Get().Invoke(new ChatMessageGroup
+                {
+                    messages = new()
+                    {
+                        new () { name="Tutorial", message="Use the arrow to head to the dropoff and pickup points.    "},
+                        new () { name="Tutorial", message="Get bad reviews to take down Mesla Inc.    "},
+                        new () { name="Tutorial", message="You must make a full stop for passengers to get on or get off.    "},
+                        new () { name="Tutorial", message="WASD to move, Space to use your hand brake, Shift to boost (when unlocked).   "}
+                    }
+                });
+            }
+        };
 
         EventManager.ChatBubble.OnAddChat.Get().Invoke(messageGroup);
     }
