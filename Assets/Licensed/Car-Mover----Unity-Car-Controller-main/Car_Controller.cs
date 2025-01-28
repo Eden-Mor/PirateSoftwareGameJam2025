@@ -524,7 +524,7 @@ public class Car_Controller : MonoBehaviour
                 continue;
 
             float clampedVelocity = Mathf.Clamp(Car_Speed_In_KPH, 0, Maximum_Speed);
-            float volume = Mathf.Lerp(0.1f, 1f, clampedVelocity / Maximum_Speed);
+            float volume = Mathf.Lerp(0f, 0.5f, clampedVelocity / Maximum_Speed);
 
             Crash_Sound.volume = volume;
 

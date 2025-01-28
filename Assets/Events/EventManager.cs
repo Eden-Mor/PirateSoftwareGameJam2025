@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -6,6 +7,8 @@ public static class EventManager
     public static readonly GameEvents Game = new();
     public static readonly PlayerEvents Player = new();
     public static readonly EconomyEvents Economy = new();
+    public static readonly ChatBubbleEvents ChatBubble = new();
+
 
     public class PlayerEvents
     {
@@ -18,6 +21,8 @@ public static class EventManager
         public GenericEvent<ReviewStartEvent> OnReviewStart = new();
         public class CarHonkedEvent : UnityEvent { }
         public GenericEvent<CarHonkedEvent> OnCarHonked = new();
+        public class ReviewFinishedEvent : UnityEvent<float> { }
+        public GenericEvent<ReviewFinishedEvent> OnReviewFinished = new();
     }
 
     public class GameEvents
@@ -34,5 +39,11 @@ public static class EventManager
     {
         public class PurchaseMadeEvent : UnityEvent { }
         public GenericEvent<PurchaseMadeEvent> OnPurchaseMade = new();
+    }
+
+    public class ChatBubbleEvents
+    {
+        public class AddChatEvent : UnityEvent<ChatMessageGroup> { }
+        public GenericEvent<AddChatEvent> OnAddChat = new();
     }
 }
