@@ -1435,8 +1435,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: $0
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8223b4e6191d8494d942517bd7e19c74, type: 2}
-  m_sharedMaterial: {fileID: 2813993240265282138, guid: 8223b4e6191d8494d942517bd7e19c74, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 1e6eb64f562fad14a82e9525c8a5f9b7, type: 2}
+  m_sharedMaterial: {fileID: -1636554920304184917, guid: 1e6eb64f562fad14a82e9525c8a5f9b7, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1460,7 +1460,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 119.25
+  m_fontSize: 118.45
   m_fontSizeBase: 40
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1852,7 +1852,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 685570534}
-  - component: {fileID: 685570535}
   m_Layer: 0
   m_Name: Money Counter
   m_TagString: Untagged
@@ -1880,19 +1879,6 @@ RectTransform:
   m_AnchoredPosition: {x: -403, y: 0}
   m_SizeDelta: {x: 368.1317, y: 133.2718}
   m_Pivot: {x: 0, y: 1}
---- !u!114 &685570535
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 685570533}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c810ef289e3695249906b43da0cb850a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  txtMoneyCounter: {fileID: 471893702}
 --- !u!1 &824061862
 GameObject:
   m_ObjectHideFlags: 0
