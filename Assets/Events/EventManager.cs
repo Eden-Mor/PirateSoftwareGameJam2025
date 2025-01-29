@@ -17,11 +17,11 @@ public static class EventManager
         public GenericEvent<CarCollideEvent> OnCarCollide = new();
         public class ReviewStopEvent : UnityEvent { }
         public GenericEvent<ReviewStopEvent> OnReviewStop = new();
-        public class ReviewStartEvent : UnityEvent { }
+        public class ReviewStartEvent : UnityEvent<Vector3> { }
         public GenericEvent<ReviewStartEvent> OnReviewStart = new();
         public class CarHonkedEvent : UnityEvent { }
         public GenericEvent<CarHonkedEvent> OnCarHonked = new();
-        public class ReviewFinishedEvent : UnityEvent<float> { }
+        public class ReviewFinishedEvent : UnityEvent<float, bool> { }
         public GenericEvent<ReviewFinishedEvent> OnReviewFinished = new();
     }
 
@@ -29,8 +29,6 @@ public static class EventManager
     {
         public class TimerCompleteEvent : UnityEvent { }
         public GenericEvent<TimerCompleteEvent> OnTimerComplete = new();
-        public class ResetTimerEvent : UnityEvent { }
-        public GenericEvent<TimerCompleteEvent> OnResetTimer = new();
         public class CashChangedEvent : UnityEvent<int> { }
         public GenericEvent<CashChangedEvent> OnCashChanged = new();
     }

@@ -723,6 +723,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pickupDropoffPortal: {fileID: 1089703971}
+  skipStoryline: 1
 --- !u!1001 &155527655
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3564,6 +3565,7 @@ Transform:
   - {fileID: 1659850425}
   - {fileID: 151311121}
   - {fileID: 484604335}
+  - {fileID: 1629827680}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &570547688
@@ -4506,12 +4508,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b1aad82db3f5474abe5fac9c00aac24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timer: {fileID: 446207002}
+  economyManager: {fileID: 1412394968}
   fillAmountController: {fileID: 1026271695856530255}
   reviewTickDownAmount: -0.05
   reviewTickDownRate: 3
   reviewCounter: 0
   tickDownReview: 1
   isReviewing: 0
+  isFailed: 0
 --- !u!1 &828121314
 GameObject:
   m_ObjectHideFlags: 0
@@ -5243,7 +5248,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: DEBUG OPEN UPGRADES
+  m_text: OPEN UPGRADES
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -5553,6 +5558,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canCarBeStarted: 1
+  economyManager: {fileID: 1412394968}
   Front_Wheels:
   - {fileID: 2021774114}
   - {fileID: 33221742}
@@ -7152,7 +7158,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f088d69b4730f6409d843ea60a599f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingCash: 30
+  startingCash: 10
   currentCash: 0
   upgradePriceSO: {fileID: 11400000, guid: 5d1f422ea9f973145a2dfd1704c69e3e, type: 2}
   purchasedUpgrades: []
@@ -8064,6 +8070,76 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1725306775}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1629827679
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1629827680}
+  - component: {fileID: 1629827681}
+  m_Layer: 0
+  m_Name: Radio
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1629827680
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1629827679}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 565993139}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1629827681
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1629827679}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54ea7a5ac59df224a987238d36ba18a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Use_Keys: 1
+  Next_Song_Key: 101
+  Prev_Song_Key: 113
+  Tracks:
+  - {fileID: 8300000, guid: 3c33fc51ffe47064a80538e42cbab554, type: 3}
+  - {fileID: 8300000, guid: 3be4e3c5ff1a64a49a552b2b2ab6ccd3, type: 3}
+  - {fileID: 8300000, guid: 3e2d28baa0a770a4883b223d662beda2, type: 3}
+  - {fileID: 8300000, guid: b813f4c44686d974ba0f72ad0e5e0bb2, type: 3}
+  - {fileID: 8300000, guid: fcb58bba3e5ea354b808e8b34c545d1f, type: 3}
+  - {fileID: 8300000, guid: d6bcb30470720bd4bb49958b5115af7d, type: 3}
+  - {fileID: 8300000, guid: e58ad586e52ee244583d944e9a40b612, type: 3}
+  - {fileID: 8300000, guid: 66c29d1c0f92c88418c5780d8d36f5d5, type: 3}
+  - {fileID: 8300000, guid: 5c751eb458e322a4bb7fa0c3a6af0fd8, type: 3}
+  - {fileID: 8300000, guid: a130fc11ea42344459acc8ff2bac5dbe, type: 3}
+  - {fileID: 8300000, guid: c947eca36823fe0448a033d949c8c011, type: 3}
+  - {fileID: 8300000, guid: 94cd11f0822671842b07e8dbb2569487, type: 3}
+  - {fileID: 8300000, guid: 6a780e115b79e2842942fb7f7c715683, type: 3}
+  - {fileID: 8300000, guid: a45ab9996c9b15444be3e82f90de5824, type: 3}
+  - {fileID: 8300000, guid: 1504126e61888434ea9e24e32c398c07, type: 3}
+  - {fileID: 8300000, guid: db5d8f4d73af20e4db30a134db446581, type: 3}
+  - {fileID: 8300000, guid: 095cce52d25aaa6429fd9bf5f53ed9da, type: 3}
+  Audio_Source: {fileID: 1865152917}
+  Use_UI: 0
+  Song_Name_Text: {fileID: 0}
+  Song_Number_Text: {fileID: 0}
+  economyManager: {fileID: 1412394968}
 --- !u!1001 &1640969044
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9014,7 +9090,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -4422088489997117156, guid: ef0be23efe3280346acae24abad76e76, type: 2}
-  m_audioClip: {fileID: 8300000, guid: 3c33fc51ffe47064a80538e42cbab554, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 0.284
   m_Pitch: 1

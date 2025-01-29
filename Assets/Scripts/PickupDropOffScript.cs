@@ -86,10 +86,12 @@ public class PickupDropOffScript : MonoBehaviour
         waitingPerson.SetActive(false);
 
 
-        EventManager.Player.OnReviewStart.Get().Invoke();
         pickupPoint = false;
 
         this.transform.position = GetRandomPointOnMap().position;
+
+        EventManager.Player.OnReviewStart.Get().Invoke(transform.position);
+
 
         yield return new WaitForSeconds(1);
 
