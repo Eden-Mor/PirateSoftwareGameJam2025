@@ -42,6 +42,9 @@ public class World : MonoBehaviour
 	/// </summary>
 	public float tileSize = 1.0f;
 
+	public TileSet poiTileSet;
+	public List<GameObject> poiTilePool;
+
 	/// <summary>
 	/// References to all currently active chunks, such that we can easily remove them and identify if
 	/// we need to build a chunk in this location or not.
@@ -56,6 +59,8 @@ public class World : MonoBehaviour
 
 	void Start()
 	{
+		poiTilePool = new List<GameObject>( poiTileSet.tiles );
+
 		// DEBUG: Just creating something rather than dynamically creating it based on player/camera location.
 		for(int z = 0; z < size; z++)
 		{
@@ -170,5 +175,12 @@ public class World : MonoBehaviour
 	public Tile GetRandomRoadTile()
 	{
 		return roadTiles[ UnityEngine.Random.Range( 0, roadTiles.Count ) ];
+	}
+
+	public Tile TakeRandomPoi()
+	{
+		var poiObject = poiTilePool[ UnityEngine.Random.Range( 0, poiTilePool.Count ) ];
+		poiTilePool.Remove( poiObject );
+		return poiObject.GetComponent<Tile>();
 	}
 }
