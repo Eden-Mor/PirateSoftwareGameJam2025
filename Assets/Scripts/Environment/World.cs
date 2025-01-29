@@ -14,6 +14,12 @@ using UnityEngine.UIElements;
 /// </summary>
 public class World : MonoBehaviour
 {
+	/// <summary>
+	/// Sets the seed for the random generation of the world.  If set to a value less than zero, the 
+	/// seed will be randomly determined.
+	/// </summary>
+	public int seed = -1;
+
 	[Header( "Chunks" )]
 	/// <summary>
 	/// The size of the world in chunks (width and length).
@@ -61,6 +67,9 @@ public class World : MonoBehaviour
 
 	void Start()
 	{
+		if(seed < 0)
+			seed = UnityEngine.Random.Range( 0, 10000 );
+
 		poiTilePool = new List<GameObject>( poiTileSet.tiles );
 
 		// Build the world.
@@ -153,7 +162,7 @@ public class World : MonoBehaviour
 	/// <returns></returns>
 	int ChunkSeed( int x, int z )
 	{
-		return (z * 100000) + x;
+		return seed + (z * 1000) + x;
 	}
 
 	/// <summary>
