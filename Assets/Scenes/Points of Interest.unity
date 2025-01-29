@@ -4370,7 +4370,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5236296346280275388, guid: 12aa4d840b3a58740adeb1ab343a5cd1, type: 3}
       propertyPath: size
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5236296346280275388, guid: 12aa4d840b3a58740adeb1ab343a5cd1, type: 3}
       propertyPath: poiTileSet
