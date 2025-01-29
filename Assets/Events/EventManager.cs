@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using static CustomerInteraction;
 
 public static class EventManager
 {
@@ -43,5 +44,8 @@ public static class EventManager
     {
         public class AddChatEvent : UnityEvent<ChatMessageGroup> { }
         public GenericEvent<AddChatEvent> OnAddChat = new();
+
+        public class CustomerReactionEvent : UnityEvent<ReactionType> { }
+        public GenericEvent<CustomerReactionEvent> OnCustomerReaction = new();
     }
 }

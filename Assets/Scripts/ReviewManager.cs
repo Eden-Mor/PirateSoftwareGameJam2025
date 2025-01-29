@@ -28,6 +28,7 @@ public class ReviewManager : MonoBehaviour
 
     private UnityAction reviewStopListener;
     private GameObject fillAmountParent;
+    private int tempReviewScore = -5;
 
     private void Start()
     {
@@ -50,13 +51,22 @@ public class ReviewManager : MonoBehaviour
 
     IEnumerator StartReviewTicking(int speakerSystemUpgrade)
     {
-        while (tickDownReview && isReviewing)
+        while (isReviewing)
         {
             yield return new WaitForSeconds(reviewTickDownRate);
 
             var speakerSystemModifier = speakerSystemUpgrade * 0.1f;
 
-            AddToReviewCounter(reviewTickDownAmount + speakerSystemModifier);
+            AddToReviewCounter(tickDownReview ? reviewTickDownAmount : 0f + speakerSystemModifier);
+
+            var roundedReviewScore = Mathf.FloorToInt(reviewCounter);
+
+            if(roundedReviewScore > tempReviewScore) //Gained a star
+                EventManager.ChatBubble.OnCustomerReaction.Get().Invoke(CustomerInteraction.ReactionType.StarGained);
+            else if (roundedReviewScore < tempReviewScore) //Lost a star
+                EventManager.ChatBubble.OnCustomerReaction.Get().Invoke(CustomerInteraction.ReactionType.StarLost);
+
+            tempReviewScore = roundedReviewScore;
         }
     }
 
@@ -72,8 +82,11 @@ public class ReviewManager : MonoBehaviour
     private void OnCarCollided(Component component, int velocity)
     {
         // in the future check what component it was colliding with to determine better values for decreasing the review count;
-        if (isReviewing)
-            AddToReviewCounter(velocity / 100f);
+        if (!isReviewing)
+            return;
+
+        AddToReviewCounter(velocity / 100f);
+        EventManager.ChatBubble.OnCustomerReaction.Get().Invoke(CustomerInteraction.ReactionType.CarCollision);
     }
 
     private void OnCarHonked()
@@ -103,6 +116,7 @@ public class ReviewManager : MonoBehaviour
         fillAmountParent.SetActive(true);
         isReviewing = true;
         tickDownReview = true;
+        tempReviewScore = Mathf.FloorToInt(reviewCounter);
 
         var distanceMag = (newPosition - this.transform.position).magnitude;
         var timeAllowed = (distanceMag / 22.5f) + 10f + (economyManager.GetPurchasedUpgradeCount(CarUpgradesEnum.TimerExtender) * 3);
