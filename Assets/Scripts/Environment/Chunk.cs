@@ -55,8 +55,6 @@ public class Chunk : MonoBehaviour
 	/// </summary>
 	public GameObject[,] tiles;
 
-	public List<GameObject> roadTiles = new List<GameObject>();
-
 	// TODO: Do this in a better way.
 	public Tile[,] instances;
 
@@ -109,9 +107,6 @@ public class Chunk : MonoBehaviour
 					if(xCentre) tiles[ x, z ] = roadsTileSet.tiles[ 10 ]; // Straight (North/South)
 					if(zCentre) tiles[ x, z ] = roadsTileSet.tiles[ 9 ]; // Straight (East/West)
 				}
-
-				if(tiles[ x, z ] != null)
-					roadTiles.Add( tiles[ x, z ] );
 			}
 		}
 	}
@@ -124,48 +119,6 @@ public class Chunk : MonoBehaviour
 		{
 			var poiTile = world.TakeRandomPoi();
 			Debug.Log( $"Chunk > GeneratePointsOfInterest > poiTile.name: {poiTile.name}" );
-
-			// Clone our list of road tiles and then start randomly searching for a neighbour that will
-			// fit our poi.
-			var remaining = new List<GameObject>( roadTiles );
-			while(remaining.Count > 0)
-			{
-				var roadObject = remaining[ UnityEngine.Random.Range( 0, remaining.Count ) ];
-				var road = roadObject.GetComponent<Tile>();
-				remaining.Remove( roadObject );
-
-				// Try each neighour in-turn to see if we can fit our poi.
-				var neighbours = GetEmptyNeighbours( road.coords );
-				if(neighbours.Count > 0)
-				{
-					foreach(var neighbour in neighbours)
-					{
-						// TODO: Take into account poi connections (so we'd need to record which direction each
-						// neighbour is from the road tile we're checking).
-						var fits = true;
-						for(var z = neighbour.z; z < neighbour.z + poiTile.size.z; z++)
-						{
-							for(var x = neighbour.x; x < neighbour.x + poiTile.size.x; x++)
-							{
-								if(z > 0 && z < size && x > 0 && x < size)
-								{
-									if(tiles[ x, z ] != null)
-									{
-										fits = false;
-										break;
-									}
-								}
-							}
-						}
-
-						if(fits)
-						{
-							Debug.Log( $"Out poi tile fits here!" );
-						}
-
-					}
-				}
-			}
 		}
 		else
 			Debug.Log( "poiTilePool empty!" );
