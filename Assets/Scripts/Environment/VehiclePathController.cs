@@ -57,8 +57,11 @@ public class VehiclePathController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
+            Car_Controller cc = collision.gameObject.GetComponent<Car_Controller>();
+           
             rb.isKinematic = false;
             isPathing = false;
+            EventManager.Player.OnCarCollide.Get().Invoke(collision.gameObject.GetComponent<Component>(), cc.Car_Speed_In_KPH);
             cleaner.Activate();
         }
     }

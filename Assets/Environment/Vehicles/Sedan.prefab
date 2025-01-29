@@ -321,7 +321,7 @@ MonoBehaviour:
   isBraking: 0
   brakeSensitvity: 0.1
   acceleration: 0.75
-  isPathing: 1
+  isPathing: 0
   progress: 0
   tile: {fileID: 0}
   tilePath:
@@ -330,6 +330,7 @@ MonoBehaviour:
     path: {fileID: 0}
   spawner: {fileID: 0}
   rb: {fileID: 1564399682011387216}
+  cleaner: {fileID: 0}
 --- !u!54 &1564399682011387216
 Rigidbody:
   m_ObjectHideFlags: 0
