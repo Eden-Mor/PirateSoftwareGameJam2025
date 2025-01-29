@@ -589,6 +589,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: large_buildingG
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b36ef86878a33964181b09f5ed0dbf5d, type: 3}
+      propertyPath: m_TagString
+      value: Building
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
