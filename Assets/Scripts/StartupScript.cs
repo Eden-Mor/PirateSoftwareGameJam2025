@@ -6,7 +6,7 @@ using UnityEngine;
 public class StartupScript : MonoBehaviour
 {
     public GameObject pickupDropoffPortal;
-    [SerializeField] private bool skipStoryline = true;
+    [SerializeField] private bool skipStoryline = false;
     void OnEnable()
     {
         StartCoroutine(StartStoryline());

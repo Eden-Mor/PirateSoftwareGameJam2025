@@ -208,13 +208,8 @@ public class Car_Controller : MonoBehaviour
     //Hidden Variables (not private, but hidden in inspector)
     [HideInInspector] public float currSpeed; //Current speed
 
-    private UnityAction allowInputListener;
-
     void Start()
     {
-        allowInputListener = () => AllowInput(false);
-        EventManager.Game.OnTimerComplete.Get().AddListener(allowInputListener);
-
         //To Prevent The Car From Toppling When Turning Too Much
         rb = GetComponent<Rigidbody>(); //get rigidbody
         rb.centerOfMass = Center_of_Mass.localPosition; //Set the centre of mass of the rigid body to the centre of mass transform

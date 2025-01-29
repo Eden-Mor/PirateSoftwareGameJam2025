@@ -723,7 +723,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pickupDropoffPortal: {fileID: 1089703971}
-  skipStoryline: 1
+  skipStoryline: 0
 --- !u!1001 &155527655
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2702,7 +2702,6 @@ MonoBehaviour:
   timeDefault: 60
   timeRemaining: 60
   timerIsRunning: 1
-  activateOnTimerComplete: 0
   timeText: {fileID: 4591584053572859843}
   OnTimerComplete:
     m_PersistentCalls:
@@ -7051,7 +7050,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6377909222692749798, guid: b76e83fba721b4a4296277543eb314f2, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0.0099487305
+      value: 0.009887695
       objectReference: {fileID: 0}
     - target: {fileID: 6377909222692749798, guid: b76e83fba721b4a4296277543eb314f2, type: 3}
       propertyPath: m_AnchoredPosition.y
