@@ -43,19 +43,25 @@ public class VehiclePathController : MonoBehaviour
     /// </summary>
     public VehicleSpawner spawner;
     public Rigidbody rb;
+    public Cleaner cleaner;
 
     public void Start()
     {
         UpdateTransform();
         rb = GetComponent<Rigidbody>();
+        cleaner = GetComponent<Cleaner>();
     }
 
     public void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
+            Car_Controller cc = collision.gameObject.GetComponent<Car_Controller>();
+           
             rb.isKinematic = false;
             isPathing = false;
+            EventManager.Player.OnCarCollide.Get().Invoke(collision.gameObject.GetComponent<Component>(), cc.Car_Speed_In_KPH);
+            cleaner.Activate();
         }
     }
 
@@ -63,8 +69,6 @@ public class VehiclePathController : MonoBehaviour
     {
         if (isPathing)
         {
-
-
             // TODO: Cache distance calculation(s) for the path.
             var path = GetPath();
             float pathLength = path.CalculateLength();
