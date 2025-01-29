@@ -51,6 +51,7 @@ MonoBehaviour:
   chunksParent: {fileID: 6744743669176871267}
   tileSize: 1
   poiTileSet: {fileID: 2727039820359723707, guid: 13cfdac046db248469008a2c3df0572b, type: 3}
+  wallTileSet: {fileID: 2727039820359723707, guid: a1d555438e9b19047992f05552ca3f40, type: 3}
   poiTilePool: []
   roadTiles: []
 --- !u!1 &5276982531263018909

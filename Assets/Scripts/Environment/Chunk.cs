@@ -375,5 +375,3 @@ public class Chunk : MonoBehaviour
 		return coords.x > 0 && coords.x < size && coords.z > 0 && coords.z < size;
 	}
 }
-
-
