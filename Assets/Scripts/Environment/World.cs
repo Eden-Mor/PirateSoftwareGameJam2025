@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Xml.Serialization;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 /// <summary>
 /// Represents a world composed of chunks arranged on a grid, which are in-turn composed of tiles
@@ -13,6 +14,12 @@ using UnityEngine;
 /// </summary>
 public class World : MonoBehaviour
 {
+	/// <summary>
+	/// Sets the seed for the random generation of the world.  If set to a value less than zero, the 
+	/// seed will be randomly determined.
+	/// </summary>
+	public int seed = -1;
+
 	[Header( "Chunks" )]
 	/// <summary>
 	/// The size of the world in chunks (width and length).
@@ -42,6 +49,10 @@ public class World : MonoBehaviour
 	/// </summary>
 	public float tileSize = 1.0f;
 
+	public TileSet poiTileSet;
+	public TileSet wallTileSet;
+	public List<GameObject> poiTilePool;
+
 	/// <summary>
 	/// References to all currently active chunks, such that we can easily remove them and identify if
 	/// we need to build a chunk in this location or not.
@@ -56,7 +67,12 @@ public class World : MonoBehaviour
 
 	void Start()
 	{
-		// DEBUG: Just creating something rather than dynamically creating it based on player/camera location.
+		if(seed < 0)
+			seed = UnityEngine.Random.Range( 0, 10000 );
+
+		poiTilePool = new List<GameObject>( poiTileSet.tiles );
+
+		// Build the world.
 		for(int z = 0; z < size; z++)
 		{
 			for(int x = 0; x < size; x++)
@@ -64,6 +80,30 @@ public class World : MonoBehaviour
 				BuildChunk( x, z );
 			}
 		}
+
+		// Build walls around the world.
+		var oppositeEdge = (size * chunkSize * tileSize * transform.localScale.x) - (tileSize * transform.localScale.x);
+		for(int i = 1; i < size * chunkSize - 1; i++)
+		{
+			PlaceObject( wallTileSet.tiles[ 4 ].gameObject, new Vector3( oppositeEdge, 0, i * tileSize * transform.localScale.x ) ); // Straight East
+			PlaceObject( wallTileSet.tiles[ 5 ].gameObject, new Vector3( i * tileSize * transform.localScale.x, 0, oppositeEdge ) ); // Straight North
+			PlaceObject( wallTileSet.tiles[ 6 ].gameObject, new Vector3( i * tileSize * transform.localScale.x, 0, 0 ) ); // Straight South
+			PlaceObject( wallTileSet.tiles[ 7 ].gameObject, new Vector3( 0, 0, i * tileSize * transform.localScale.z ) );	// Straight West
+		}
+
+		PlaceObject( wallTileSet.tiles[ 0 ], new Vector3( oppositeEdge, 0, oppositeEdge ) ); // North East Corner
+		PlaceObject( wallTileSet.tiles[ 1 ], new Vector3( 0, 0, oppositeEdge ) ); // North West Corner
+		PlaceObject( wallTileSet.tiles[ 2 ], new Vector3( oppositeEdge, 0, 0 ) ); // South East Corner
+		PlaceObject( wallTileSet.tiles[ 3 ], new Vector3( 0, 0, 0 ) ); // South West Corner
+	}
+
+	public GameObject PlaceObject(GameObject obj, Vector3 position)
+	{
+		var result = Instantiate( obj );
+		result.transform.SetParent( transform, false );
+		result.transform.position = position;
+
+		return result;
 	}
 
 	/// <summary>
@@ -122,7 +162,7 @@ public class World : MonoBehaviour
 	/// <returns></returns>
 	int ChunkSeed( int x, int z )
 	{
-		return (z * 100000) + x;
+		return seed + (z * 1000) + x;
 	}
 
 	/// <summary>
@@ -170,5 +210,12 @@ public class World : MonoBehaviour
 	public Tile GetRandomRoadTile()
 	{
 		return roadTiles[ UnityEngine.Random.Range( 0, roadTiles.Count ) ];
+	}
+
+	public Tile TakeRandomPoi()
+	{
+		var poiObject = poiTilePool[ UnityEngine.Random.Range( 0, poiTilePool.Count ) ];
+		poiTilePool.Remove( poiObject );
+		return poiObject.GetComponent<Tile>();
 	}
 }

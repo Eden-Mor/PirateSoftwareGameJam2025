@@ -17,7 +17,7 @@ GameObject:
   m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &5921658253338629460
 Transform:
@@ -121,7 +121,7 @@ GameObject:
   m_TagString: Building
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1586525915030296759
 Transform:
@@ -157,6 +157,7 @@ MonoBehaviour:
   chunk: {fileID: 0}
   coords: {x: 0, y: 0, z: 0}
   worldCoords: {x: 0, y: 0, z: 0}
+  pickupPointsParent: {fileID: 0}
 --- !u!1001 &5917526246564960907
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -224,6 +225,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 11a50b29b5e2dd64db8d7f5ba754b1e8, type: 3}
       propertyPath: m_TagString
       value: Building
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 11a50b29b5e2dd64db8d7f5ba754b1e8, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

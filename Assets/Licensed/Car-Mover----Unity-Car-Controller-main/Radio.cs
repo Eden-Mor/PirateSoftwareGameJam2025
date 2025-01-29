@@ -22,63 +22,39 @@ public class Radio : MonoBehaviour
     public TextMeshProUGUI Song_Number_Text; //The text object for the song number (MUST BE Text Mesh Pro)
 
     [Header("Script References")]
-    public Car_Controller Car_Controller_Script; //Reference to the car controller script
+    [SerializeField] private EconomyManager economyManager;
 
-    //This is our private variable
-    private int Current_Track; //The index of current track
+    private int Current_Track = 0; //The index of current track
 
-    void Start(){
-        //Play the first song
-        Audio_Source.enabled = false;
+    void Start()
+    {
         Audio_Source.clip = Tracks[Current_Track];
-        Audio_Source.enabled = true;
-        //I disabled and enabled the audio source component cuz it doesnt work if i don't, it just stays silent
+        Audio_Source.Play();
     }
 
-    void Update(){
-        //Automatically loop through the track list
-
-        //Checking if the current song has finished playing
-        if(!Audio_Source.isPlaying && Car_Controller_Script.Car_Started){
-
-            //Checking if the track was the last one
-            if(Tracks.Last() == Tracks[Current_Track]){
-                Current_Track = 0;
-                Audio_Source.enabled = false;
-                Audio_Source.clip = Tracks[Current_Track];
-                Audio_Source.enabled = true;
-            }
-
-            //if it wasn't then go to the next song in the list/array
-            else{
-                Current_Track++;
-                Audio_Source.enabled = false;
-                Audio_Source.clip = Tracks[Current_Track];
-                Audio_Source.enabled = true;
-            }
-        }
-
+    void Update()
+    {
         //Using keys to move between tracks
-        if(Use_Keys && Car_Controller_Script.Car_Started){
+        if (Use_Keys)
+        {
             //Checking if player pressed the "next song key" key
-            if(Input.GetKeyDown(Next_Song_Key)){
-                if(Input.GetKeyUp(Next_Song_Key)){
-                    //Play the next song/track in the list/array
-                    Next_Song();
-                }
+            if (Input.GetKeyUp(Next_Song_Key) && economyManager.GetPurchasedUpgradeCount(CarUpgradesEnum.SpeakerSystem) > 0)
+            {
+                //Play the next song/track in the list/array
+                Next_Song();
             }
 
             //Checking if player pressed the "prev song key" key
-            if(Input.GetKeyDown(Prev_Song_Key)){
-                if(Input.GetKeyUp(Prev_Song_Key)){
-                    //Play the previous song/track in the list/array
-                    Prev_Song();
-                }
+            if (Input.GetKeyUp(Prev_Song_Key) && economyManager.GetPurchasedUpgradeCount(CarUpgradesEnum.SpeakerSystem) > 0)
+            {
+                //Play the previous song/track in the list/array
+                Prev_Song();
             }
         }
 
         //Setting the UI components
-        if(Use_UI){
+        if (Use_UI)
+        {
             //Set the Song name to the text object
             Song_Name_Text.SetText(Tracks[Current_Track].ToString());
 
@@ -91,39 +67,40 @@ public class Radio : MonoBehaviour
     //The next song function for the button that goes to the next song
     //The prev song function for the button that goes to the previous song
 
-    public void Next_Song(){
+    public void Next_Song()
+    {
         //If the current track is the last one, then go back to the first track
-        if(Tracks.Last() == Tracks[Current_Track]){
+        if (Tracks.Last() == Tracks[Current_Track])
+        {
             Current_Track = 0;
-            Audio_Source.enabled = false;
             Audio_Source.clip = Tracks[Current_Track];
-            Audio_Source.enabled = true;
         }
 
         //If the current track is not the last one, then go to the next one
-        else{
+        else
+        {
             Current_Track++;
-            Audio_Source.enabled = false;
             Audio_Source.clip = Tracks[Current_Track];
-            Audio_Source.enabled = true;
         }
+
+        Audio_Source.Play();
     }
 
-    public void Prev_Song(){
+    public void Prev_Song()
+    {
         //If the current track/song is the first one, then go to the last track/song in the list/array
-        if(Tracks[0] == Tracks[Current_Track]){
+        if (Tracks[0] == Tracks[Current_Track])
+        {
             Current_Track = Tracks.IndexOf(Tracks.Last());
-            Audio_Source.enabled = false;
             Audio_Source.clip = Tracks[Current_Track];
-            Audio_Source.enabled = true;
         }
 
         //If the current track/song is not the first one, then go to the previous one
-        else{
+        else
+        {
             Current_Track--;
-            Audio_Source.enabled = false;
             Audio_Source.clip = Tracks[Current_Track];
-            Audio_Source.enabled = true;
         }
+        Audio_Source.Play();
     }
 }

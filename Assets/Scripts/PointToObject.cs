@@ -13,7 +13,7 @@ public class PointToObject : MonoBehaviour
     private void Start()
     {
         childArrow = transform.GetChild(0).gameObject;
-        var mats = childArrow.GetComponentInChildren<Renderer>().materials;
+        var mats = childArrow.GetComponentInChildren<Renderer>().sharedMaterials;
         childArrowMat = mats;
     }
 

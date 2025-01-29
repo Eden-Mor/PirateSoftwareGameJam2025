@@ -13,65 +13,20 @@ MonoBehaviour:
   m_Name: UpgradePricesSO
   m_EditorClassIdentifier: 
   carUpgrades:
+  - carUpgradeType: 5
+    costMultiplier: 2
+    price: 50
+    maxCount: 5
+    name: Boost
+    description: Allows you to use the boost key! Ugrading lets you use it more often.
+    isEnabled: 1
   - carUpgradeType: 0
     costMultiplier: 1
     price: 15
     maxCount: 2
     name: Speaker System
-    description: Annoy passengers with music! Upgrading this lets you play louder
-      music to annoy passengers even more!
-    isEnabled: 1
-  - carUpgradeType: 1
-    costMultiplier: 3
-    price: 200
-    maxCount: 5
-    name: Weather controller
-    description: Control the weather using a satelite, make it rain! Upgrading this
-      let you use it more often.
-    isEnabled: 1
-  - carUpgradeType: 2
-    costMultiplier: 1
-    price: 40
-    maxCount: 5
-    name: Traffic Light Flipper
-    description: Flips traffic lights from green to red.
-    isEnabled: 1
-  - carUpgradeType: 3
-    costMultiplier: 0
-    price: 60
-    maxCount: 1
-    name: Car Spring Remover
-    description: Annoy passengers further by making your car feel clunky.
-    isEnabled: 1
-  - carUpgradeType: 4
-    costMultiplier: 3
-    price: 5
-    maxCount: 8
-    name: EMP
-    description: Lets you disable all electrical activity in an area. Upgrading this
-      allows you to use it more often.
-    isEnabled: 1
-  - carUpgradeType: 5
-    costMultiplier: 0
-    price: 15
-    maxCount: 5
-    name: Boost
-    description: Allows you to use the boost key! Ugrading lets you use it more often.
-    isEnabled: 1
-  - carUpgradeType: 6
-    costMultiplier: 0
-    price: 150
-    maxCount: 1
-    name: Police Scanner
-    description: Scans for police in your vicinity.
-    isEnabled: 1
-  - carUpgradeType: 7
-    costMultiplier: 0
-    price: 5
-    maxCount: 4
-    name: Car Jumping
-    description: Allows your car to jump! Upgrading this lets you jump higher and
-      more frequently.
+    description: Annoy passengers with music! Upgrading this lets you switch between
+      different background music using Q and E. This passively annoys passengers.
     isEnabled: 1
   - carUpgradeType: 8
     costMultiplier: 3
@@ -81,3 +36,48 @@ MonoBehaviour:
     description: Extends the time between passengers by a set amount. Upgrading this
       gives more time.
     isEnabled: 1
+  - carUpgradeType: 1
+    costMultiplier: 3
+    price: 200
+    maxCount: 5
+    name: Weather controller
+    description: Control the weather using a satelite, make it rain! Upgrading this
+      let you use it more often.
+    isEnabled: 0
+  - carUpgradeType: 2
+    costMultiplier: 1
+    price: 40
+    maxCount: 5
+    name: Traffic Light Flipper
+    description: Flips traffic lights from green to red.
+    isEnabled: 0
+  - carUpgradeType: 3
+    costMultiplier: 0
+    price: 60
+    maxCount: 1
+    name: Car Spring Remover
+    description: Annoy passengers further by making your car feel clunky.
+    isEnabled: 0
+  - carUpgradeType: 4
+    costMultiplier: 3
+    price: 5
+    maxCount: 8
+    name: EMP
+    description: Lets you disable all electrical activity in an area. Upgrading this
+      allows you to use it more often.
+    isEnabled: 0
+  - carUpgradeType: 6
+    costMultiplier: 0
+    price: 150
+    maxCount: 1
+    name: Police Scanner
+    description: Scans for police in your vicinity.
+    isEnabled: 0
+  - carUpgradeType: 7
+    costMultiplier: 0
+    price: 5
+    maxCount: 4
+    name: Car Jumping
+    description: Allows your car to jump! Upgrading this lets you jump higher and
+      more frequently.
+    isEnabled: 0

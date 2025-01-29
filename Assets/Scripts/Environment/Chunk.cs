@@ -1,4 +1,4 @@
-using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
@@ -46,13 +46,14 @@ public class Chunk : MonoBehaviour
 	/// </summary>
 	public World world;
 
+	public Tile emptyTile;
+
 	/// <summary>
 	/// Data structure that holds a representation of the chunk (from which the scene can be built),
 	/// queried, and modified.
 	/// </summary>
 	public GameObject[,] tiles;
 
-	// TODO: Do this in a better way.
 	public Tile[,] instances;
 
 	public Vector3Int coords;
@@ -76,6 +77,7 @@ public class Chunk : MonoBehaviour
 	public void Generate()
 	{
 		GenerateRoads();
+		GeneratePointsOfInterest();
 		GenerateOthers();
 	}
 
@@ -105,6 +107,126 @@ public class Chunk : MonoBehaviour
 				}
 			}
 		}
+	}
+
+	public void GeneratePointsOfInterest()
+	{
+		// Randomly determine if this chunk has a PoI (ideally every chunk does, but if we don't
+		// have enough PoI for the world size then some chunks won't.  However, we do want to place
+		// all the PoI we have, so we want to increase the probability of placing a PoI in a chunk
+		// with every chunk we go through until it becomes 100% chance.
+		var chunkIndex = coords.z * world.size + coords.x;
+		var chunksRemaining = world.size * world.size - chunkIndex;
+		var poiRemaining = world.poiTilePool.Count;
+		var spawnPoi = false;
+
+		if(poiRemaining > 0)
+		{
+			// If we have enough poi for the remaining chunks, then we always spawn one.
+			// If we don't have enough poi for every chunk, then give this chunk an equal chance of
+			// spawning one to the others.
+			if(poiRemaining >= chunksRemaining)
+				spawnPoi = true;
+			else
+				spawnPoi = UnityEngine.Random.Range( 0, chunksRemaining ) == 0;
+		}
+
+		Debug.Log( $"Chunk > GeneratePointsOfInterest > spawnPoi: {spawnPoi}, chunkIndex: {chunkIndex}, chunksRemaining: {chunksRemaining}, poiRemaining: {poiRemaining}" );
+
+		if(spawnPoi)
+		{
+			var poiTile = world.TakeRandomPoi();
+			Debug.Log( $"Chunk > GeneratePointsOfInterest > poiTile.name: {poiTile.name}" );
+
+			// Define the offsets that represent the space that the poi will sit in, along with the
+			// offsets that represent the 'neighbours' of that square, excluding diagonals.
+			// e.g. (where p is a poi offset and n is a neighbour offset)
+			//  nn
+			// nppn
+			// nppn
+			//  nn
+			var poiOffsets = new List<Vector3Int>();
+			var neighbourOffsets = new List<Vector3Int>();
+
+			for(int z = 0; z < poiTile.size; z++)
+			{
+				neighbourOffsets.Add( new Vector3Int( -1, 0, z ) );
+				neighbourOffsets.Add( new Vector3Int( poiTile.size, 0, z ) );
+
+				for(int x = 0; x < poiTile.size; x++)
+				{
+					poiOffsets.Add( new Vector3Int( x, 0, z ) );
+					neighbourOffsets.Add( new Vector3Int( x, 0, -1 ) );
+					neighbourOffsets.Add( new Vector3Int( x, 0, poiTile.size ) );
+				}
+			}
+
+			// Loop through each tile in the chunk and test to see if our poiOffsets are all null, and that
+			// at least one of our neighbourOffsets is a road tile.  That would be a valid place to put the
+			// poi tile, and can be added to a list to later pick from.
+			var validLocations = new List<Vector3Int>();
+			for(int z = 0; z < size - poiTile.size; z++)
+			{
+				for(int x = 0; x < size - poiTile.size; x++)
+				{
+					var location = new Vector3Int( x, 0, z );
+					var tileFits = true;
+
+					foreach(var offset in poiOffsets)
+					{
+						var footprintLocation = location + offset;
+						if(tiles[ footprintLocation.x, footprintLocation.z ] != null)
+						{
+							tileFits = false;
+							break;
+						}
+					}
+
+					// If the tile fits then we need to check that there is a roadtile as one of our neighbours,
+					// if so then it's a valid location.
+					if(tileFits)
+					{
+						foreach(var offset in neighbourOffsets)
+						{
+							var neighbourLocation = location + offset;
+							if(CoordsAreWithinBounds( neighbourLocation ))
+							{
+								var neighbourTile = tiles[ neighbourLocation.x, neighbourLocation.z ];
+								if(neighbourTile != null && neighbourTile.name.StartsWith( "road" ))
+									validLocations.Add( location );
+							}
+						}
+					}
+				}
+			}
+
+			// If there are any valid locations, then randomly pick one and place the poi tile there.
+			if(validLocations.Count > 0)
+			{
+				var poiLocation = validLocations[ UnityEngine.Random.Range( 0, validLocations.Count ) ];
+
+				// We need to place 'Empty' tiles at the tiles that our poi covers, such that other
+				// generation steps don't place tiles within them.
+				foreach(var offset in poiOffsets)
+				{
+					var emptyLocation = poiLocation + offset;
+					if(CoordsAreWithinBounds( emptyLocation ))
+						tiles[ emptyLocation.x, emptyLocation.z ] = emptyTile.gameObject;
+				}
+
+				tiles[ poiLocation.x, poiLocation.z ] = poiTile.gameObject;
+			}
+			else
+			{
+				// There were no valid locations, so lets return the poi tile to the pool.  This shouldn't
+				// happen as the chunk generation is currently defined, but if we change that then it may be
+				// possible.
+				Debug.Log( $"No place found for poi tile: {poiTile.name} ({poiTile.size}x{poiTile.size})" );
+				world.poiTilePool.Add( poiTile.gameObject );
+			}
+		}
+		else
+			Debug.Log( "poiTilePool empty!" );
 	}
 
 	/// <summary>
@@ -207,7 +329,6 @@ public class Chunk : MonoBehaviour
 	{
 		GameObject tileObject = Instantiate( tiles[ x, z ] );
 		tileObject.transform.SetParent( tilesParent, false );
-		tileObject.transform.localPosition = new Vector3( x * tileSize, 0.0f, z * tileSize );
 
 		Debug.Log( "Chunk > Building Tile: " + x + "," + z + " (" + tileObject.name + ")" );
 
@@ -215,8 +336,23 @@ public class Chunk : MonoBehaviour
 		tile.chunk = this;
 		tile.coords = new Vector3Int( x, 0, z );
 		tile.worldCoords = world.WorldCoords( this.coords, tile.coords );
-
 		tile.transform.name = tile.worldCoords.x + "," + tile.worldCoords.z;
+
+		// Calculate the position of our tile, adjusting for tiles that are larger than 1.
+		// TODO: Do this in one nice calculation; it's simple but somehow my mathmatical brain is
+		// letting me down today!
+		var position = new Vector3( x * tileSize, 0.0f, z * tileSize );
+		if(tile.size == 2)
+		{
+			position.x += 0.5f * tileSize;
+			position.z += 0.5f * tileSize;
+		}
+		else if(tile.size > 2)
+		{
+			position.x += (tile.size / 2) * tileSize;
+			position.z += (tile.size / 2) * tileSize;
+		}
+		tileObject.transform.localPosition = position;
 
 		instances[ x, z ] = tile;
 
@@ -229,6 +365,9 @@ public class Chunk : MonoBehaviour
 	{
 		return x + "," + z;
 	}
+
+	public bool CoordsAreWithinBounds( Vector3Int coords )
+	{
+		return coords.x > 0 && coords.x < size && coords.z > 0 && coords.z < size;
+	}
 }
-
-

@@ -23,7 +23,7 @@ public class EconomyManager : MonoBehaviour
         EventManager.Player.OnReviewFinished.Get().AddListener(AddCashBasedOnReview);
     }
 
-    private void AddCashBasedOnReview(float stars)
+    private void AddCashBasedOnReview(float stars, bool isFailed)
     {
         //Convert the range of -5 to 5 
         //to a range of 0 to 10
@@ -33,7 +33,7 @@ public class EconomyManager : MonoBehaviour
         //Add a free star
         stars += 1f;
 
-        AddCash(Mathf.FloorToInt(stars * 5));
+        AddCash(isFailed ? 0 : Mathf.FloorToInt(stars * 5));
     }
 
     public void AddCash(int amount)
@@ -43,12 +43,15 @@ public class EconomyManager : MonoBehaviour
 
         if (amount > 0)
             coinEarned.Play();
-        else
+        else if (amount < 0)
             coinSpent.Play();
     }
 
     public int GetPurchasedUpgradeCount(CarUpgradesEnum upgradeType)
         => GetPurchasedUpgrade(upgradeType).count;
+
+    public int GetUpgradeMaxCount(CarUpgradesEnum upgradeType)
+        => upgradePriceSO.GetUpgradeMaxCount(upgradeType);
 
     public CarUpgradeData GetPurchasedUpgrade(CarUpgradesEnum upgradeType) 
         => purchasedUpgrades.First(x => x.type == upgradeType);

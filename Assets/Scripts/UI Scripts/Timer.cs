@@ -9,26 +9,29 @@ public class Timer : MonoBehaviour
     public float timeDefault = 10;
     public float timeRemaining;
     public bool timerIsRunning = false;
-    public bool activateOnTimerComplete = false;
     public TextMeshProUGUI timeText;
     public UnityEvent OnTimerComplete;
 
-    private void OnEnable() 
-        => EventManager.Game.OnResetTimer.Get().AddListener(ResetTimer);
 
-    private void OnDisable()
-        => EventManager.Game.OnResetTimer.Get().RemoveListener(ResetTimer);
-
-
-    // Starts the timer automatically
     private void Start()
     {
-        timerIsRunning = true;
-        ResetTimer();
+        timeRemaining = timeDefault;
+        DisableTimer();
     }
 
-    public void ResetTimer()
-        => timeRemaining = timeDefault;
+    public void DisableTimer()
+    {
+        timerIsRunning = false;
+        timeText.gameObject.SetActive(false);
+    }
+
+    public void EnableTimer(float time)
+    {
+        timerIsRunning = true;
+        timeText.gameObject.SetActive(true);
+
+        timeRemaining = time;
+    }
 
     void Update()
     {
@@ -45,9 +48,6 @@ public class Timer : MonoBehaviour
             Debug.Log("Time has run out!");
             timeRemaining = 0;
             timerIsRunning = false;
-
-            if (!activateOnTimerComplete)
-                return;
 
             OnTimerComplete?.Invoke();
             EventManager.Game.OnTimerComplete.Get().Invoke();

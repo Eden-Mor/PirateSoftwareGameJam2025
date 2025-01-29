@@ -6,6 +6,7 @@ using UnityEngine;
 public class StartupScript : MonoBehaviour
 {
     public GameObject pickupDropoffPortal;
+    [SerializeField] private bool skipStoryline = false;
     void OnEnable()
     {
         StartCoroutine(StartStoryline());
@@ -13,7 +14,8 @@ public class StartupScript : MonoBehaviour
 
     private IEnumerator StartStoryline()
     {
-        yield return new WaitForSeconds(2);
+        if (!skipStoryline)
+            yield return new WaitForSeconds(2);
 
         var messages = new List<ChatMessage>()
         {
@@ -30,7 +32,7 @@ public class StartupScript : MonoBehaviour
             messages = messages,
             callback = () =>
             {
-                pickupDropoffPortal.SetActive(true);
+                SetupGame();
                 EventManager.ChatBubble.OnAddChat.Get().Invoke(new ChatMessageGroup
                 {
                     messages = new()
@@ -44,6 +46,14 @@ public class StartupScript : MonoBehaviour
             }
         };
 
-        EventManager.ChatBubble.OnAddChat.Get().Invoke(messageGroup);
+        if (skipStoryline)
+            SetupGame();
+        else
+            EventManager.ChatBubble.OnAddChat.Get().Invoke(messageGroup);
+    }
+
+    private void SetupGame()
+    {
+        pickupDropoffPortal.SetActive(true);
     }
 }

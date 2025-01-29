@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
@@ -9,6 +10,7 @@ public class Car_Controller : MonoBehaviour
     //Public Variables
     [Header("CUSTOM - Eden")]
     public bool canCarBeStarted = true;
+    [SerializeField] private EconomyManager economyManager;
 
     [Header("Wheel Colliders")]
     public List<WheelCollider> Front_Wheels; //The front wheels (Wheel Colliders)
@@ -206,12 +208,8 @@ public class Car_Controller : MonoBehaviour
     //Hidden Variables (not private, but hidden in inspector)
     [HideInInspector] public float currSpeed; //Current speed
 
-    private UnityAction allowInputListener;
-
     void Start()
     {
-        allowInputListener = () => AllowInput(false);
-
         //To Prevent The Car From Toppling When Turning Too Much
         rb = GetComponent<Rigidbody>(); //get rigidbody
         rb.centerOfMass = Center_of_Mass.localPosition; //Set the centre of mass of the rigid body to the centre of mass transform
@@ -255,7 +253,6 @@ public class Car_Controller : MonoBehaviour
 
     public void FixedUpdate()
     {
-
         //Turning car off
         //if the car off key has been pressed and the car speed is 0 and the "use car states" is true
         if (Input.GetKeyDown(Car_Off_Key) && (Car_Speed_KPH >= 0 && Car_Speed_KPH <= 1.5f) && Use_Car_States)
@@ -311,11 +308,12 @@ public class Car_Controller : MonoBehaviour
         Car_Speed_In_MPH = (int)Car_Speed_MPH; //Convert the float values of the speed to int
 
         //Make Car Boost
-        if (Input.GetKeyDown(Boost_KeyCode) && Car_Started && Next_Boost_Time < Time.time)
+        if (Input.GetKeyDown(Boost_KeyCode) && Car_Started && Next_Boost_Time < Time.time && economyManager.GetPurchasedUpgradeCount(CarUpgradesEnum.Boost) > 0)
         {
             //BOOST CAR
             Boost_Function();
-            Next_Boost_Time = Time.time + Boost_Cooldown; //The cooldown for the car
+            var cooldownModifier = economyManager.GetPurchasedUpgradeCount(CarUpgradesEnum.Boost);
+            Next_Boost_Time = Time.time + Boost_Cooldown - cooldownModifier + 1; //The cooldown for the car
         }
 
         //Make Car Drift
@@ -369,12 +367,6 @@ public class Car_Controller : MonoBehaviour
         if ((Input.GetAxis("Vertical") > 0) && Car_Started)
             Turn_Off_ReverseLights();
     }
-
-    private void OnEnable()
-        => EventManager.Game.OnTimerComplete.Get().AddListener(allowInputListener);
-
-    private void OnDisable()
-        => EventManager.Game.OnTimerComplete.Get().RemoveListener(allowInputListener);
 
     private void AllowInput(bool isAllowed)
     {
@@ -509,6 +501,12 @@ public class Car_Controller : MonoBehaviour
         //Stop playing the sound
         if (!Input.GetKey(Car_Horn_Key))
             Horn_Source.Stop();
+    }
+
+    private void Jump()
+    {
+        float jumpForce = 15f; // Adjust this value to control the jump force
+        rb.AddForce(Vector3.up * jumpForce, ForceMode.Acceleration);
     }
 
     void OnCollisionEnter(Collision col)

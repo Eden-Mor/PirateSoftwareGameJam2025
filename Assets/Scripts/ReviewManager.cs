@@ -5,6 +5,8 @@ using UnityEngine.Events;
 
 public class ReviewManager : MonoBehaviour
 {
+    public Timer timer;
+    public EconomyManager economyManager;
     public FillAmountController fillAmountController;
 
     [Range(-1f, 0f), SerializeField]
@@ -22,11 +24,14 @@ public class ReviewManager : MonoBehaviour
     [SerializeField]
     private bool isReviewing = false;
 
+    [SerializeField] private bool isFailed = false;
+
     private UnityAction reviewStopListener;
     private GameObject fillAmountParent;
 
     private void Start()
     {
+        timer.OnTimerComplete.AddListener(FailReview);
         reviewStopListener = () => StartCoroutine(OnReviewStop());
         EventManager.Player.OnCarCollide.Get().AddListener(OnCarCollided);
         EventManager.Player.OnReviewStop.Get().AddListener(reviewStopListener);
@@ -34,20 +39,24 @@ public class ReviewManager : MonoBehaviour
         EventManager.Player.OnCarHonked.Get().AddListener(OnCarHonked);
         fillAmountParent = fillAmountController.transform.parent.gameObject;
 
-        StartCoroutine(StartReviewTicking());
-
         fillAmountParent.SetActive(false);
     }
+
+    private void FailReview() 
+        => isFailed = true;
 
     public float GetReviewValue()
         => reviewCounter;
 
-    IEnumerator StartReviewTicking()
+    IEnumerator StartReviewTicking(int speakerSystemUpgrade)
     {
         while (tickDownReview && isReviewing)
         {
             yield return new WaitForSeconds(reviewTickDownRate);
-            AddToReviewCounter(reviewTickDownAmount);
+
+            var speakerSystemModifier = speakerSystemUpgrade * 0.1f;
+
+            AddToReviewCounter(reviewTickDownAmount + speakerSystemModifier);
         }
     }
 
@@ -78,8 +87,9 @@ public class ReviewManager : MonoBehaviour
         isReviewing = false;
         tickDownReview = false;
 
+        EventManager.Player.OnReviewFinished.Get().Invoke(reviewCounter, isFailed);
 
-        EventManager.Player.OnReviewFinished.Get().Invoke(reviewCounter);
+        timer.DisableTimer();
 
         //Play animation or something that shows what their review was
         yield return new WaitForSeconds(1);
@@ -87,13 +97,20 @@ public class ReviewManager : MonoBehaviour
         fillAmountParent.SetActive(false);
     }
 
-    private void OnReviewStart()
+    private void OnReviewStart(Vector3 newPosition)
     {
+        isFailed = false;
         fillAmountParent.SetActive(true);
         isReviewing = true;
         tickDownReview = true;
 
+        var distanceMag = (newPosition - this.transform.position).magnitude;
+        var timeAllowed = (distanceMag / 22.5f) + 10f + (economyManager.GetPurchasedUpgradeCount(CarUpgradesEnum.TimerExtender) * 3);
+        timer.EnableTimer(timeAllowed);
+
         SetReviewCounter(-5f);
-        StartCoroutine(StartReviewTicking());
+
+        var speakerSystemUpgrade = economyManager.GetPurchasedUpgradeCount(CarUpgradesEnum.SpeakerSystem);
+        StartCoroutine(StartReviewTicking(speakerSystemUpgrade));
     }
 }
