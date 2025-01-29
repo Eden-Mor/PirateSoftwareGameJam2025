@@ -33,8 +33,8 @@ MonoBehaviour:
     price: 90
     maxCount: 4
     name: Time Extender
-    description: Extends the time between passengers by a set amount. Upgrading this
-      gives more time.
+    description: Extends the time you have to get the passenger to their destination.
+      Upgrading this gives more time.
     isEnabled: 1
   - carUpgradeType: 1
     costMultiplier: 3
