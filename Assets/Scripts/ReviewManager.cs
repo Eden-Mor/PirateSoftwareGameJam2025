@@ -79,7 +79,7 @@ public class ReviewManager : MonoBehaviour
     private void OnCarHonked()
     {
         if (isReviewing)
-            AddToReviewCounter(0.25f);
+            AddToReviewCounter(0.50f);
     }
 
     private IEnumerator OnReviewStop()
@@ -105,7 +105,7 @@ public class ReviewManager : MonoBehaviour
         tickDownReview = true;
 
         var distanceMag = (newPosition - this.transform.position).magnitude;
-        var timeAllowed = (distanceMag / 22.5f) + 10f + (economyManager.GetPurchasedUpgradeCount(CarUpgradesEnum.TimerExtender) * 3);
+        var timeAllowed = (distanceMag / 22.5f) + 20f + (economyManager.GetPurchasedUpgradeCount(CarUpgradesEnum.TimerExtender) * 3);
         timer.EnableTimer(timeAllowed);
 
         SetReviewCounter(-5f);
