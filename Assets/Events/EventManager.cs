@@ -44,7 +44,8 @@ public static class EventManager
     {
         public class AddChatEvent : UnityEvent<ChatMessageGroup> { }
         public GenericEvent<AddChatEvent> OnAddChat = new();
-
+        public class ClearQueueEvent : UnityEvent { }
+        public GenericEvent<ClearQueueEvent> OnClearQueue = new();
         public class CustomerReactionEvent : UnityEvent<ReactionType> { }
         public GenericEvent<CustomerReactionEvent> OnCustomerReaction = new();
     }

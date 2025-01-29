@@ -30,7 +30,11 @@ public class ChatBubbleManagerScript : MonoBehaviour
     private void Start()
     {
         EventManager.ChatBubble.OnAddChat.Get().AddListener((messages) => AddChat(messages));
+        EventManager.ChatBubble.OnClearQueue.Get().AddListener(OnClearQueue);
     }
+
+    private void OnClearQueue() 
+        => messages.Clear();
 
     public void AddChat(ChatMessageGroup messageGroup)
     {
@@ -59,7 +63,9 @@ public class ChatBubbleManagerScript : MonoBehaviour
                 bubble.HideMessage();
             }
             messageExchange.callback?.Invoke();
-            messages.RemoveAt(0);
+
+            if (messages.Count > 0)
+                messages.RemoveAt(0);
 
             //After the current message sequence ends, wait 2 seconds before showing the new sequence
             yield return new WaitForSeconds(2);

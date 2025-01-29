@@ -39,9 +39,9 @@ public class StartupScript : MonoBehaviour
                 {
                     messages = new()
                     {
-                        new () { name="Tutorial", message="Use the arrow to head to the dropoff and pickup points. Get bad reviews by driving poorly.    "},
-                        new () { name="Tutorial", message="You must make a full stop for passengers to get on or get off.    "},
-                        new () { name="Tutorial", message="WASD to move, Space to brake, L-Shift to boost (when unlocked), R to reset the game.   "}
+                        new () { name="Tutorial", message="Use the arrow to head to the dropoff and pickup points. Get bad reviews by driving poorly."},
+                        new () { name="Tutorial", message="You must make a full stop for passengers to get on or get off."},
+                        new () { name="Tutorial", message="WASD to move, Space to brake, L-Shift to boost (when unlocked), R to reset the game."}
                     }
                 });
             }

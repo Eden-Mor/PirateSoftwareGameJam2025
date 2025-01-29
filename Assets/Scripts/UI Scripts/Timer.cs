@@ -51,6 +51,8 @@ public class Timer : MonoBehaviour
 
             OnTimerComplete?.Invoke();
             EventManager.Game.OnTimerComplete.Get().Invoke();
+            EventManager.ChatBubble.OnAddChat.Get().Invoke(new ChatMessageGroup() { messages = new() { new ChatMessage() { name ="Customer", message="I'm not paying you, we're late." } } });
+
         }
     }
 

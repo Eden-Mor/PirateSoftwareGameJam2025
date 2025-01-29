@@ -62,6 +62,7 @@ public class PickupDropOffScript : MonoBehaviour
         var newWaitingPerson = GetNewRandomPersonAtLocation(transform);
         waitingPeople.Add(newWaitingPerson);
 
+        EventManager.ChatBubble.OnClearQueue.Get().Invoke();
         EventManager.ChatBubble.OnCustomerReaction.Get().Invoke(CustomerInteraction.ReactionType.CustomerGotOff);
 
         yield return new WaitForSeconds(1);
