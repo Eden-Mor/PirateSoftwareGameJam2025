@@ -1642,12 +1642,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6558694701578110996, guid: 3d2d5d2f0dd46fd48aac7ffcf6f06e91, type: 3}
       propertyPath: vehiclePrefabs.Array.size
-      value: 1
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6558694701578110996, guid: 3d2d5d2f0dd46fd48aac7ffcf6f06e91, type: 3}
       propertyPath: vehiclePrefabs.Array.data[0]
       value: 
-      objectReference: {fileID: 6655375981094646734, guid: a0383ca5d8313704cb31edc13bc9553a, type: 3}
+      objectReference: {fileID: 6655375981094646734, guid: f4aaa415d3215db4b859c666561797b3, type: 3}
+    - target: {fileID: 6558694701578110996, guid: 3d2d5d2f0dd46fd48aac7ffcf6f06e91, type: 3}
+      propertyPath: vehiclePrefabs.Array.data[1]
+      value: 
+      objectReference: {fileID: 6655375981094646734, guid: ac4b70807110f7546a7f45e58fb2820e, type: 3}
+    - target: {fileID: 6558694701578110996, guid: 3d2d5d2f0dd46fd48aac7ffcf6f06e91, type: 3}
+      propertyPath: vehiclePrefabs.Array.data[2]
+      value: 
+      objectReference: {fileID: 6655375981094646734, guid: 10af84a158641ce449cbfac51a6536e2, type: 3}
+    - target: {fileID: 6558694701578110996, guid: 3d2d5d2f0dd46fd48aac7ffcf6f06e91, type: 3}
+      propertyPath: vehiclePrefabs.Array.data[3]
+      value: 
+      objectReference: {fileID: 6655375981094646734, guid: 29e2f5e18aa32d246be5c4c4ef8f5ae2, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2684,6 +2696,7 @@ MonoBehaviour:
   - Tree
   - Fence
   - Traffic
+  - Traffic_Collided
   Crash_Sound: {fileID: 494084243}
   Set_Drift_Settings_Automatically: 1
   Forward_Extremium_Value_When_Drifting: 0
@@ -3218,7 +3231,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.6586668, y: 0.89759016}
   m_AnchorMax: {x: 0.75852084, y: 0.9861025}
-  m_AnchoredPosition: {x: -0.5, y: -2.0400085}
+  m_AnchoredPosition: {x: -0.5, y: -2.040039}
   m_SizeDelta: {x: -5.9830933, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &1389944735
@@ -3323,7 +3336,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6377909222692749798, guid: b76e83fba721b4a4296277543eb314f2, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.0043182373
+      value: 0.0043029785
       objectReference: {fileID: 0}
     - target: {fileID: 6377909222692749798, guid: b76e83fba721b4a4296277543eb314f2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -6218,7 +6231,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6377909222692749798, guid: b76e83fba721b4a4296277543eb314f2, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.004928589
+      value: 0.0048828125
       objectReference: {fileID: 0}
     - target: {fileID: 6377909222692749798, guid: b76e83fba721b4a4296277543eb314f2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

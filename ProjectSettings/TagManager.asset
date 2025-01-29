@@ -9,6 +9,7 @@ TagManager:
   - Fence
   - Floor
   - Traffic
+  - Traffic_Collided
   layers:
   - Default
   - TransparentFX

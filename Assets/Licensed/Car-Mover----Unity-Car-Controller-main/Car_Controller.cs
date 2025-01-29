@@ -527,6 +527,11 @@ public class Car_Controller : MonoBehaviour
             Crash_Sound.volume = volume;
 
             Crash_Sound.Play();
+
+            //Dont invoke car collision for review counter after its already been collided with.
+            if (tag == "Traffic_Collided")
+                continue;
+
             EventManager.Player.OnCarCollide.Get().Invoke(col.collider.GetComponent<Component>(), Car_Speed_In_KPH);
         }
     }
