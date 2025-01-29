@@ -5,7 +5,9 @@ using UnityEngine;
 
 public class StartupScript : MonoBehaviour
 {
-    public GameObject pickupDropoffPortal;
+    [SerializeField] private GameObject upgradesButton;
+    [SerializeField] private GameObject pickupDropoffPortal;
+    [SerializeField] private GameObject portalArrow;
     [SerializeField] private bool skipStoryline = false;
     void OnEnable()
     {
@@ -37,10 +39,9 @@ public class StartupScript : MonoBehaviour
                 {
                     messages = new()
                     {
-                        new () { name="Tutorial", message="Use the arrow to head to the dropoff and pickup points.    "},
-                        new () { name="Tutorial", message="Get bad reviews to take down Mesla Inc.    "},
+                        new () { name="Tutorial", message="Use the arrow to head to the dropoff and pickup points. Get bad reviews by driving poorly.    "},
                         new () { name="Tutorial", message="You must make a full stop for passengers to get on or get off.    "},
-                        new () { name="Tutorial", message="WASD to move, Space to use your hand brake, Shift to boost (when unlocked).   "}
+                        new () { name="Tutorial", message="WASD to move, Space to brake, L-Shift to boost (when unlocked), R to reset the game.   "}
                     }
                 });
             }
@@ -55,5 +56,7 @@ public class StartupScript : MonoBehaviour
     private void SetupGame()
     {
         pickupDropoffPortal.SetActive(true);
+        upgradesButton.SetActive(true);
+        portalArrow.SetActive(true);
     }
 }
