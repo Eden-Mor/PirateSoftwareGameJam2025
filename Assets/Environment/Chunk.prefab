@@ -56,6 +56,9 @@ MonoBehaviour:
   tileSize: 1
   seed: 0
   tilesParent: {fileID: 676340089050075904}
+  world: {fileID: 0}
+  emptyTile: {fileID: 9178835282685596568, guid: cffb126c476f1ad41a2f220ea137ad80, type: 3}
+  coords: {x: 0, y: 0, z: 0}
 --- !u!1 &8740457080303382369
 GameObject:
   m_ObjectHideFlags: 0

@@ -45,7 +45,7 @@ public class Tile : MonoBehaviour
 	/// generation algorithms (e.g. for connecting roads together).
 	/// </summary>
 	public Directions connections;
-
+	public int size = 1;
 	public TilePath[] paths;
 
 	public Chunk chunk;
