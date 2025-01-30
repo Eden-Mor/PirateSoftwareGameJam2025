@@ -76,6 +76,8 @@ public class VehicleSpawner : MonoBehaviour
 		// Get a Tile Path from the tile, which we'll have the vehicle follow.
 		TilePath tilePath = tile.RandomTilePath();
 
+		Debug.Log( $"Spawning Vehicle: {tile.worldCoords.x},{tile.worldCoords.z}" );
+
 		if(tilePath != null)
 		{
 			// Spawn the Vehicle and set it on the tile path.
@@ -116,6 +118,8 @@ public class VehicleSpawner : MonoBehaviour
 	/// <param name="vehicleObject">The game object of the vehicle to despawn.</param>
 	public void DespawnVehicle( GameObject vehicleObject )
 	{
+		Debug.Log($"Despawning Vehicle: {vehicleObject.name}");
+
 		Destroy( vehicleObject );
 		SpawnVehicle();
 	}
@@ -132,7 +136,7 @@ public class VehicleSpawner : MonoBehaviour
 				var vehicle = vehicleObject.GetComponent<VehiclePathController>();
 				if(vehicle != null)
 				{
-					if(tile != vehicle.tile)
+					if(tile == vehicle.tile)
 						return true;
 				}
 			}
