@@ -57,7 +57,7 @@ public class ReviewManager : MonoBehaviour
 
             var speakerSystemModifier = speakerSystemUpgrade * 0.1f;
 
-            AddToReviewCounter(tickDownReview ? reviewTickDownAmount : 0f + speakerSystemModifier);
+            AddToReviewCounter((tickDownReview ? reviewTickDownAmount : 0f) + speakerSystemModifier);
 
             var roundedReviewScore = Mathf.FloorToInt(reviewCounter);
 
