@@ -210,8 +210,13 @@ public class Chunk : MonoBehaviour
 				foreach(var offset in poiOffsets)
 				{
 					var emptyLocation = poiLocation + offset;
+
+					Debug.Log( $"Placing Empty at {emptyLocation.x},{emptyLocation.z}" );
+
 					if(CoordsAreWithinBounds( emptyLocation ))
 						tiles[ emptyLocation.x, emptyLocation.z ] = emptyTile.gameObject;
+					else
+						Debug.Log( $"Could not place Empty at {emptyLocation.x},{emptyLocation.z}" );
 				}
 
 				tiles[ poiLocation.x, poiLocation.z ] = poiTile.gameObject;
@@ -368,6 +373,6 @@ public class Chunk : MonoBehaviour
 
 	public bool CoordsAreWithinBounds( Vector3Int coords )
 	{
-		return coords.x > 0 && coords.x < size && coords.z > 0 && coords.z < size;
+		return coords.x >= 0 && coords.x < size && coords.z >= 0 && coords.z < size;
 	}
 }
