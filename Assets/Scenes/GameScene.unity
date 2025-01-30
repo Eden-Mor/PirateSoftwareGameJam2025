@@ -1577,7 +1577,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6558694701578110996, guid: 3d2d5d2f0dd46fd48aac7ffcf6f06e91, type: 3}
       propertyPath: vehiclePrefabs.Array.size
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6558694701578110996, guid: 3d2d5d2f0dd46fd48aac7ffcf6f06e91, type: 3}
       propertyPath: vehiclePrefabs.Array.data[0]
@@ -1595,6 +1595,10 @@ PrefabInstance:
       propertyPath: vehiclePrefabs.Array.data[3]
       value: 
       objectReference: {fileID: 6655375981094646734, guid: 29e2f5e18aa32d246be5c4c4ef8f5ae2, type: 3}
+    - target: {fileID: 6558694701578110996, guid: 3d2d5d2f0dd46fd48aac7ffcf6f06e91, type: 3}
+      propertyPath: vehiclePrefabs.Array.data[4]
+      value: 
+      objectReference: {fileID: 6655375981094646734, guid: df75e66e9af09454e9612a97362d91bf, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

@@ -5100,12 +5100,28 @@ PrefabInstance:
       objectReference: {fileID: 916152446}
     - target: {fileID: 6558694701578110996, guid: 3d2d5d2f0dd46fd48aac7ffcf6f06e91, type: 3}
       propertyPath: vehiclePrefabs.Array.size
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6558694701578110996, guid: 3d2d5d2f0dd46fd48aac7ffcf6f06e91, type: 3}
       propertyPath: vehiclePrefabs.Array.data[0]
       value: 
-      objectReference: {fileID: 6655375981094646734, guid: a0383ca5d8313704cb31edc13bc9553a, type: 3}
+      objectReference: {fileID: 6655375981094646734, guid: 29e2f5e18aa32d246be5c4c4ef8f5ae2, type: 3}
+    - target: {fileID: 6558694701578110996, guid: 3d2d5d2f0dd46fd48aac7ffcf6f06e91, type: 3}
+      propertyPath: vehiclePrefabs.Array.data[1]
+      value: 
+      objectReference: {fileID: 6655375981094646734, guid: f4aaa415d3215db4b859c666561797b3, type: 3}
+    - target: {fileID: 6558694701578110996, guid: 3d2d5d2f0dd46fd48aac7ffcf6f06e91, type: 3}
+      propertyPath: vehiclePrefabs.Array.data[2]
+      value: 
+      objectReference: {fileID: 6655375981094646734, guid: ac4b70807110f7546a7f45e58fb2820e, type: 3}
+    - target: {fileID: 6558694701578110996, guid: 3d2d5d2f0dd46fd48aac7ffcf6f06e91, type: 3}
+      propertyPath: vehiclePrefabs.Array.data[3]
+      value: 
+      objectReference: {fileID: 6655375981094646734, guid: 10af84a158641ce449cbfac51a6536e2, type: 3}
+    - target: {fileID: 6558694701578110996, guid: 3d2d5d2f0dd46fd48aac7ffcf6f06e91, type: 3}
+      propertyPath: vehiclePrefabs.Array.data[4]
+      value: 
+      objectReference: {fileID: 6655375981094646734, guid: df75e66e9af09454e9612a97362d91bf, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
