@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Splines;
 
@@ -94,9 +95,19 @@ public class VehicleSpawner : MonoBehaviour
 	/// </summary>
 	public void SpawnVehicle()
 	{
-		// TODO: Take into account player view frustrum, where we've recently spawned vehicles, etc.
-		var tile = world.GetRandomRoadTile();
-		SpawnVehicleOnTile( tile );
+		var remainingRoadTiles = new List<Tile>( world.roadTiles );
+		while(remainingRoadTiles.Count > 0)
+		{
+			// Take a random road tile from the remaining list.
+			var tile = remainingRoadTiles[ UnityEngine.Random.Range( 0, remainingRoadTiles.Count ) ];
+			remainingRoadTiles.Remove( tile );
+
+			if(!IsVehicleOnTile( tile ))
+			{
+				SpawnVehicleOnTile( tile );
+				break;
+			}
+		}
 	}
 
 	/// <summary>
@@ -107,5 +118,26 @@ public class VehicleSpawner : MonoBehaviour
 	{
 		Destroy( vehicleObject );
 		SpawnVehicle();
+	}
+
+	public bool IsVehicleOnTile(Tile tile)
+	{
+		if(vehiclesParent.childCount > 0)
+		{
+			// Loop through all the vehicles (there aren't many in the grand scheme of things) and check
+			// which tile each is on.
+			for(var i = 0; i < vehiclesParent.childCount; i++)
+			{
+				var vehicleObject = vehiclesParent.GetChild(i);
+				var vehicle = vehicleObject.GetComponent<VehiclePathController>();
+				if(vehicle != null)
+				{
+					if(tile != vehicle.tile)
+						return true;
+				}
+			}
+		}
+
+		return false;
 	}
 }
