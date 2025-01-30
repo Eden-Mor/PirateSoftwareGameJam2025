@@ -21,6 +21,10 @@ public class VehiclePathController : MonoBehaviour
 	public float brakeSensitvity = 0.1f;
 	public float acceleration = 0.075f;
 	public bool isPathing = true;
+
+	public float maxBrakeTime = 1f;
+	public float brakeTimer = 0f;
+
 	[Header( "Internals" )]
 
 	/// <summary>
@@ -68,6 +72,18 @@ public class VehiclePathController : MonoBehaviour
 
 	public void Update()
 	{
+		// Handle releasing brakes to keep things moving along.
+		// NOTE: This is a bit of a dirty fix, but should keep things from blocking too badly.
+		if(isBraking)
+		{
+			brakeTimer += Time.deltaTime;
+			if(brakeTimer >= maxBrakeTime)
+				isBraking = false;
+		}
+		else
+			brakeTimer = 0f;
+
+
 		// Handle cleanup.
 		if(cleaningUp)
 		{
