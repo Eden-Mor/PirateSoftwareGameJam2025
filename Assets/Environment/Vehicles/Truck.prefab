@@ -278,7 +278,6 @@ GameObject:
   - component: {fileID: 4333001034710748832}
   - component: {fileID: 7213021772763487256}
   - component: {fileID: 1564399682011387216}
-  - component: {fileID: 4514999533523598848}
   m_Layer: 0
   m_Name: Truck
   m_TagString: Traffic
@@ -331,7 +330,9 @@ MonoBehaviour:
     path: {fileID: 0}
   spawner: {fileID: 0}
   rb: {fileID: 1564399682011387216}
-  cleaner: {fileID: 0}
+  cleanupDelay: 5
+  cleanupTimer: 0
+  cleaningUp: 0
 --- !u!54 &1564399682011387216
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -359,20 +360,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &4514999533523598848
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6655375981094646734}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4ae60f630e7c8534e86e88c9f7b2e77b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  delay: 5
-  current: 0
 --- !u!1001 &2740162965099723217
 PrefabInstance:
   m_ObjectHideFlags: 0
