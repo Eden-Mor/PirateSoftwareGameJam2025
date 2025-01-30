@@ -29,7 +29,7 @@ MonoBehaviour:
       different background music using Q and E. This passively annoys passengers.
     isEnabled: 1
   - carUpgradeType: 8
-    costMultiplier: 3
+    costMultiplier: 1
     price: 90
     maxCount: 4
     name: Time Extender

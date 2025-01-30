@@ -2118,6 +2118,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b1aad82db3f5474abe5fac9c00aac24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentLocation: {fileID: 1048317021}
   timer: {fileID: 446207002}
   economyManager: {fileID: 1412394968}
   fillAmountController: {fileID: 1026271695856530255}

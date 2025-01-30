@@ -5,6 +5,7 @@ using UnityEngine.Events;
 
 public class ReviewManager : MonoBehaviour
 {
+    public Transform currentLocation;
     public Timer timer;
     public EconomyManager economyManager;
     public FillAmountController fillAmountController;
@@ -118,8 +119,8 @@ public class ReviewManager : MonoBehaviour
         tickDownReview = true;
         tempReviewScore = Mathf.FloorToInt(reviewCounter);
 
-        var distanceMag = (newPosition - this.transform.position).magnitude;
-        var timeAllowed = (distanceMag / 22.5f) + 10f + (economyManager.GetPurchasedUpgradeCount(CarUpgradesEnum.TimerExtender) * 3);
+        var distanceMag = (newPosition - currentLocation.position).magnitude;
+        var timeAllowed = (distanceMag / 20f) + 10f + (economyManager.GetPurchasedUpgradeCount(CarUpgradesEnum.TimerExtender) * 3);
         timer.EnableTimer(timeAllowed);
 
         SetReviewCounter(-5f);
